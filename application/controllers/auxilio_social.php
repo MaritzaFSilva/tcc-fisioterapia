@@ -13,7 +13,7 @@ class auxilio_social extends CI_Controller {
     function index() 
     {
         $this->load->helper('form');
-        $data['titulo'] = "Cadastro de auxilio_social";
+        $data['titulo'] = "CIAF | Editar Auxílio Social";
         $data["auxilio_social"] = $this->model->listar();
         $this->load->view('auxilio_social_view.php', $data);
     }
@@ -53,7 +53,7 @@ class auxilio_social extends CI_Controller {
 	function editar($codigo_auxilio_social)  {
 			
 		/* Aqui vamos definir o título da página de edição */
-		$data['titulo'] = "CRUD com CodeIgniter | Editar auxilio_social";
+		$data['titulo'] = "CIAF | Editar Auxílio Social";
 	 
 		/* Busca os dados da auxilio_social que será editada */
 		$data['dados_auxilio_social'] = $this->model->editar($codigo_auxilio_social);

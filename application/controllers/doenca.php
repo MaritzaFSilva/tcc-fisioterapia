@@ -13,7 +13,7 @@ class doenca extends CI_Controller {
     function index() 
     {
         $this->load->helper('form');
-        $data['titulo'] = "Cadastro de doenca";
+        $data['titulo'] = "CIAF | Doenças";
         $data["doenca"] = $this->model->listar();
         $this->load->view('doenca_view.php', $data);
     }
@@ -55,7 +55,7 @@ class doenca extends CI_Controller {
 	function editar($codigo_doenca)  {
 			
 		/* Aqui vamos definir o título da página de edição */
-		$data['titulo'] = "CRUD com CodeIgniter | Editar doenca";
+		$data['titulo'] = "CIAF | Editar Doenças";
 	 
 		/* Busca os dados da doenca que será editada */
 		$data['dados_doenca'] = $this->model->editar($codigo_doenca);
