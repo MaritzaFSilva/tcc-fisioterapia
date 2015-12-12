@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Welcome to CodeIgniter</title>
+	<title>CIAF</title>
 
 	<style type="text/css">
 
@@ -68,13 +68,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
 <div id="container">
-	<h1>SISTEMA PARA O CONTROLE DE INFORMAÇÕES A RESPEITO DO DESENVOLVIMENTO MOTOR NA ÁREA DE FISIOTERAPIA.</h1>
+	<h1>SISTEMA PARA O CONTROLE DE INFORMAÇÕES NA ÁREA DE FISIOTERAPIA.</h1>
 
 	<div id="body">
 		<p><a href="substancia_gestacao"> 1 - Substâncias da Gestação</a></p>
 		<p><a href="auxilio_social"> 2 - Auxílio Social</a></p>
 		<p><a href="doenca"> 3 - Doenças</a></p>
 		<p><a href="habito_alimentar"> 4 - Habito Alimentar</a></p>
+		<p><a href="grau_parentesco"> 5 - Grau Parentesco</a></p>
+		<p><a href="renda_familiar"> 6 - Renda Familiar</a></p>
 	</div>
 
 	<p class="footer">Criado por Aline Sieczko e Maritza Silva 2015</p>
