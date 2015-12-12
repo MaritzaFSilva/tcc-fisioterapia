@@ -71,7 +71,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<h1>SISTEMA PARA O CONTROLE DE INFORMAÇÕES A RESPEITO DO DESENVOLVIMENTO MOTOR NA ÁREA DE FISIOTERAPIA.</h1>
 
 	<div id="body">
-		<a href="substancia_gestacao_mae"> 1 - Substâncias da Gestação da Mãe</a>
+		<a href="substancia_gestacao"> 1 - Substâncias da Gestação da Mãe</a>
 	</div>
 
 	<p class="footer">Criado por Aline Sieczko e Maritza Silva 2015</p>

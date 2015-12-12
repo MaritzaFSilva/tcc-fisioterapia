@@ -2,20 +2,20 @@
  
 defined('BASEPATH') OR exit('No direct script access allowed');
  
-class substancia_gestacao_mae extends CI_Controller {
+class substancia_gestacao extends CI_Controller {
  
 	function __construct() {
 	    parent::__construct();  
 	    /* Carrega o modelo */
-	    $this->load->model('substancia_gestacao_mae_model', 'model', TRUE);
+	    $this->load->model('substancia_gestacao_model', 'model', TRUE);
 	}
  
     function index() 
     {
         $this->load->helper('form');
-        $data['titulo'] = "Cadastro de substancia_gestacao_mae";
-        $data["substancia_gestacao_mae"] = $this->model->listar();
-        $this->load->view('substancia_gestacao_mae_view.php', $data);
+        $data['titulo'] = "Cadastro de substancia_gestacao";
+        $data["substancia_gestacao"] = $this->model->listar();
+        $this->load->view('substancia_gestacao_view.php', $data);
     }
 
     function inserir() {
@@ -42,7 +42,7 @@ class substancia_gestacao_mae extends CI_Controller {
 	 
 			/* Chama a função inserir do modelo */
 			if ($this->model->inserir($data)) {
-				redirect('substancia_gestacao_mae');
+				redirect('substancia_gestacao');
 			} else {
 				log_message('error', 'Erro ao inserir a substancia.');
 			}
@@ -57,7 +57,7 @@ class substancia_gestacao_mae extends CI_Controller {
 		$data['dados_substancia'] = $this->model->editar($codigo_substancia);
 	 
 	 	/* Carrega a página de edição com os dados da substancia */
-		$this->load->view('substancia_gestacao_mae_edit', $data);
+		$this->load->view('substancia_gestacao_edit', $data);
 	}
 	 
 	function atualizar() {
@@ -89,7 +89,7 @@ class substancia_gestacao_mae extends CI_Controller {
 	 
 			/* Executa a função atualizar do modelo passando como parâmetro os dados obtidos do formulário */
 			if ($this->model->atualizar($data)) {
-				redirect('substancia_gestacao_mae');
+				redirect('substancia_gestacao');
 			} else {
 				log_message('error', 'Erro ao atualizar a substancia.');
 			}
@@ -100,7 +100,7 @@ class substancia_gestacao_mae extends CI_Controller {
 	 
 		/* Executa a função deletar do modelo passando como parâmetro o id da substancia */
 		if ($this->model->deletar($codigo_substancia)) {
-			redirect('substancia_gestacao_mae');
+			redirect('substancia_gestacao');
 		} else {
 			log_message('error', 'Erro ao deletar a substancia.');
 		}

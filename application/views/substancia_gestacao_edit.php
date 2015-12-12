@@ -6,7 +6,7 @@
     <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>assets/css/estilo.css"/>
 </head>
 <body>
-	<?php echo form_open('substancia_gestacao_mae/atualizar', 'codigo_substancia="form-substancia_gestacao_mae"'); ?>
+	<?php echo form_open('substancia_gestacao/atualizar', 'codigo_substancia="form-substancia_gestacao"'); ?>
  
 	<input type="hidden" name="codigo_substancia" value="<?php echo $dados_substancia[0]->codigo_substancia; ?>"/>
  
