@@ -73,6 +73,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div id="body">
 		<p><a href="substancia_gestacao"> 1 - Substâncias da Gestação</a></p>
 		<p><a href="auxilio_social"> 2 - Auxílio Social</a></p>
+		<p><a href="doenca"> 3 - Doenças</a></p>
+		<p><a href="habito_alimentar"> 4 - Habito Alimentar</a></p>
 	</div>
 
 	<p class="footer">Criado por Aline Sieczko e Maritza Silva 2015</p>
