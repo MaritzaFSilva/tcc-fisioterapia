@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <title>AAAA<?php echo $titulo; ?></title>
+    <title><?php echo $titulo; ?></title>
     <meta charset="UTF-8" />
     <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>assets/css/estilo.css"/>
 </head>

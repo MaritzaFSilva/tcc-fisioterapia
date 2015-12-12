@@ -13,7 +13,7 @@ class habito_alimentar extends CI_Controller {
     function index() 
     {
         $this->load->helper('form');
-        $data['titulo'] = "Cadastro de habito_alimentar";
+        $data['titulo'] = "CIAF | Habito Alimentar";
         $data["habito_alimentar"] = $this->model->listar();
         $this->load->view('habito_alimentar_view.php', $data);
     }
@@ -51,7 +51,7 @@ class habito_alimentar extends CI_Controller {
 	function editar($codigo_habito_alimentar)  {
 			
 		/* Aqui vamos definir o título da página de edição */
-		$data['titulo'] = "CRUD com CodeIgniter | Editar habito_alimentar";
+		$data['titulo'] = "CIAF | Editar Habito Alimentar";
 	 
 		/* Busca os dados da habito_alimentar que será editada */
 		$data['dados_habito_alimentar'] = $this->model->editar($codigo_habito_alimentar);

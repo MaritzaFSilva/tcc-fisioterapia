@@ -13,7 +13,7 @@ class substancia_gestacao extends CI_Controller {
     function index() 
     {
         $this->load->helper('form');
-        $data['titulo'] = "Cadastro de substancia_gestacao";
+        $data['titulo'] = "CIAF | Editar Substâncias da Gestação";
         $data["substancia_gestacao"] = $this->model->listar();
         $this->load->view('substancia_gestacao_view.php', $data);
     }
@@ -51,7 +51,7 @@ class substancia_gestacao extends CI_Controller {
 	function editar($codigo_substancia)  {
 			
 		/* Aqui vamos definir o título da página de edição */
-		$data['titulo'] = "CRUD com CodeIgniter | Editar substancia";
+		$data['titulo'] = "CIAF | Editar Substância";
 	 
 		/* Busca os dados da substancia que será editada */
 		$data['dados_substancia'] = $this->model->editar($codigo_substancia);
