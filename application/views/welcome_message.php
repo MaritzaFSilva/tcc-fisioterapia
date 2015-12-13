@@ -78,6 +78,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<p><a href="grau_parentesco"> 5 - Grau Parentesco</a></p>
 		<p><a href="renda_familiar"> 6 - Renda Familiar</a></p>
 		<p><a href="grau_escolaridade"> 7 - Grau Escolaridade</a></p>
+		<p><a href="responsavel"> 8 - Responsável</a></p>
+		<p><a href="paciente"> 5 - Paciente</a></p>
 	</div>
 
 	<p class="footer">Criado por Aline Sieczko e Maritza Silva 2015</p>
