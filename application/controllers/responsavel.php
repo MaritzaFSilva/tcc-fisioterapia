@@ -27,16 +27,9 @@ class responsavel extends CI_Controller {
 		$this->form_validation->set_error_delimiters('<span>', '</span>');
 	 
 		/* Define as regras para validação */
-		$this->form_validation->set_rules('nome', 'Nome', 'required|max_length[100]');
-		$this->form_validation->set_rules('sexo', 'Sexo', 'max_length[45]');//$this->form_validation->set_rules('sexo', 'Sexo', 'required|max_length[45]');
-		$this->form_validation->set_rules('email', 'E-Mail', 'max_length[100]');
-		$this->form_validation->set_rules('rua', 'Rua', 'max_length[100]');
-		$this->form_validation->set_rules('numero', 'Numero', 'max_length[11]');
-		$this->form_validation->set_rules('complemento', 'Complemento', 'max_length[255]');
-		$this->form_validation->set_rules('bairro', 'Bairro', 'max_length[45]');
-		$this->form_validation->set_rules('cep', 'CEP', 'max_length[10]');
-		$this->form_validation->set_rules('ativo', 'Ativo', 'max_length[10]');
-
+		$this->form_validation->set_rules('nome_responsavel', 'nome_responsavel', 'required|max_length[100]');
+		$this->form_validation->set_rules('cpf_responsavel', 'CPF', 'max_length[45]');//$this->form_validation->set_rules('sexo', 'Sexo', 'required|max_length[45]');
+		
 	 
 		/* Executa a validação e caso houver erro chama a função index do controlador */
 		if ($this->form_validation->run() === FALSE) {
@@ -44,16 +37,9 @@ class responsavel extends CI_Controller {
 		/* Senão, caso sucesso: */	
 		} else {
 			/* Recebe os dados do formulário (visão) */
-			$data['nome'] = strtoupper($this->input->post('nome'));
-			$data['sexo'] = strtoupper($this->input->post('nome'));
-			$data['email'] = strtoupper($this->input->post('nome'));
-			$data['rua'] = strtoupper($this->input->post('nome'));
-			$data['numero'] = strtoupper($this->input->post('nome'));
-			$data['complemento'] = strtoupper($this->input->post('nome'));
-			$data['bairro'] = strtoupper($this->input->post('nome'));
-			$data['cep'] = strtoupper($this->input->post('nome'));
-			$data['ativo'] = strtoupper($this->input->post('nome'));
-	 
+			$data['nome_responsavel'] = strtoupper($this->input->post('nome_responsavel'));
+			$cpf =$this->input->post('cpf_responsavel');
+	$data['cpf_responsavel']= (int) $cpf;
 	 		/* Carrega o modelo */
 			
 	 
@@ -89,49 +75,14 @@ class responsavel extends CI_Controller {
 		   na função inserir do controlador, porém estou mudando a forma de escrita */
 		$validations = array(
 			array(
-				'field' => 'nome',
-				'label' => 'Nome',
+				'field' => 'nome_responsavel',
+				'label' => 'nome_responsavel',
 				'rules' => 'trim|required|max_length[100]'
 			),
 			array(
-				'field' => 'sexo',
-				'label' => 'Sexo',
+				'field' => 'cpf_responsavel',
+				'label' => 'CPF',
 				'rules' => 'trim|required|max_length[45]'
-			),
-			array(
-				'field' => 'email',
-				'label' => 'E-Mail',
-				'rules' => 'trim|required|max_length[100]'
-			),
-			array(
-				'field' => 'rua',
-				'label' => 'Rua',
-				'rules' => 'trim|required|max_length[100]'
-			),
-			array(
-				'field' => 'numero',
-				'label' => 'Numero',
-				'rules' => 'trim|required|max_length[11]'
-			),
-			array(
-				'field' => 'complemento',
-				'label' => 'Complemento',
-				'rules' => 'trim|required|max_length[255]'
-			),
-			array(
-				'field' => 'bairro',
-				'label' => 'Bairro',
-				'rules' => 'trim|required|max_length[45]'
-			),
-			array(
-				'field' => 'cep',
-				'label' => 'CEP',
-				'rules' => 'trim|required|max_length[10]'
-			),
-			array(
-				'field' => 'ativo',
-				'label' => 'Ativo',
-				'rules' => 'trim|required|max_length[10]'
 			),
 			
 		);
@@ -143,15 +94,7 @@ class responsavel extends CI_Controller {
 		} else {
 			/* Senão obtém os dados do formulário */
 			$data['cpf_responsavel'] = $this->input->post('cpf_responsavel');
-			$data['nome'] = strtoupper($this->input->post('nome'));
-			$data['sexo'] = strtoupper($this->input->post('nome'));
-			$data['email'] = strtoupper($this->input->post('nome'));
-			$data['rua'] = strtoupper($this->input->post('nome'));
-			$data['numero'] = strtoupper($this->input->post('nome'));
-			$data['complemento'] = strtoupper($this->input->post('nome'));
-			$data['bairro'] = strtoupper($this->input->post('nome'));
-			$data['cep'] = strtoupper($this->input->post('nome'));
-			$data['ativo'] = strtoupper($this->input->post('nome'));
+			
 	 
 			/* Executa a função atualizar do modelo passando como parâmetro os dados obtidos do formulário */
 			if ($this->model->atualizar($data)) {
