@@ -39,10 +39,8 @@ class responsavel extends CI_Controller {
 			/* Recebe os dados do formulário (visão) */
 			$data['nome_responsavel'] = strtoupper($this->input->post('nome_responsavel'));
 			$cpf =$this->input->post('cpf_responsavel');
-	$data['cpf_responsavel']= (int) $cpf;
-	 		/* Carrega o modelo */
+			$data['cpf_responsavel']= $cpf;
 			
-	 
 			/* Chama a função inserir do modelo */
 			if ($this->model->inserir($data)) {
 				redirect('responsavel');
