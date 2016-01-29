@@ -68,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
 <div id="container">
-	<h1>SISTEMA PARA O CONTROLE DE INFORMAÇÕES NA ÁREA DE FISIOTERAPIA.</h1>
+	<h1>CONTROLE DE INFORMAÇÕES NA ÁREA DE FISIOTERAPIA - CIAF.</h1>
 
 	<div id="body">
 		<p><a href="substancia_gestacao"> 1 - Substâncias da Gestação</a></p>
