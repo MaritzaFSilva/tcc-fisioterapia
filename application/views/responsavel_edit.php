@@ -21,5 +21,12 @@
 		<input type="submit" name="atualizar" value="Atualizar" />
  
 	<?php echo form_close(); ?>
+
+    <div id="body">
+    
+        <p><a href="../../responsavel"> Retornar</a></p>
+    
+    </div>
+
 </body>
 </html>
