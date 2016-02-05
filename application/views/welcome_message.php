@@ -52,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	p.footer {
 		text-align: right;
 		font-size: 11px;
-		border-top: 1px solid #D0D0D0;
+		border-top: 1px solid #000000;
 		line-height: 32px;
 		padding: 0 10px 0 10px;
 		margin: 20px 0 0 0;
@@ -60,8 +60,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	#container {
 		margin: 10px;
-		border: 1px solid #D0D0D0;
-		box-shadow: 0 0 8px #D0D0D0;
+		border: 1px solid #000000;
+		box-shadow: 0 0 8px #000000;
 	}
 	</style>
 </head>
