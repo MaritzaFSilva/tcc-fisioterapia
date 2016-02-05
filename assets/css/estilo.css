@@ -22,6 +22,14 @@ ul {
     margin: 20px 0 0 0;
     padding: 0px;
     list-style: none;
+
+<ul class="nav navbar-nav collapse navbar-collapse">
+                <li><a href="">Home</a></li>
+                <li><a href="">Produtos</a></li>
+                <li><a href="">A empresa</a></li>
+                <li><a href="">Contato</a></li>
+            </ul>
+    
 }
 ul li {
     border-bottom: 1px dotted #aaaaaa;
