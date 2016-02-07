@@ -13,7 +13,7 @@ class responsavel extends CI_Controller {
     function index() 
     {
         $this->load->helper('form');
-        $data['titulo'] = "CIAF | Doenças";
+        $data['titulo'] = "CIAF | Responsável";
         $data["responsavel"] = $this->model->listar();
         $this->load->view('responsavel_view.php', $data);
     }
@@ -27,9 +27,8 @@ class responsavel extends CI_Controller {
 		$this->form_validation->set_error_delimiters('<span>', '</span>');
 	 
 		/* Define as regras para validação */
-		$this->form_validation->set_rules('nome_responsavel', 'nome_responsavel', 'required|max_length[100]');
-		$this->form_validation->set_rules('cpf_responsavel', 'CPF', 'max_length[45]');//$this->form_validation->set_rules('sexo', 'Sexo', 'required|max_length[45]');
-		
+		$this->form_validation->set_rules('nome_responsavel', 'Nome', 'required|max_length[100]');
+		$this->form_validation->set_rules('cpf_responsavel', 'CPF', 'trim|required|max_length[100]');
 	 
 		/* Executa a validação e caso houver erro chama a função index do controlador */
 		if ($this->form_validation->run() === FALSE) {
@@ -38,9 +37,11 @@ class responsavel extends CI_Controller {
 		} else {
 			/* Recebe os dados do formulário (visão) */
 			$data['nome_responsavel'] = strtoupper($this->input->post('nome_responsavel'));
-			$cpf =$this->input->post('cpf_responsavel');
-			$data['cpf_responsavel']= $cpf;
+			$data['cpf_responsavel'] = strtoupper($this->input->post('cpf_responsavel'));
+	 
+	 		/* Carrega o modelo */
 			
+	 
 			/* Chama a função inserir do modelo */
 			if ($this->model->inserir($data)) {
 				redirect('responsavel');
@@ -49,13 +50,13 @@ class responsavel extends CI_Controller {
 			}
 		}
 	}
-	function editar($cpf_responsavel)  {
+	function editar($codigo_responsavel)  {
 			
 		/* Aqui vamos definir o título da página de edição */
 		$data['titulo'] = "CIAF | Editar Doenças";
 	 
 		/* Busca os dados da responsavel que será editada */
-		$data['dados_responsavel'] = $this->model->editar($cpf_responsavel);
+		$data['dados_responsavel'] = $this->model->editar($codigo_responsavel);
 	 
 	 	/* Carrega a página de edição com os dados da responsavel */
 		$this->load->view('responsavel_edit', $data);
@@ -74,25 +75,25 @@ class responsavel extends CI_Controller {
 		$validations = array(
 			array(
 				'field' => 'nome_responsavel',
-				'label' => 'nome_responsavel',
+				'label' => 'Nome',
 				'rules' => 'trim|required|max_length[100]'
 			),
 			array(
 				'field' => 'cpf_responsavel',
 				'label' => 'CPF',
-				'rules' => 'trim|required|max_length[45]'
-			),
-			
+				'rules' => 'trim|required|max_length[100]'
+			)
 		);
 		$this->form_validation->set_rules($validations);
 		
 		/* Executa a validação e caso houver erro chama a função editar do controlador novamente */
 		if ($this->form_validation->run() === FALSE) {
-	            $this->editar($this->input->post('cpf_responsavel'));
+	            $this->editar($this->input->post('codigo_responsavel'));
 		} else {
 			/* Senão obtém os dados do formulário */
-			$data['cpf_responsavel'] = $this->input->post('cpf_responsavel');
-			
+			$data['codigo_responsavel'] = $this->input->post('codigo_responsavel');
+			$data['nome_responsavel'] = strtoupper($this->input->post('nome_responsavel'));
+			$data['cpf_responsavel'] = strtoupper($this->input->post('cpf_responsavel'));
 	 
 			/* Executa a função atualizar do modelo passando como parâmetro os dados obtidos do formulário */
 			if ($this->model->atualizar($data)) {
@@ -103,10 +104,10 @@ class responsavel extends CI_Controller {
 		}
 	}
 	 
-	function deletar($cpf_responsavel) {
+	function deletar($codigo_responsavel) {
 	 
 		/* Executa a função deletar do modelo passando como parâmetro o id da responsavel */
-		if ($this->model->deletar($cpf_responsavel)) {
+		if ($this->model->deletar($codigo_responsavel)) {
 			redirect('responsavel');
 		} else {
 			log_message('error', 'Erro ao deletar a responsavel.');

@@ -14,20 +14,20 @@ class responsavel_model extends CI_Model {
         $query = $this->db->get('responsavel');
         return $query->result();
     }
-    function editar($cpf_responsavel) {
-    $this->db->where('cpf_responsavel', $cpf_responsavel);
+    function editar($codigo_responsavel) {
+    $this->db->where('codigo_responsavel', $codigo_responsavel);
     $query = $this->db->get('responsavel');
     return $query->result();
     }
      
     function atualizar($data) {
-        $this->db->where('cpf_responsavel', $data['cpf_responsavel']);
+        $this->db->where('codigo_responsavel', $data['codigo_responsavel']);
         $this->db->set($data);
         return $this->db->update('responsavel');
     }
      
-    function deletar($cpf_responsavel) {
-        $this->db->where('cpf_responsavel', $cpf_responsavel);
+    function deletar($codigo_responsavel) {
+        $this->db->where('codigo_responsavel', $codigo_responsavel);
         return $this->db->delete('responsavel');
     }
 }
