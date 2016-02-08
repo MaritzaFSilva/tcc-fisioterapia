@@ -1,50 +1,26 @@
-body {
-    background-color: #FFC9FF;
-    font-family: Arial, "Trebuchet MS", sans-serif;
-    font-size: 12px; color: #000000;
-    margin: 0px; padding: 10px;
-
-        margin: 20px;
-
-        border: 1px solid #000000;
-}
-input[type=text] {
-    width: 300px;
-    height: 25px;
-    border: 1px solid #000000;
-}
-input[type=submit] {
-    width: 100px;
-    height: 30px;
-    border: 1px solid #000000;
-    margin: 5px 0 0 0;
-}
-label {
-    font-weight: bold;
-}
-ul {
-    margin: 20px 0 0 0;
-    padding: 0px;
-    list-style: none;
-
-}
-ul li {
-    border-bottom: 1px dotted #aaaaaa;
-    width: 100%;
-    padding: 4px 0 4px 0;
-}
-ul li a {
-    text-decoration: none;
-}
-img {
-    margin-bottom: -2px;
-}
-.error {
-    font-size: 10px;
-    color: red;
-}
-a {
-        color: #000000;
-        background-color: transparent;
-        font-weight: normal;
-    }
+.panel-footer{
+            text-align: right;
+        }
+        
+        body{
+            background-color: rgb(255,206,231);
+        }
+        .panel-default{
+            width: 80%;
+            margin: 0 auto;
+        }
+                h1{
+            text-align: center;
+            font-size: 12pt;
+            font-weight: bold;
+        }
+        .btn.btn-default{
+            margin: 1em auto;
+        }
+        .navbar-default{
+            background-color: black;
+            color: #ffffff;
+        }  
+        #retorno{
+            text-align: right;
+        }

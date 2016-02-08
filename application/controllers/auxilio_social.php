@@ -16,6 +16,7 @@ class auxilio_social extends CI_Controller {
         $data['titulo'] = "CIAF | Editar Auxílio Social";
         $data["auxilio_social"] = $this->model->listar();
         $this->load->view('auxilio_social_view.php', $data);
+
     }
 
     function inserir() {
@@ -63,6 +64,7 @@ class auxilio_social extends CI_Controller {
 	}
 	 
 	function atualizar() {
+		
 	 
 		/* Carrega a biblioteca do CodeIgniter responsável pela validação dos formulários */
 		$this->load->library('form_validation');
