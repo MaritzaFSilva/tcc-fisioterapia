@@ -2,88 +2,62 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>CIAF</title>
+    <head>
+        <title><?php echo $titulo; ?></title>
+        <meta charset="utf-8">
+        <link href="<?php echo base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
+        <link href="<?php echo base_url('assets/css/font-awesome.min.css') ?>" rel="stylesheet">
+        <script src="<?php echo base_url('assets/js/jquery.min.js') ?>"></script>
+        <script src="<?php echo base_url('assets/js/bootstrap.min.js') ?>"></script>
+        <link href="<?php echo base_url('assets/css/estilo.css') ?>" rel="stylesheet">
+        
+    </head>
+    <body>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a href="welcome"><span class="navbar-brand" href="welcome">CIEF</span></a>
+                </div>
 
-	<style type="text/css">
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        
+                        <li><a href="#">OOI</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Área Restrita <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="substancia_gestacao">Cadastro Substância Gestação</a></li>
+                                <li><a href="auxilio_social">Cadastro Auxilio Social</a></li>
+                                <li><a href="doenca">Cadastro Doença</a></li>
+                                <li><a href="habito_alimentar">Cadastro Habito Alimentar</a></li>
+                                <li><a href="grau_parentesco">Cadastro Grau Parentesco</a></li>
+                                <li><a href="renda_familiar">Cadastro Rendas</a></li>
+                                <li><a href="grau_escolaridade">Cadastro Grau Escolaridade</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="responsavel">Cadastro Responsável</a></li>
+                                <li><a href="paciente">Cadastro Paciente</a></li>
+                            </ul>
+                        </li>
+                    </ul>    
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <p>INSTITUTO FEDERAL DO PARANÁ - CAMPUS PARANAGUÁ</p>
+                <p>CIAF - SISTEMA PARA O CONTROLE DE INFORMAÇÕES NA ÁREA DE FISIOTERAPIA</p>
+                <p>DISCIPLINA : DESENVOLVIMENTO WEB</p>
+                <p>PROFESSOR: DIEGO STIEHL</p>
 
-	::selection { background-color: #E13300; color: white; }
-	::-moz-selection { background-color: #E13300; color: white; }
 
-	body {
-		background-color: #FFC9FF;
-		margin: 40px;
-		font: 13px/20px normal Helvetica, Arial, sans-serif;
-		color: #000000;
-	}
 
-	a {
-		color: #000000;
-		background-color: transparent;
-		font-weight: normal;
-	}
 
-	h1 {
-		color: #000000;
-		background-color: transparent;
-		border-bottom: 1px solid #000000;
-		font-size: 19px;
-		font-weight: normal;
-		margin: 0 0 14px 0;
-		padding: 14px 15px 10px 15px;
-	}
-
-	code {
-		font-family: Consolas, Monaco, Courier New, Courier, monospace;
-		font-size: 12px;
-		background-color: #f9f9f9;
-		border: 1px solid #D0D0D0;
-		color: #002166;
-		display: block;
-		margin: 14px 0 14px 0;
-		padding: 12px 10px 12px 10px;
-	}
-
-	#body {
-		margin: 0 15px 0 15px;
-	}
-
-	p.footer {
-		text-align: right;
-		font-size: 11px;
-		border-top: 1px solid #000000;
-		line-height: 32px;
-		padding: 0 10px 0 10px;
-		margin: 20px 0 0 0;
-	}
-
-	#container {
-		margin: 10px;
-		border: 1px solid #000000;
-		box-shadow: 0 0 8px #000000;
-	}
-	</style>
-</head>
-<body>
-
-<div id="container">
-	<h1>CONTROLE DE INFORMAÇÕES NA ÁREA DE FISIOTERAPIA - CIAF.</h1>
-
-	<div id="body">
-		<p><a href="substancia_gestacao"> 1 - Substâncias da Gestação</a></p>
-		<p><a href="auxilio_social"> 2 - Auxílio Social</a></p>
-		<p><a href="doenca"> 3 - Doenças</a></p>
-		<p><a href="habito_alimentar"> 4 - Habito Alimentar</a></p>
-		<p><a href="grau_parentesco"> 5 - Grau Parentesco</a></p>
-		<p><a href="renda_familiar"> 6 - Renda Familiar</a></p>
-		<p><a href="grau_escolaridade"> 7 - Grau Escolaridade</a></p>
-		<p><a href="responsavel"> 8 - Responsável</a></p>
-		<p><a href="paciente"> 5 - Paciente</a></p>
-	</div>
-
-	<p class="footer">Criado por Aline Sieczko e Maritza Silva 2015</p>
+  </div>
+  <div class="panel-footer">Aline Sieczko e Maritza Silva &copy 2015</div>
 </div>
+	
 
 </body>
 </html>
