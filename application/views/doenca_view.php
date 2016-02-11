@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <a href="welcome"><span class="navbar-brand" href="welcome">CIEF</span></a>
+                    <a href="welcome"><span class="navbar-brand" href="welcome">CIAF</span></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -48,9 +48,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="panel-body">
     <?php echo form_open('doenca/inserir', 'codigo_doenca="form-doenca"'); ?>
     <h1>DOENÇAS</h1>
-    <label for="nome">Nome:</label><br/>
-    <input class='form-control' type="text" name="nome" value="<?php echo set_value('nome'); ?>"/>
-    <div class="error"><?php echo form_error('nome'); ?></div>
+    <label for="nome_doenca">Nome:</label><br/>
+    <input class='form-control' type="text" name="nome_doenca" value="<?php echo set_value('nome_doenca'); ?>"/>
+    <div class="error"><?php echo form_error('nome_doenca'); ?></div>
     <label for="orientacao">Orientacao:</label><br/>
     <input class='form-control' type="text" name="orientacao" value="<?php echo set_value('orientacao'); ?>"/>
     <div class="error"><?php echo form_error('orientacao'); ?></div>
@@ -68,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <li class="list-group-item">
             <a title="Deletar" href="<?php echo base_url() . 'doenca/deletar/' . $doenca->codigo_doenca; ?>" onclick="return confirm('Confirma a exclusão deste registro?')"><img src="<?php echo base_url(); ?>assets/img/lixo.png"/></a>
             <span> - </span>
-            <a title="Editar" href="<?php echo base_url() . 'doenca/editar/' . $doenca->codigo_doenca; ?>"><?php echo $doenca->nome; ?></a>
+            <a title="Editar" href="<?php echo base_url() . 'doenca/editar/' . $doenca->codigo_doenca; ?>"><?php echo $doenca->nome_doenca; ?></a>
             <span> - </span>
             <span><?php echo $doenca->orientacao; ?></span>
             <span> - </span>

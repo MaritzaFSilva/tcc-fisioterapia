@@ -27,7 +27,7 @@ class doenca extends CI_Controller {
 		$this->form_validation->set_error_delimiters('<span>', '</span>');
 	 
 		/* Define as regras para validação */
-		$this->form_validation->set_rules('nome', 'Nome', 'required|max_length[100]');
+		$this->form_validation->set_rules('nome_doenca', 'Nome', 'required|max_length[100]');
 		$this->form_validation->set_rules('orientacao', 'Orientação', 'trim|required|max_length[100]');
 		$this->form_validation->set_rules('observacao', 'Observação', 'trim|required|max_length[255]');
 	 
@@ -37,7 +37,7 @@ class doenca extends CI_Controller {
 		/* Senão, caso sucesso: */	
 		} else {
 			/* Recebe os dados do formulário (visão) */
-			$data['nome'] = strtoupper($this->input->post('nome'));
+			$data['nome_doenca'] = strtoupper($this->input->post('nome_doenca'));
 			$data['orientacao'] = strtoupper($this->input->post('orientacao'));
 			$data['observacao'] = $this->input->post('observacao');
 	 
@@ -48,7 +48,7 @@ class doenca extends CI_Controller {
 			if ($this->model->inserir($data)) {
 				redirect('doenca');
 			} else {
-				log_message('error', 'Erro ao inserir a doenca.');
+				log_message('error', 'Erro ao inserir Doença.');
 			}
 		}
 	}
@@ -76,7 +76,7 @@ class doenca extends CI_Controller {
 		   na função inserir do controlador, porém estou mudando a forma de escrita */
 		$validations = array(
 			array(
-				'field' => 'nome',
+				'field' => 'nome_doenca',
 				'label' => 'Nome',
 				'rules' => 'trim|required|max_length[100]'
 			),
@@ -99,7 +99,7 @@ class doenca extends CI_Controller {
 		} else {
 			/* Senão obtém os dados do formulário */
 			$data['codigo_doenca'] = $this->input->post('codigo_doenca');
-			$data['nome'] = strtoupper($this->input->post('nome'));
+			$data['nome_doenca'] = strtoupper($this->input->post('nome_doenca'));
 			$data['orientacao'] = strtoupper($this->input->post('orientacao'));
 			$data['observacao'] = $this->input->post('observacao');
 	 
@@ -107,7 +107,7 @@ class doenca extends CI_Controller {
 			if ($this->model->atualizar($data)) {
 				redirect('doenca');
 			} else {
-				log_message('error', 'Erro ao atualizar a doenca.');
+				log_message('error', 'Erro ao atualizar Doença.');
 			}
 		}
 	}
@@ -118,7 +118,7 @@ class doenca extends CI_Controller {
 		if ($this->model->deletar($codigo_doenca)) {
 			redirect('doenca');
 		} else {
-			log_message('error', 'Erro ao deletar a doenca.');
+			log_message('error', 'Erro ao deletar Doença.');
 		}
 	}
 }

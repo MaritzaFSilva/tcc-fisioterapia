@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <a href="welcome"><span class="navbar-brand" href="welcome">CIEF</span></a>
+                    <a href="welcome"><span class="navbar-brand" href="welcome">CIAF</span></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -50,9 +50,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  
 	<input type="hidden" name="codigo_doenca" value="<?php echo $dados_doenca[0]->codigo_doenca; ?>"/>
  
-	<label for="nome">Nome:</label><br/>
-	<input class='form-control' type="text" name="nome" value="<?php echo $dados_doenca[0]->nome; ?>"/>
-	<div class="error"><?php echo form_error('nome'); ?></div>
+	<label for="nome_doenca">Nome:</label><br/>
+	<input class='form-control' type="text" name="nome_doenca" value="<?php echo $dados_doenca[0]->nome_doenca; ?>"/>
+	<div class="error"><?php echo form_error('nome_doenca'); ?></div>
  
 	<label for="orientacao">Orientação:</label><br/>
 	<input class='form-control' type="text" name="orientacao" value="<?php echo $dados_doenca[0]->orientacao; ?>"/>
