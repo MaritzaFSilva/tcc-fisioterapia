@@ -6,8 +6,11 @@ class paciente_model extends CI_Model {
         parent::__construct();
     }
  
-    function inserir($data) {
-        return $this->db->insert('tb_paciente', $data);
+    function inserir($data, $tabela) {
+        return $this->db->insert($tabela, $data);
+    }
+    function inserirAux($data, $tabela) {
+        return $this->db->insert($tabela, $data);
     }
  
     function listar() {
@@ -30,4 +33,7 @@ class paciente_model extends CI_Model {
         $this->db->where('codigo_paciente', $codigo_paciente);
         return $this->db->delete('tb_paciente');
     }
+
+
+
 }

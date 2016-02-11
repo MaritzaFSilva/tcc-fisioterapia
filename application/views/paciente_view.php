@@ -1,6 +1,38 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
+
+
+function loadCombo($tabela,$campo){
+    $conexao = mysql_connect("localhost", "fisioterapia", "12345"); 
+    mysql_select_db("fisioterapia");
+
+
+    $cont = 0; // contador de controle do laço
+    $valores = array(); // vetor que recebe todos os dados da consulta
+    $query = "SELECT * FROM ".$tabela."";
+    $consulta = mysql_query($query) or die(mysql_error()); // Executa a query no banco
+
+    //Faz um looping (laço) e cria um vetor com os dados da consulta
+    while($valores[$cont] = mysql_fetch_array($consulta)) { 
+    $cont = $cont + 1; // incrementa o contador
+    }
+
+    $total = (count($valores) - 1);
+    $cont = 0;
+
+    echo "<option></option>";
+    while($cont < $total) {
+    $aux = $valores[$cont];
+    $valor = $aux[$campo];
+    $opt = "<option> ".$valor."</option>";    
+    echo $opt;
+    $cont ++;
+    }
+    mysql_close($con);
+                                    
+    }
+?>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <title><?php echo $titulo; ?></title>
@@ -61,8 +93,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="error"><?php echo form_error('nome_paciente'); ?></div></br>
 
                 <label for="sexo">Sexo:</label><br/>
-                <input type="checkbox" name="sexo_feminino" value="Bike">Feminino
-                <input type="checkbox" name="sexo_masculino" value="Car">Masculino 
+                <input type="checkbox" name="sexo_feminino" value="feminino">Feminino
+                <input type="checkbox" name="sexo_masculino" value="masculino">Masculino 
                 </br></br>
 
                 <label for="iniciais_nome_paciente">Iniciais:</label><br/>
@@ -70,7 +102,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="error"><?php echo form_error('iniciais_nome_paciente'); ?></div></br>
                 
                 <label for="nome_responsavel">Nome Responsável:</label>
-                <select class='form-control' placeholder="Nome Completo do Responsável" name="combo_responsavel" ></select> </br>
+                <select class='form-control' placeholder="Nome Completo do Responsável" name="combo_responsavel" >
+                <?php
+                            loadCombo('tb_responsavel','nome_responsavel')
+                    ?></select> </br>
 
                 <label for="nome_mae">Nome Mãe:</label><br/>
                 <input class='form-control' type="text" placeholder="Nome Completo da Mãe" name="nome_mae" value="<?php echo set_value('nome_mae'); ?>"/>
@@ -107,13 +142,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          <div class="panel panel-default" >
                 <div align="center" class="panel-heading">Habitos Alimentares da Mãe</div>
                 <div class="panel-body">
-
-
-
-
-                    
+                   
                     <label for="nome_habito">Nome:</label><br/>
-                    <select class='form-control' name="combo_habito" ></select> </br>
+                    <select class='form-control' name="combo_habito" >
+                     <?php
+                            loadCombo('tb_habito_alimentar','descricao')
+                    ?> </select> </br>
 
                     <label for="frequencia_semanal_habito">Frequência Semanal:</label><br/>
                     <input class='form-control' type="text" name="frequencia_habito" value="<?php echo set_value('frequencia_semanal_habito'); ?>"/>
@@ -134,7 +168,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div align="center" class="panel-heading">Substâncias na Gestação ingeridas pela Mãe</div>
                 <div class="panel-body">
                     <label for="nome_substancia">Nome:</label><br/>
-                    <select class='form-control' name="combo_substancia" ></select> </br>
+                    <select class='form-control' name="combo_substancia" >
+                    <?php
+                            loadCombo('tb_substancia_gestacao','nome_substancia')
+                    ?></select> </br>
 
                     <label for="frequencia_semanal_substancia">Frequência Semanal:</label><br/>
                     <input class='form-control' type="text" name="frequencia_substancia" value="<?php echo set_value('frequencia_semanal_substancia'); ?>"/>
@@ -155,7 +192,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div align="center" class="panel-heading">Doenças vindas da Mãe</div>
                 <div class="panel-body">
                     <label for="nome_doenca">Nome:</label><br/>
-                    <select class='form-control' name="combo_doenca" ></select> </br>
+                    <select class='form-control' name="combo_doenca" >
+                    <?php
+                            loadCombo('tb_doenca','nome_doenca')
+                    ?>
+                </select> </br>
 
                     <label for="observacao_doenca">Observação:</label><br/>
                     <input class='form-control' type="text" name="observacao_doenca" value="<?php echo set_value('observacao_doenca'); ?>"/>
@@ -172,7 +213,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div align="center"  class="panel-heading">Auxílio Social</div>
                 <div class="panel-body">
                     <label for="nome_auxilio_social">Nome:</label><br/>
-                    <select class='form-control' name="combo_auxilio_social" ></select> </br>
+
+                    <select class='form-control' name="combo_auxilio_social" >
+                        <?php
+                            loadCombo('tb_auxilio_social','nome_auxilio_social')
+                        ?>
+                    </select> </br>
 
                  <table align="center" border="0" style="width:100%" margin: auto> 
                     <tr>
@@ -204,7 +250,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
             </div>
                 </br>
-            
 
   <input class='btn btn-default' type="submit" name="cadastrar" value="Cadastrar" />
                           
@@ -217,9 +262,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <li>
                         <a title="Deletar" href="<?php echo base_url() . 'paciente/deletar/' . $paciente->codigo_paciente; ?>" onclick="return confirm('Confirma a exclusão deste registro?')"><img src="<?php echo base_url(); ?>assets/img/lixo.png"/></a>
                         <span> - </span>
-                        <a title="Editar" href="<?php echo base_url() . 'paciente/editar/' . $paciente->codigo_paciente; ?>"><?php echo $paciente->nome_paciente; ?></a>
+                        <a title="Editar" href="<?php echo base_url() . 'paciente/editar/' . $paciente->codigo_paciente; ?>">
+                        <?php echo $paciente->nome_paciente; ?></a>
                         <span> - </span>
-                        <span><?php echo $paciente->cpf_paciente; ?></span>
+                        <span><?php echo $paciente->nome_mae; ?></span>
                         
                     </li>
                     <?php endforeach ?>
