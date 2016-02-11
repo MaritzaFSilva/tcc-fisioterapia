@@ -46,8 +46,9 @@ class paciente extends CI_Controller {
 			}
 			$this->model->inserir($data_paciente, 'tb_paciente');
 			/* Recebe os dados do formulário (visão) */
-			$data_auxilio['codigo_auxilio_social'] = 1;//$this->input->post('codigo_auxilio_social');
-			$data_auxilio['codigo_paciente'] = 15;//$this->input->post('codigo_paciente');
+			$data_auxilio['codigo_auxilio_social'] = 1;
+			
+			$data_auxilio['codigo_paciente'] = codigoPaciente('MARITZA SILVA');
 			$data_auxilio['data_inicio_auxilio'] = $this->input->post('data_inicio_auxilio');
 			$data_auxilio['data_termino_auxilio'] = $this->input->post('data_termino_auxilio');
 			$data_auxilio['data_cadastro_auxilio'] = $this->input->post('data_cadastro_auxilio');
@@ -60,8 +61,9 @@ class paciente extends CI_Controller {
 				redirect('paciente');
 			
 			/* Chama a função inserir do modelo */
-	}
+			
 
+	}
 	function editar($codigo_paciente)  {
 			
 		/* Aqui vamos definir o título da página de edição */
@@ -120,6 +122,32 @@ class paciente extends CI_Controller {
 		} else {
 			log_message('error', 'Erro ao deletar a paciente.');
 		}
+	}
+
+	function codigoPaciente($nome){
+		$conexao = mysql_connect("localhost", "fisioterapia", "12345"); 
+		mysql_select_db("fisioterapia");
+
+
+		$cont = 0; // contador de controle do laço
+		$query = "SELECT codigo_paciente FROM tb_paciente WHERE nome_paciente = ".$nome."";
+		$consulta = mysql_query($query) or die(mysql_error()); // Executa a query no banco
+
+		return $valores;
+		mysql_close($con);
+
+	}
+	
+	function codigoAuxilioSocial($nome){
+		$conexao = mysql_connect("localhost", "fisioterapia", "12345"); 
+		mysql_select_db("fisioterapia");
+		$cont = 0; // contador de controle do laço
+		$query = "SELECT codigo_auxilio_social FROM tb_auxilio_social WHERE nome_auxilio_social = ".$nome."";
+		$consulta = mysql_query($query) or die(mysql_error()); // Executa a query no banco
+		echo "window.alert(oi)";
+		return $valores;
+		mysql_close($con);
+
 	}
 
 	}
