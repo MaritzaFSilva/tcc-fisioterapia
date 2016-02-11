@@ -42,29 +42,26 @@ class paciente extends CI_Controller {
 				$data_paciente['sexo'] = strtoupper($this->input->post('sexo_feminino'));
 			}
 			else {
-				$data_paciente['sexo'] = strtoupper($this->input->post('sexo_masculino'));	
+				$data_paciente['sexo'] = $data_paciente['codigo_paciente'];
 			}
-
+			$this->model->inserir($data_paciente, 'tb_paciente');
 			/* Recebe os dados do formulário (visão) */
+			$data_auxilio['codigo_auxilio_social'] = 1;//$this->input->post('codigo_auxilio_social');
+			$data_auxilio['codigo_paciente'] = 15;//$this->input->post('codigo_paciente');
+			$data_auxilio['data_inicio_auxilio'] = $this->input->post('data_inicio_auxilio');
+			$data_auxilio['data_termino_auxilio'] = $this->input->post('data_termino_auxilio');
+			$data_auxilio['data_cadastro_auxilio'] = $this->input->post('data_cadastro_auxilio');
 			
+			$data_auxilio['valor'] =  strtoupper($this->input->post('valor'));
 			$data_auxilio['observacao_auxilio'] =  strtoupper($this->input->post('observacao_auxilio'));
 			
-	 		if ($this->model->inserirAux($data_auxilio,'tb_paciente_auxilio_social')) {
-				redirect('paciente');
-			} else {
-				log_message('error', 'Erro ao inserir a paciente.');
-			}
-			/* Chama a função inserir do modelo */
-			if ($this->model->inserir($data_paciente, 'tb_paciente')) {
-				redirect('paciente');
-			} else {
-				log_message('error', 'Erro ao inserir a paciente.');
-			}
-
-			/* Chama a função inserir do modelo */
+	 		$this->model->inserirAux($data_auxilio,'tb_paciente_auxilio_social');
 			
-
+				redirect('paciente');
+			
+			/* Chama a função inserir do modelo */
 	}
+
 	function editar($codigo_paciente)  {
 			
 		/* Aqui vamos definir o título da página de edição */
