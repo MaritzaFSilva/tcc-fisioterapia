@@ -51,7 +51,7 @@ class grau_escolaridade extends CI_Controller {
 	function editar($codigo_grau_escolaridade)  {
 			
 		/* Aqui vamos definir o título da página de edição */
-		$data['titulo'] = "CIAF | Editar Grau de escolaridade";
+		$data['titulo'] = "CIAF | Grau de escolaridade";
 	 
 		/* Busca os dados da grau que será editada */
 		$data['dados_grau'] = $this->model->editar($codigo_grau_escolaridade);

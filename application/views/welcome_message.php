@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
     <head>
-        <title><?php echo $titulo; ?></title>
+        <title>CIAF</title>
         <meta charset="utf-8">
         <link href="<?php echo base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
         <link href="<?php echo base_url('assets/css/font-awesome.min.css') ?>" rel="stylesheet">
@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <a href="welcome"><span class="navbar-brand" href="welcome">CIEF</span></a>
+                    <a href="welcome"><span class="navbar-brand" href="welcome">CIAF</span></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -46,14 +46,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </nav>
         <div class="panel panel-default">
             <div class="panel-body">
-                <p>INSTITUTO FEDERAL DO PARANÁ - CAMPUS PARANAGUÁ</p>
-                <p>CIAF - SISTEMA PARA O CONTROLE DE INFORMAÇÕES NA ÁREA DE FISIOTERAPIA</p>
-                <p>DISCIPLINA : DESENVOLVIMENTO WEB</p>
-                <p>PROFESSOR: DIEGO STIEHL</p>
-
-
-
-
+                <p align="center">INSTITUTO FEDERAL DO PARANÁ - CAMPUS PARANAGUÁ</p>
+                <p align="center">CIAF - SISTEMA PARA O CONTROLE DE INFORMAÇÕES NA ÁREA DE FISIOTERAPIA</p>
+                <p align="center">DISCIPLINA : DESENVOLVIMENTO WEB</p>
+                <p align="center">PROFESSOR: DIEGO STIEHL</p>
   </div>
   <div class="panel-footer">Aline Sieczko e Maritza Silva &copy 2015</div>
 </div>

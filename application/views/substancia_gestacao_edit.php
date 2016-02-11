@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <a href="welcome"><span class="navbar-brand" href="welcome">CIEF</span></a>
+                    <a href="welcome"><span class="navbar-brand" href="welcome">CIAF</span></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -50,13 +50,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  <h1>ALTERAÇÃO CADASTRO DE SUBSTÂNCIA NA GESTAÇÃO</h1>
 	<input type="hidden" name="codigo_substancia" value="<?php echo $dados_substancia[0]->codigo_substancia; ?>"/>
  
-	<label for="nome">Nome:</label><br/>
-	<input type="text" name="nome" value="<?php echo $dados_substancia[0]->nome; ?>"/>
-	<div class="error"><?php echo form_error('nome'); ?></div>
+	<label for="nome_substancia">Nome:</label><br/>
+	<input class='form-control' type="text" name="nome_substancia" value="<?php echo $dados_substancia[0]->nome_substancia; ?>"/>
+	<div class="error"><?php echo form_error('nome_substancia'); ?></div>
  
 	
  
-	<input type="submit" name="atualizar" value="Atualizar" />
+	<input class='btn btn-default' type="submit" name="atualizar" value="Atualizar" />
  
 	<?php echo form_close(); ?>
 

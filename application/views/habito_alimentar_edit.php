@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <a href="welcome"><span class="navbar-brand" href="welcome">CIEF</span></a>
+                    <a href="welcome"><span class="navbar-brand" href="welcome">CIAF</span></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -47,16 +47,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="panel panel-default">
             <div class="panel-body">
 	<?php echo form_open('habito_alimentar/atualizar', 'codigo_habito_alimentar="form-habito_alimentar"'); ?>
- <h1>ALTERAÇÃO CADASTRO HÁBITO ALIMENTAR</h1>
+ <h1>ALTERAÇÃO HÁBITO ALIMENTAR</h1>
 	<input type="hidden" name="codigo_habito_alimentar" value="<?php echo $dados_habito_alimentar[0]->codigo_habito_alimentar; ?>"/>
  
-	<label for="descricao">Descrição:</label><br/>
-	<input type="text" name="descricao" value="<?php echo $dados_habito_alimentar[0]->descricao; ?>"/>
+	<label or="descricao">Descrição:</label><br/>
+	<input class='form-control' ftype="text" name="descricao" value="<?php echo $dados_habito_alimentar[0]->descricao; ?>"/>
 	<div class="error"><?php echo form_error('descricao'); ?></div>
- 
-	
- 
-	<input type="submit" name="atualizar" value="Atualizar" />
+
+	<input class='btn btn-default'type="submit" name="atualizar" value="Atualizar" />
  
 	<?php echo form_close(); ?>
 

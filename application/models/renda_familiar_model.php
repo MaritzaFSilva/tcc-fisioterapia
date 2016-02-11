@@ -7,27 +7,27 @@ class renda_familiar_model extends CI_Model {
     }
  
     function inserir($data) {
-        return $this->db->insert('renda_familiar', $data);
+        return $this->db->insert('tb_renda_familiar', $data);
     }
  
     function listar() {
-        $query = $this->db->get('renda_familiar');
+        $query = $this->db->get('tb_renda_familiar');
         return $query->result();
     }
-    function editar($codigo_renda) {
-    $this->db->where('codigo_renda', $codigo_renda);
-    $query = $this->db->get('renda_familiar');
+    function editar($codigo_renda_familiar) {
+    $this->db->where('codigo_renda_familiar', $codigo_renda_familiar);
+    $query = $this->db->get('tb_renda_familiar');
     return $query->result();
     }
      
     function atualizar($data) {
-        $this->db->where('codigo_renda', $data['codigo_renda']);
+        $this->db->where('codigo_renda_familiar', $data['codigo_renda_familiar']);
         $this->db->set($data);
-        return $this->db->update('renda_familiar');
+        return $this->db->update('tb_renda_familiar');
     }
      
-    function deletar($codigo_renda) {
-        $this->db->where('codigo_renda', $codigo_renda);
-        return $this->db->delete('renda_familiar');
+    function deletar($codigo_renda_familiar) {
+        $this->db->where('codigo_renda_familiar', $codigo_renda_familiar);
+        return $this->db->delete('tb_renda_familiar');
     }
 }

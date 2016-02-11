@@ -7,27 +7,27 @@ class paciente_model extends CI_Model {
     }
  
     function inserir($data) {
-        return $this->db->insert('paciente', $data);
+        return $this->db->insert('tb_paciente', $data);
     }
  
     function listar() {
-        $query = $this->db->get('paciente');
+        $query = $this->db->get('tb_paciente');
         return $query->result();
     }
     function editar($codigo_paciente) {
     $this->db->where('codigo_paciente', $codigo_paciente);
-    $query = $this->db->get('paciente');
+    $query = $this->db->get('tb_paciente');
     return $query->result();
     }
      
     function atualizar($data) {
         $this->db->where('codigo_paciente', $data['codigo_paciente']);
         $this->db->set($data);
-        return $this->db->update('paciente');
+        return $this->db->update('tb_paciente');
     }
      
     function deletar($codigo_paciente) {
         $this->db->where('codigo_paciente', $codigo_paciente);
-        return $this->db->delete('paciente');
+        return $this->db->delete('tb_paciente');
     }
 }
