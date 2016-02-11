@@ -33,7 +33,35 @@ class paciente_model extends CI_Model {
         $this->db->where('codigo_paciente', $codigo_paciente);
         return $this->db->delete('tb_paciente');
     }
+    
+    function codigodoPaciente($nome){
+        $conexao = mysqli_connect("localhost", "fisioterapia", "12345", "fisioterapia");
+        $sql = "SELECT codigo_paciente FROM tb_paciente WHERE nome_paciente = '".$nome."'";// pega o código de acordo com o nome do paciente
+        $result = $conexao->query($sql) or trigger_error($conexao->error." [$sql]"); // executa sql
+        $row = $result->fetch_array();//pega o valor
+        return $row;
+        mysqli_close($con);
+    }
 
+    function codigodoResponsavel($nome){
+        $conexao = mysqli_connect("localhost", "fisioterapia", "12345", "fisioterapia");
+        $sql = "SELECT codigo_responsavel FROM tb_responsavel WHERE nome_paciente = '".$nome."'";// pega o código de acordo com o nome do paciente
+        $result = $conexao->query($sql) or trigger_error($conexao->error." [$sql]"); // executa sql
+        $row = $result->fetch_array();//pega o valor
+        return $row;
+        mysqli_close($con);
+    }
+
+
+    function pegando_codigo($campo, $tabela, $onde, $igual){
+        $conexao = mysqli_connect("localhost", "fisioterapia", "12345", "fisioterapia");
+        $sql = "SELECT ".$campo." FROM ".$tabela." WHERE ".$onde." = '".$igual."'";// pega o código de acordo com o nome do auxilio
+        $result = $conexao->query($sql) or trigger_error($conexao->error." [$sql]"); // executa sql
+        $row = $result->fetch_array();//pega o valor
+        return $row;
+        mysqli_close($con);
+    }
+   
 
 
 }

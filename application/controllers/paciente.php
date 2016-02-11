@@ -19,8 +19,7 @@ class paciente extends CI_Controller {
     }
 
     function inserir() {
- 
-		/* Carrega a biblioteca do CodeIgniter Paciente pela validação dos formulários */
+   		/* Carrega a biblioteca do CodeIgniter Paciente pela validação dos formulários */
 		$this->load->library('form_validation');
 	 
 		/* Define as tags onde a mensagem de erro será exibida na página */
@@ -35,35 +34,103 @@ class paciente extends CI_Controller {
 			$this->index();
 		/* Senão, caso sucesso: */	
 		} else {
+			/*----------------------------------------INICIO DADOS PACIENTE--------------------------------*/
 			/* Recebe os dados do formulário (visão) */
 			$data_paciente['nome_paciente'] = strtoupper($this->input->post('nome_paciente'));
-			
+			$data_paciente['iniciais_nome_paciente'] = strtoupper($this->input->post('iniciais_nome_paciente'));
 			if($this->input->post('sexo_feminino') == "feminino") {
 				$data_paciente['sexo'] = strtoupper($this->input->post('sexo_feminino'));
 			}
 			else {
-				$data_paciente['sexo'] = $data_paciente['codigo_paciente'];
+				$data_paciente['sexo'] = $this->input->post('sexo_masculino');
 			}
+			$codigoResponsavel = $this->model->pegando_codigo('codigo_responsavel','tb_responsavel','nome_responsavel',$this->input->post('combo_responsavel'));
+			$data_responsavel['codigo_responsavel'] = $codigoResponsavel[0];
+			$data_responsavel['nome_mae'] = strtoupper($this->input->post('nome_mae'));
+			$data_responsavel['data_nascimento'] = strtoupper($this->input->post('data_nascimento'));
+			$codigoCidadeNatal = $this->model->pegando_codigo('codigo_cidade','tb_cidade','nome_cidade',$this->input->post('combo_cidade_natal'));
+			$data_responsavel['codigo_cidade_natal'] = $codigoCidadeNatal[0];
+			$codigoRenda = $this->model->pegando_codigo('codigo_renda_familiar','tb_renda_familiar','descricao',$this->input->post('combo_renda'));
+			$data_responsavel['codigo_renda'] = $codigoRenda[0];
+
+			if($this->input->post('passou_pela_uti') == "sim") {
+				$data_paciente['passou_pela_uti'] = 1;
+			}
+			else {
+				$data_paciente['passou_pela_uti'] = 2;
+			}
+			$data_responsavel['pq_passou_pela_uti'] = strtoupper($this->input->post('pq_passou_pela_uti'));
+
 			$this->model->inserir($data_paciente, 'tb_paciente');
 			/* Recebe os dados do formulário (visão) */
-			$data_auxilio['codigo_auxilio_social'] = 1;
-			
-			$data_auxilio['codigo_paciente'] = codigoPaciente('MARITZA SILVA');
-			$data_auxilio['data_inicio_auxilio'] = $this->input->post('data_inicio_auxilio');
-			$data_auxilio['data_termino_auxilio'] = $this->input->post('data_termino_auxilio');
-			$data_auxilio['data_cadastro_auxilio'] = $this->input->post('data_cadastro_auxilio');
-			
-			$data_auxilio['valor'] =  strtoupper($this->input->post('valor'));
-			$data_auxilio['observacao_auxilio'] =  strtoupper($this->input->post('observacao_auxilio'));
-			
-	 		$this->model->inserirAux($data_auxilio,'tb_paciente_auxilio_social');
+			/*-----------------------------------------------------------------------------------------------*/
+			/*---------------------------------------------INICIO HABITOS------------------------------------*/
+			$codigoHabito = $this->model->pegando_codigo('codigo_habito_alimentar','tb_habito_alimentar','descricao',$this->input->post('combo_habito'));
+			if($codigoHabito != NULL){
+				$data_habito['codigo_habito_alimentar'] = $codigoHabito[0];
+				$codigoPaciente = $this->model->codigodoPaciente($this->input->post('nome_paciente'));
+				$data_habito['codigo_paciente'] = $codigoPaciente[0];
+				$data_habito['frequencia_semanal_habito'] = $this->input->post('frequencia_habito');
+				$data_habito['data_cadastro_habito'] = $this->input->post('data_cadastro_habito');
+				$data_habito['observacao_habito'] =  strtoupper($this->input->post('observacao_habito'));
+				
+		 		$this->model->inserirAux($data_habito,'tb_paciente_habito_alimentar_mae');
+		 	}else{
+		 		echo "nulo";
+		 	}
+	 		/*-----------------------------------------------------------------------------------------------*/
+	 		/*---------------------------------------------INICIO SUBSTANCIAS--------------------------------*/
+			$codigoSubstancia = $this->model->pegando_codigo('codigo_substancia','tb_substancia_gestacao','nome_substancia',$this->input->post('combo_substancia'));
+			if($codigoSubstancia != NULL){
+				$data_substancia['codigo_substancia'] = $codigoSubstancia[0];
+				$codigoPaciente = $this->model->codigodoPaciente($this->input->post('nome_paciente'));
+				$data_substancia['codigo_paciente'] = $codigoPaciente[0];
+				$data_substancia['frequencia_semanal_substancia'] = $this->input->post('frequencia_substancia');
+				$data_substancia['data_cadastro_substancia'] = $this->input->post('data_cadastro_substancia');
+				$data_substancia['observacao_substancia'] =  strtoupper($this->input->post('observacao_substancia'));
+				
+		 		$this->model->inserirAux($data_substancia,'tb_paciente_substancia_gestacao_mae');
+		 	}else{
+		 		echo "nulo";
+		 	}
+	 		/*-----------------------------------------------------------------------------------------------*/
+			/*---------------------------------------------INICIO DOENCAS------------------------------------*/
+			$codigoDoenca = $this->model->pegando_codigo('codigo_doenca','tb_doenca','nome_doenca',$this->input->post('combo_doenca'));
+			if($codigoDoenca != NULL){
+				$data_doenca['codigo_doenca'] = $codigoDoenca[0];
+				$codigoPaciente = $this->model->codigodoPaciente($this->input->post('nome_paciente'));
+				$data_doenca['codigo_paciente'] = $codigoPaciente[0];
+				$data_doenca['data_cadastro_doenca'] = $this->input->post('data_cadastro_doenca');
+				$data_doenca['observacao_doenca'] =  strtoupper($this->input->post('observacao_doenca'));
+				
+		 		$this->model->inserirAux($data_doenca,'tb_paciente_doenca_mae');
+		 	}else{
+		 		echo "nulo";
+		 	}
+	 		/*-----------------------------------------------------------------------------------------------*/
+			/*------------------------------------------INICIO AUXILIO SOCIAL--------------------------------*/
+			$codigoAuxilio = $this->model->pegando_codigo('codigo_auxilio_social','tb_auxilio_social','nome_auxilio_social',$this->input->post('combo_auxilio_social'));
+			if($codigoAuxilio != NULL){
+				$data_auxilio['codigo_auxilio_social'] = $codigoAuxilio[0];
+				$codigoPaciente = $this->model->codigodoPaciente($this->input->post('nome_paciente'));
+				$data_auxilio['codigo_paciente'] = $codigoPaciente[0];
+				$data_auxilio['data_inicio_auxilio'] = $this->input->post('data_inicio_auxilio');
+				$data_auxilio['data_termino_auxilio'] = $this->input->post('data_termino_auxilio');
+				$data_auxilio['data_cadastro_auxilio'] = $this->input->post('data_cadastro_auxilio');
+				$data_auxilio['valor'] =  strtoupper($this->input->post('valor'));
+				$data_auxilio['observacao_auxilio'] =  strtoupper($this->input->post('observacao_auxilio'));
+				
+		 		$this->model->inserirAux($data_auxilio,'tb_paciente_auxilio_social');
+		 	}else{
+		 		echo "nulo";
+		 	}
+	 		/*-----------------------------------------------------------------------------------------------*/
 			
 				redirect('paciente');
 			
 			/* Chama a função inserir do modelo */
-			
-
 	}
+
 	function editar($codigo_paciente)  {
 			
 		/* Aqui vamos definir o título da página de edição */
@@ -125,30 +192,21 @@ class paciente extends CI_Controller {
 	}
 
 	function codigoPaciente($nome){
+		echo "Nome:    ".$nome."";
 		$conexao = mysql_connect("localhost", "fisioterapia", "12345"); 
 		mysql_select_db("fisioterapia");
-
-
-		$cont = 0; // contador de controle do laço
-		$query = "SELECT codigo_paciente FROM tb_paciente WHERE nome_paciente = ".$nome."";
+		$query = "SELECT codigo_paciente FROM tb_paciente WHERE nome_paciente = '".$nome."'";
+		echo "".$query."";
 		$consulta = mysql_query($query) or die(mysql_error()); // Executa a query no banco
+		$valores = mysql_fetch_array($consulta);
+		echo "Valor: ".$valores."";
+		return $consulta;
 
-		return $valores;
 		mysql_close($con);
 
 	}
 	
-	function codigoAuxilioSocial($nome){
-		$conexao = mysql_connect("localhost", "fisioterapia", "12345"); 
-		mysql_select_db("fisioterapia");
-		$cont = 0; // contador de controle do laço
-		$query = "SELECT codigo_auxilio_social FROM tb_auxilio_social WHERE nome_auxilio_social = ".$nome."";
-		$consulta = mysql_query($query) or die(mysql_error()); // Executa a query no banco
-		echo "window.alert(oi)";
-		return $valores;
-		mysql_close($con);
-
-	}
+	
 
 	}
 }

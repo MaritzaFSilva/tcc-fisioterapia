@@ -7,9 +7,9 @@ function loadCombo($tabela,$campo){
     mysql_select_db("fisioterapia");
 
 
-    $cont = 0; // contador de controle do laço
+    $cont = 0; // contador de controle do laço 
     $valores = array(); // vetor que recebe todos os dados da consulta
-    $query = "SELECT * FROM ".$tabela."";
+    $query = "SELECT * FROM ".$tabela." ORDER BY ".$campo."";
     $consulta = mysql_query($query) or die(mysql_error()); // Executa a query no banco
 
     //Faz um looping (laço) e cria um vetor com os dados da consulta
@@ -86,7 +86,7 @@ function loadCombo($tabela,$campo){
                 
                 <h1>CADASTRO DE PACIENTE</h1>
                 <div class="panel panel-default" >
-               <div align="center"  class="panel-heading">Dados do Paciente</div>
+                <div align="center"  class="panel-heading">Dados do Paciente</div>
                 <div class="panel-body">
                 <label for="nome_paciente">Nome:</label><br/>
                 <input class='form-control' type="text" name="nome_paciente" placeholder="Nome Completo do Paciente" value="<?php echo set_value('nome_paciente'); ?>"/>
@@ -118,17 +118,24 @@ function loadCombo($tabela,$campo){
                         <th><label for="renda">Renda Familiar:</label></th>                     
                     </tr>
                     <tr>
-                        <td ><input class='form-control' type="date" name="data_nascimento" value="<?php echo set_value('data_nascimento'); ?>" style="width : 180px;"/>
+                        <td ><input class='form-control' type="date" name="data_nascimento" value="<?php echo set_value('data_nascimento'); ?>" style="width : 250px;"/>
                         <div class="error"><?php echo form_error('data_nascimento'); ?></div></td>
-                        <td><select class='form-control' name="combo_cidade_natal" style="width : 180px;"></select></td>
-                        <td><select class='form-control' name="combo_renda" style="width : 180px;"></select></td>
+                        <td><select class='form-control' name="combo_cidade_natal" style="width : 250px;">
+                            <?php
+                            loadCombo('tb_cidade','nome_cidade');
+                    ?>
+                        </select></td>
+                        <td><select class='form-control' name="combo_renda" style="width : 250px;">
+                              <?php
+                            loadCombo('tb_renda_familiar','descricao');
+                    ?></select></td>
                     </tr>
                 </table>
 </br>
 
              <label for="passou_pela_uti">Passou pela UTI?</label><br/>
-                <input type="checkbox" name="passou_pela_uti_sim" value="Bike"><label>Sim   </label>
-                <input type="checkbox" name="passou_pela_uti_nao" value="Car"><label>Não</label></br>
+                <input type="checkbox" name="passou_pela_uti" value="sim"><label>Sim   </label>
+                <input type="checkbox" name="passou_pela_uti" value="nao"><label>Não</label></br>
 
                 <label for="pq_passou_pela_uti">Por que passou pela UTI?</label><br/>
                 <input class='form-control' type="text" name="pq_passou_pela_uti" value="<?php echo set_value('pq_passou_pela_uti'); ?>"/>
