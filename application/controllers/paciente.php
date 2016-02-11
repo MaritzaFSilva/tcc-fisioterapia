@@ -13,14 +13,14 @@ class paciente extends CI_Controller {
     function index() 
     {
         $this->load->helper('form');
-        $data['titulo'] = "CIAF | Responsável";
+        $data['titulo'] = "CIAF | Paciente";
         $data["paciente"] = $this->model->listar();
         $this->load->view('paciente_view.php', $data);
     }
 
     function inserir() {
  
-		/* Carrega a biblioteca do CodeIgniter responsável pela validação dos formulários */
+		/* Carrega a biblioteca do CodeIgniter Paciente pela validação dos formulários */
 		$this->load->library('form_validation');
 	 
 		/* Define as tags onde a mensagem de erro será exibida na página */
@@ -53,7 +53,7 @@ class paciente extends CI_Controller {
 	function editar($codigo_paciente)  {
 			
 		/* Aqui vamos definir o título da página de edição */
-		$data['titulo'] = "CIAF | Editar Doenças";
+		$data['titulo'] = "CIAF | Paciente";
 	 
 		/* Busca os dados da paciente que será editada */
 		$data['dados_paciente'] = $this->model->editar($codigo_paciente);
@@ -64,7 +64,7 @@ class paciente extends CI_Controller {
 	 
 	function atualizar() {
 	 
-		/* Carrega a biblioteca do CodeIgniter responsável pela validação dos formulários */
+		/* Carrega a biblioteca do CodeIgniter Paciente pela validação dos formulários */
 		$this->load->library('form_validation');
 	 
 		/* Define as tags onde a mensagem de erro será exibida na página */

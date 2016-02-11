@@ -107,6 +107,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          <div class="panel panel-default" >
                 <div align="center" class="panel-heading">Habitos Alimentares da Mãe</div>
                 <div class="panel-body">
+
+
+
+
+                    
                     <label for="nome_habito">Nome:</label><br/>
                     <select class='form-control' name="combo_habito" ></select> </br>
 

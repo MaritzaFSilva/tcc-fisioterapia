@@ -17,10 +17,7 @@
         .btn.btn-default{
             margin: 1em auto;
         }
-        .navbar-default{
-            background-color: black;
-            color: #ffffff;
-        }  
+         
         #retorno{
             text-align: right;
         }
