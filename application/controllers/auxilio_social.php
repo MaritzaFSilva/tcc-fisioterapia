@@ -13,7 +13,7 @@ class auxilio_social extends CI_Controller {
     function index() 
     {
         $this->load->helper('form');
-        $data['titulo'] = "CIAF | Editar Auxílio Social";
+        $data['titulo'] = "CIAF | Auxílio Social";
         $data["auxilio_social"] = $this->model->listar();
         $this->load->view('auxilio_social_view.php', $data);
 
@@ -28,7 +28,7 @@ class auxilio_social extends CI_Controller {
 		$this->form_validation->set_error_delimiters('<span>', '</span>');
 	 
 		/* Define as regras para validação */
-		$this->form_validation->set_rules('nome', 'Nome', 'required|max_length[100]');
+		$this->form_validation->set_rules('nome_auxilio_social', 'Nome', 'required|max_length[100]');
 		$this->form_validation->set_rules('origem', 'Origem', 'trim|required|max_length[45]');
 	 
 		/* Executa a validação e caso houver erro chama a função index do controlador */
@@ -37,7 +37,7 @@ class auxilio_social extends CI_Controller {
 		/* Senão, caso sucesso: */	
 		} else {
 			/* Recebe os dados do formulário (visão) */
-			$data['nome'] = strtoupper($this->input->post('nome'));
+			$data['nome_auxilio_social'] = strtoupper($this->input->post('nome_auxilio_social'));
 			$data['origem'] = strtoupper($this->input->post('origem'));
 	 
 	 		/* Carrega o modelo */
@@ -47,7 +47,7 @@ class auxilio_social extends CI_Controller {
 			if ($this->model->inserir($data)) {
 				redirect('auxilio_social');
 			} else {
-				log_message('error', 'Erro ao inserir a auxilio_social.');
+				log_message('error', 'Erro ao inserir Auxílio Social.');
 			}
 		}
 	}
@@ -76,7 +76,7 @@ class auxilio_social extends CI_Controller {
 		   na função inserir do controlador, porém estou mudando a forma de escrita */
 		$validations = array(
 			array(
-				'field' => 'nome',
+				'field' => 'nome_auxilio_social',
 				'label' => 'Nome',
 				'rules' => 'trim|required|max_length[100]'
 			),
@@ -94,14 +94,14 @@ class auxilio_social extends CI_Controller {
 		} else {
 			/* Senão obtém os dados do formulário */
 			$data['codigo_auxilio_social'] = $this->input->post('codigo_auxilio_social');
-			$data['nome'] = strtoupper($this->input->post('nome'));
+			$data['nome_auxilio_social'] = strtoupper($this->input->post('nome_auxilio_social'));
 			$data['origem'] = strtoupper($this->input->post('origem'));
 	 
 			/* Executa a função atualizar do modelo passando como parâmetro os dados obtidos do formulário */
 			if ($this->model->atualizar($data)) {
 				redirect('auxilio_social');
 			} else {
-				log_message('error', 'Erro ao atualizar a auxilio_social.');
+				log_message('error', 'Erro ao atualizar Auxílio Social.');
 			}
 		}
 	}
@@ -112,7 +112,7 @@ class auxilio_social extends CI_Controller {
 		if ($this->model->deletar($codigo_auxilio_social)) {
 			redirect('auxilio_social');
 		} else {
-			log_message('error', 'Erro ao deletar a auxilio_social.');
+			log_message('error', 'Erro ao deletar Auxílio Social.');
 		}
 	}
 }

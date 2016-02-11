@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <a href="welcome"><span class="navbar-brand" href="welcome">CIEF</span></a>
+                    <a href="welcome"><span class="navbar-brand" href="welcome">CIAF</span></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -50,11 +50,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			 <h1>ALTERAÇÃO AUXILIO SOCIAL</h1>
 				<input type="hidden" name="codigo_auxilio_social" value="<?php echo $dados_auxilio_social[0]->codigo_auxilio_social; ?>"/>
 			 
-				<label for="nome">Nome:</label><br/>
-				<input class='form-control' type="text" name="nome" value="<?php echo $dados_auxilio_social[0]->nome; ?>"/>
-				<div class="error"><?php echo form_error('nome'); ?></div>
+				<label for="nome_auxilio_social">Nome:</label><br/>
+				<input class='form-control' type="text" name="nome_auxilio_social" value="<?php echo $dados_auxilio_social[0]->nome_auxilio_social; ?>"/>
+				<div class="error"><?php echo form_error('nome_auxilio_social'); ?></div>
 			 
-				<label for="origem">origem:</label><br/>
+				<label for="origem">Origem:</label><br/>
 				<input class='form-control' type="text" name="origem" value="<?php echo $dados_auxilio_social[0]->origem; ?>"/>
 				<div class="error"><?php echo form_error('origem'); ?></div>
 			 
