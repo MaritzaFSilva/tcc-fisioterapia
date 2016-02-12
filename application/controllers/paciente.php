@@ -45,13 +45,13 @@ class paciente extends CI_Controller {
 				$data_paciente['sexo'] = $this->input->post('sexo_masculino');
 			}
 			$codigoResponsavel = $this->model->pegando_codigo('codigo_responsavel','tb_responsavel','nome_responsavel',$this->input->post('combo_responsavel'));
-			$data_responsavel['codigo_responsavel'] = $codigoResponsavel[0];
-			$data_responsavel['nome_mae'] = strtoupper($this->input->post('nome_mae'));
-			$data_responsavel['data_nascimento'] = strtoupper($this->input->post('data_nascimento'));
+			$data_paciente['codigo_responsavel'] = $codigoResponsavel[0];
+			$data_paciente['nome_mae'] = strtoupper($this->input->post('nome_mae'));
+			$data_paciente['data_nascimento'] = strtoupper($this->input->post('data_nascimento'));
 			$codigoCidadeNatal = $this->model->pegando_codigo('codigo_cidade','tb_cidade','nome_cidade',$this->input->post('combo_cidade_natal'));
-			$data_responsavel['codigo_cidade_natal'] = $codigoCidadeNatal[0];
+			$data_paciente['codigo_cidade_natal'] = $codigoCidadeNatal[0];
 			$codigoRenda = $this->model->pegando_codigo('codigo_renda_familiar','tb_renda_familiar','descricao',$this->input->post('combo_renda'));
-			$data_responsavel['codigo_renda'] = $codigoRenda[0];
+			$data_paciente['codigo_renda'] = $codigoRenda[0];
 
 			if($this->input->post('passou_pela_uti') == "sim") {
 				$data_paciente['passou_pela_uti'] = 1;
@@ -191,21 +191,6 @@ class paciente extends CI_Controller {
 		}
 	}
 
-	function codigoPaciente($nome){
-		echo "Nome:    ".$nome."";
-		$conexao = mysql_connect("localhost", "fisioterapia", "12345"); 
-		mysql_select_db("fisioterapia");
-		$query = "SELECT codigo_paciente FROM tb_paciente WHERE nome_paciente = '".$nome."'";
-		echo "".$query."";
-		$consulta = mysql_query($query) or die(mysql_error()); // Executa a query no banco
-		$valores = mysql_fetch_array($consulta);
-		echo "Valor: ".$valores."";
-		return $consulta;
-
-		mysql_close($con);
-
-	}
-	
 	
 
 	}
