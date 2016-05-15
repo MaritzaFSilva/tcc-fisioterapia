@@ -48,9 +48,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="panel-body">
                 <?php echo form_open('auxilio_social/inserir', 'codigo_auxilio_social="form-auxilio_social"'); ?>
                 <h1>CADASTRO AUXÍLIO SOCIAL</h1>
-                <label for="nome_auxilio_social">Nome:</label></br>
-                <input class='form-control' type="text" name="nome_auxilio_social" value="<?php echo set_value('nome_auxilio_social'); ?>"/>
-                <div class="error"><?php echo form_error('nome_auxilio_social'); ?></div>
+                <label for="nome">Nome:</label></br>
+                <input class='form-control' type="text" name="nome" value="<?php echo set_value('nome'); ?>"/>
+                <div class="error"><?php echo form_error('nome'); ?></div>
                 <label for="origem">Origem:</label>
                 <input class='form-control' type="text" name="origem" value="<?php echo set_value('origem'); ?>"/>
                 <div class="error"><?php echo form_error('origem'); ?></div>
@@ -65,7 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <li class="list-group-item">
                             <a title="Deletar" href="<?php echo base_url() . 'auxilio_social/deletar/' . $auxilio_social->codigo_auxilio_social; ?>" onclick="return confirm('Confirma a exclusão deste registro?')"><img src="<?php echo base_url(); ?>assets/img/lixo.png"/></a>
                             <span> - </span>
-                            <a title="Editar" href="<?php echo base_url() . 'auxilio_social/editar/' . $auxilio_social->codigo_auxilio_social; ?>"><?php echo $auxilio_social->nome_auxilio_social; ?></a>
+                            <a title="Editar" href="<?php echo base_url() . 'auxilio_social/editar/' . $auxilio_social->codigo_auxilio_social; ?>"><?php echo $auxilio_social->nome; ?></a>
                             <span> - </span>
                             <span><?php echo $auxilio_social->origem; ?></span>
 

@@ -27,7 +27,7 @@ class grau_parentesco extends CI_Controller {
 		$this->form_validation->set_error_delimiters('<span>', '</span>');
 	 
 		/* Define as regras para validação */
-		$this->form_validation->set_rules('nome', 'Nome', 'required|max_length[40]');
+		$this->form_validation->set_rules('descricao', 'Descrição', 'required|max_length[40]');
 	 
 		/* Executa a validação e caso houver erro chama a função index do controlador */
 		if ($this->form_validation->run() === FALSE) {
@@ -35,7 +35,7 @@ class grau_parentesco extends CI_Controller {
 		/* Senão, caso sucesso: */	
 		} else {
 			/* Recebe os dados do formulário (visão) */
-			$data['nome'] = $this->input->post('nome');
+			$data['descricao'] = $this->input->post('descricao');
 	 
 	 		/* Carrega o modelo */
 			
@@ -72,8 +72,8 @@ class grau_parentesco extends CI_Controller {
 		   na função inserir do controlador, porém estou mudando a forma de escrita */
 		$validations = array(
 			array(
-				'field' => 'nome',
-				'label' => 'Nome',
+				'field' => 'descricao',
+				'label' => 'descricao',
 				'rules' => 'trim|required|max_length[40]'
 			)
 		);
@@ -85,7 +85,7 @@ class grau_parentesco extends CI_Controller {
 		} else {
 			/* Senão obtém os dados do formulário */
 			$data['codigo_grau_parentesco'] = $this->input->post('codigo_grau_parentesco');
-			$data['nome'] = ucwords($this->input->post('nome'));
+			$data['descricao'] = ucwords($this->input->post('descricao'));
 	 
 			/* Executa a função atualizar do modelo passando como parâmetro os dados obtidos do formulário */
 			if ($this->model->atualizar($data)) {

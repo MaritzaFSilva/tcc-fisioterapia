@@ -27,9 +27,9 @@ class doenca extends CI_Controller {
 		$this->form_validation->set_error_delimiters('<span>', '</span>');
 	 
 		/* Define as regras para validação */
-		$this->form_validation->set_rules('nome_doenca', 'Nome', 'required|max_length[100]');
-		$this->form_validation->set_rules('orientacao', 'Orientação', 'trim|required|max_length[100]');
-		$this->form_validation->set_rules('observacao', 'Observação', 'trim|required|max_length[255]');
+		$this->form_validation->set_rules('nome', 'Nome', 'required|max_length[100]');
+		$this->form_validation->set_rules('orientacoes', 'Orientação', 'trim|required|max_length[100]');
+		$this->form_validation->set_rules('observacoes', 'Observação', 'trim|required|max_length[255]');
 	 
 		/* Executa a validação e caso houver erro chama a função index do controlador */
 		if ($this->form_validation->run() === FALSE) {
@@ -37,9 +37,9 @@ class doenca extends CI_Controller {
 		/* Senão, caso sucesso: */	
 		} else {
 			/* Recebe os dados do formulário (visão) */
-			$data['nome_doenca'] = strtoupper($this->input->post('nome_doenca'));
-			$data['orientacao'] = strtoupper($this->input->post('orientacao'));
-			$data['observacao'] = $this->input->post('observacao');
+			$data['nome'] = strtoupper($this->input->post('nome'));
+			$data['orientacoes'] = strtoupper($this->input->post('orientacoes'));
+			$data['observacoes'] = $this->input->post('observacoes');
 	 
 	 		/* Carrega o modelo */
 			
@@ -76,17 +76,17 @@ class doenca extends CI_Controller {
 		   na função inserir do controlador, porém estou mudando a forma de escrita */
 		$validations = array(
 			array(
-				'field' => 'nome_doenca',
+				'field' => 'nome',
 				'label' => 'Nome',
 				'rules' => 'trim|required|max_length[100]'
 			),
 			array(
-				'field' => 'orientacao',
+				'field' => 'orientacoes',
 				'label' => 'Orientação',
 				'rules' => 'trim|required|max_length[100]'
 			),
 			array(
-				'field' => 'observacao',
+				'field' => 'observacoes',
 				'label' => 'Observação',
 				'rules' => 'trim|required|max_length[255]'
 			)
@@ -99,9 +99,9 @@ class doenca extends CI_Controller {
 		} else {
 			/* Senão obtém os dados do formulário */
 			$data['codigo_doenca'] = $this->input->post('codigo_doenca');
-			$data['nome_doenca'] = strtoupper($this->input->post('nome_doenca'));
-			$data['orientacao'] = strtoupper($this->input->post('orientacao'));
-			$data['observacao'] = $this->input->post('observacao');
+			$data['nome'] = strtoupper($this->input->post('nome'));
+			$data['orientacoes'] = strtoupper($this->input->post('orientacoes'));
+			$data['observacoes'] = $this->input->post('observacoes');
 	 
 			/* Executa a função atualizar do modelo passando como parâmetro os dados obtidos do formulário */
 			if ($this->model->atualizar($data)) {

@@ -48,9 +48,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="panel-body">
     <?php echo form_open('substancia_gestacao/inserir', 'codigo_substancia="form-substancia_gestacao"'); ?>
     <h1>SUBSTÂNCIAS DA GESTAÇÃO DA MÃE</h1>
-    <label for="nome_substancia">Nome:</label><br/>
-    <input class='form-control' type="text" name="nome_substancia" value="<?php echo set_value('nome_substancia'); ?>"/>
-    <div class="error"><?php echo form_error('nome_substancia'); ?></div>
+    <label for="nome">Nome:</label><br/>
+    <input class='form-control' type="text" name="nome" value="<?php echo set_value('nome'); ?>"/>
+    <div class="error"><?php echo form_error('nome'); ?></div>
     <input class='btn btn-default' type="submit" name="cadastrar" value="Cadastrar" />
  
     <?php echo form_close(); ?>
@@ -62,7 +62,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <li class="list-group-item">
             <a title="Deletar" href="<?php echo base_url() . 'substancia_gestacao/deletar/' . $substancia->codigo_substancia; ?>" onclick="return confirm('Confirma a exclusão deste registro?')"><img src="<?php echo base_url(); ?>assets/img/lixo.png"/></a>
             <span> - </span>
-            <a title="Editar" href="<?php echo base_url() . 'substancia_gestacao/editar/' . $substancia->codigo_substancia; ?>"><?php echo $substancia->nome_substancia; ?></a>
+            <a title="Editar" href="<?php echo base_url() . 'substancia_gestacao/editar/' . $substancia->codigo_substancia; ?>"><?php echo $substancia->nome; ?></a>
           
             
         </li>

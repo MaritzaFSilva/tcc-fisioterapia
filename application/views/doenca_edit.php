@@ -50,17 +50,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  
 	<input type="hidden" name="codigo_doenca" value="<?php echo $dados_doenca[0]->codigo_doenca; ?>"/>
  
-	<label for="nome_doenca">Nome:</label><br/>
-	<input class='form-control' type="text" name="nome_doenca" value="<?php echo $dados_doenca[0]->nome_doenca; ?>"/>
-	<div class="error"><?php echo form_error('nome_doenca'); ?></div>
+	<label for="nome">Nome:</label><br/>
+	<input class='form-control' type="text" name="nome" value="<?php echo $dados_doenca[0]->nome; ?>"/>
+	<div class="error"><?php echo form_error('nome'); ?></div>
  
-	<label for="orientacao">Orientação:</label><br/>
-	<input class='form-control' type="text" name="orientacao" value="<?php echo $dados_doenca[0]->orientacao; ?>"/>
-	<div class="error"><?php echo form_error('orientacao'); ?></div>
+	<label for="orientacoes">Orientação:</label><br/>
+	<input class='form-control' type="text" name="orientacoes" value="<?php echo $dados_doenca[0]->orientacoes; ?>"/>
+	<div class="error"><?php echo form_error('orientacoes'); ?></div>
  
- 	<label for="observacao">Observação:</label><br/>
-	<input class='form-control' type="textarea" name="observacao" value="<?php echo $dados_doenca[0]->observacao; ?>"/>
-	<div class="error"><?php echo form_error('observacao'); ?></div>
+ 	<label for="observacoes">Observação:</label><br/>
+	<input class='form-control' type="textarea" name="observacoes" value="<?php echo $dados_doenca[0]->observacoes; ?>"/>
+	<div class="error"><?php echo form_error('observacoes'); ?></div>
 
 	<input class='btn btn-default'type="submit" name="atualizar" value="Atualizar" />
  

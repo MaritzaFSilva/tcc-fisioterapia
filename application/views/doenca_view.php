@@ -48,15 +48,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="panel-body">
     <?php echo form_open('doenca/inserir', 'codigo_doenca="form-doenca"'); ?>
     <h1>DOENÇAS</h1>
-    <label for="nome_doenca">Nome:</label><br/>
-    <input class='form-control' type="text" name="nome_doenca" value="<?php echo set_value('nome_doenca'); ?>"/>
-    <div class="error"><?php echo form_error('nome_doenca'); ?></div>
-    <label for="orientacao">Orientacao:</label><br/>
-    <input class='form-control' type="text" name="orientacao" value="<?php echo set_value('orientacao'); ?>"/>
-    <div class="error"><?php echo form_error('orientacao'); ?></div>
-    <label for="observacao">Observações:</label><br/>
-    <input class='form-control' type="textarea" name="observacao" value="<?php echo set_value('observacao'); ?>"/>
-    <div class="error"><?php echo form_error('observacao'); ?></div>
+    <label for="nome">Nome:</label><br/>
+    <input class='form-control' type="text" name="nome" value="<?php echo set_value('nome'); ?>"/>
+    <div class="error"><?php echo form_error('nome'); ?></div>
+    <label for="orientacoes">orientacoes:</label><br/>
+    <input class='form-control' type="text" name="orientacoes" value="<?php echo set_value('orientacoes'); ?>"/>
+    <div class="error"><?php echo form_error('orientacoes'); ?></div>
+    <label for="observacoes">Observações:</label><br/>
+    <input class='form-control' type="textarea" name="observacoes" value="<?php echo set_value('observacoes'); ?>"/>
+    <div class="error"><?php echo form_error('observacoes'); ?></div>
     <input class='btn btn-default' type="submit" name="cadastrar" value="Cadastrar" />
  
     <?php echo form_close(); ?>
@@ -68,11 +68,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <li class="list-group-item">
             <a title="Deletar" href="<?php echo base_url() . 'doenca/deletar/' . $doenca->codigo_doenca; ?>" onclick="return confirm('Confirma a exclusão deste registro?')"><img src="<?php echo base_url(); ?>assets/img/lixo.png"/></a>
             <span> - </span>
-            <a title="Editar" href="<?php echo base_url() . 'doenca/editar/' . $doenca->codigo_doenca; ?>"><?php echo $doenca->nome_doenca; ?></a>
+            <a title="Editar" href="<?php echo base_url() . 'doenca/editar/' . $doenca->codigo_doenca; ?>"><?php echo $doenca->nome; ?></a>
             <span> - </span>
-            <span><?php echo $doenca->orientacao; ?></span>
+            <span><?php echo $doenca->orientacoes; ?></span>
             <span> - </span>
-            <span><?php echo $doenca->observacao; ?></span>
+            <span><?php echo $doenca->observacoes; ?></span>
             
         </li>
         <?php endforeach ?>

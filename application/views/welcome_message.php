@@ -1,4 +1,11 @@
 <?php
+/* VISUALIZAR DADOS DA SESSÃO
+echo"<pre>";   
+ print_r($this->session->userdata());
+echo"</pre>";  */
+$user = $this->session->userdata();
+//echo $privilegio;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
@@ -24,9 +31,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         
-                        <li><a href="#">OOI</a></li>
+                        <li><a href="login">Área Restrita</a></li>
+                        <li><a href="<?= base_url()?>login/logout">Logout</a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Área Restrita <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CADASTROS<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="substancia_gestacao">Cadastro Substância Gestação</a></li>
                                 <li><a href="auxilio_social">Cadastro Auxilio Social</a></li>
@@ -46,10 +54,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </nav>
         <div class="panel panel-default">
             <div class="panel-body">
+                <?php 
+if(isset($user['codigo_privilegio'])){
+                echo $user['codigo_privilegio'];}?>
+
                 <p align="center">INSTITUTO FEDERAL DO PARANÁ - CAMPUS PARANAGUÁ</p>
-                <p align="center">CIAF - SISTEMA PARA O CONTROLE DE INFORMAÇÕES NA ÁREA DE FISIOTERAPIA</p>
-                <p align="center">DISCIPLINA : DESENVOLVIMENTO WEB</p>
-                <p align="center">PROFESSOR: DIEGO STIEHL</p>
+                <p align="center">CIAF - CONTROLE DE INFORMAÇÕES NA ÁREA DE FISIOTERAPIA</p>
+                                <p align="center">ORIENTADOR: WAGNER R. WEINERT</p>
+                <p align="center">COORIENTADOR: DIEGO STIEHL</p>
   </div>
   <div class="panel-footer">Aline Sieczko e Maritza Silva &copy 2015</div>
 </div>

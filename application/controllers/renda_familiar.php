@@ -48,13 +48,13 @@ class renda_familiar extends CI_Controller {
 			}
 		}
 	}
-	function editar($codigo_renda_familiar)  {
+	function editar($codigo_renda)  {
 			
 		/* Aqui vamos definir o título da página de edição */
 		$data['titulo'] = "CIAF | Editar Renda Familiar";
 	 
 		/* Busca os dados da renda que será editada */
-		$data['dados_renda'] = $this->model->editar($codigo_renda_familiar);
+		$data['dados_renda'] = $this->model->editar($codigo_renda);
 	 
 	 	/* Carrega a página de edição com os dados da renda */
 		$this->load->view('renda_familiar_edit', $data);
@@ -81,10 +81,10 @@ class renda_familiar extends CI_Controller {
 		
 		/* Executa a validação e caso houver erro chama a função editar do controlador novamente */
 		if ($this->form_validation->run() === FALSE) {
-	            $this->editar($this->input->post('codigo_renda_familiar'));
+	            $this->editar($this->input->post('codigo_renda'));
 		} else {
 			/* Senão obtém os dados do formulário */
-			$data['codigo_renda_familiar'] = $this->input->post('codigo_renda_familiar');
+			$data['codigo_renda'] = $this->input->post('codigo_renda');
 			$data['descricao'] = strtoupper($this->input->post('descricao'));
 	 
 			/* Executa a função atualizar do modelo passando como parâmetro os dados obtidos do formulário */
@@ -96,10 +96,10 @@ class renda_familiar extends CI_Controller {
 		}
 	}
 	 
-	function deletar($codigo_renda_familiar) {
+	function deletar($codigo_renda) {
 	 
 		/* Executa a função deletar do modelo passando como parâmetro o id da renda */
-		if ($this->model->deletar($codigo_renda_familiar)) {
+		if ($this->model->deletar($codigo_renda)) {
 			redirect('renda_familiar');
 		} else {
 			log_message('error', 'Erro ao deletar a renda.');

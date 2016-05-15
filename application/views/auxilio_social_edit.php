@@ -50,9 +50,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			 <h1>ALTERAÇÃO AUXILIO SOCIAL</h1>
 				<input type="hidden" name="codigo_auxilio_social" value="<?php echo $dados_auxilio_social[0]->codigo_auxilio_social; ?>"/>
 			 
-				<label for="nome_auxilio_social">Nome:</label><br/>
-				<input class='form-control' type="text" name="nome_auxilio_social" value="<?php echo $dados_auxilio_social[0]->nome_auxilio_social; ?>"/>
-				<div class="error"><?php echo form_error('nome_auxilio_social'); ?></div>
+				<label for="nome">Nome:</label><br/>
+				<input class='form-control' type="text" name="nome" value="<?php echo $dados_auxilio_social[0]->nome; ?>"/>
+				<div class="error"><?php echo form_error('nome'); ?></div>
 			 
 				<label for="origem">Origem:</label><br/>
 				<input class='form-control' type="text" name="origem" value="<?php echo $dados_auxilio_social[0]->origem; ?>"/>

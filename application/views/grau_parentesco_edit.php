@@ -50,9 +50,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  <h1>GRAU PARENTESCO</h1>
 	<input type="hidden" name="codigo_grau_parentesco" value="<?php echo $dados_grau[0]->codigo_grau_parentesco; ?>"/>
  
-	<label for="nome">Nome:</label><br/>
-	<input class='form-control'  type="text" name="nome" value="<?php echo $dados_grau[0]->nome; ?>"/>
-	<div class="error"><?php echo form_error('nome'); ?></div>
+	<label for="descricao">Descrição:</label><br/>
+	<input class='form-control'  type="text" name="descricao" value="<?php echo $dados_grau[0]->descricao; ?>"/>
+	<div class="error"><?php echo form_error('descricao'); ?></div>
  
 	
  

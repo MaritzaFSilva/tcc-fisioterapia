@@ -46,7 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </nav>
         <div class="panel panel-default">
             <div class="panel-body">
-    <?php echo form_open('renda_familiar/inserir', 'codigo_renda_familiar="form-renda_familiar"'); ?>
+    <?php echo form_open('renda_familiar/inserir', 'codigo_renda="form-renda_familiar"'); ?>
     <h1>RENDA FAMILIAR</h1>
     <label for="descricao">Descrição:</label><br/>
     <input class='form-control' type="text" name="descricao" value="<?php echo set_value('descricao'); ?>"/>
@@ -60,9 +60,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <ul>
         <?php foreach($renda_familiar as $renda): ?>
         <li>
-            <a title="Deletar" href="<?php echo base_url() . 'renda_familiar/deletar/' . $renda->codigo_renda_familiar; ?>" onclick="return confirm('Confirma a exclusão deste registro?')"><img src="<?php echo base_url(); ?>assets/img/lixo.png"/></a>
+            <a title="Deletar" href="<?php echo base_url() . 'renda_familiar/deletar/' . $renda->codigo_renda; ?>" onclick="return confirm('Confirma a exclusão deste registro?')"><img src="<?php echo base_url(); ?>assets/img/lixo.png"/></a>
             <span> - </span>
-            <a title="Editar" href="<?php echo base_url() . 'renda_familiar/editar/' . $renda->codigo_renda_familiar; ?>"><?php echo $renda->descricao; ?></a>
+            <a title="Editar" href="<?php echo base_url() . 'renda_familiar/editar/' . $renda->codigo_renda; ?>"><?php echo $renda->descricao; ?></a>
           
             
         </li>

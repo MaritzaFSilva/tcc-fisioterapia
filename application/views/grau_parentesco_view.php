@@ -48,9 +48,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="panel-body">
     <?php echo form_open('grau_parentesco/inserir', 'codigo_grau_parentesco="form-grau_parentesco"'); ?>
     <h1>GRAU PARENTESCO</h1>
-    <label for="nome">Nome:</label><br/>
-    <input class='form-control'  type="text" name="nome" value="<?php echo set_value('nome'); ?>"/>
-    <div class="error"><?php echo form_error('nome'); ?></div>
+    <label for="descricao">descricao:</label><br/>
+    <input class='form-control'  type="text" name="descricao" value="<?php echo set_value('descricao'); ?>"/>
+    <div class="error"><?php echo form_error('descricao'); ?></div>
     <input class='btn btn-default' type="submit" name="cadastrar" value="Cadastrar" />
  
     <?php echo form_close(); ?>
@@ -62,7 +62,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <li>
             <a title="Deletar" href="<?php echo base_url() . 'grau_parentesco/deletar/' . $grau_parentesco->codigo_grau_parentesco; ?>" onclick="return confirm('Confirma a exclusão deste registro?')"><img src="<?php echo base_url(); ?>assets/img/lixo.png"/></a>
             <span> - </span>
-            <a title="Editar" href="<?php echo base_url() . 'grau_parentesco/editar/' . $grau_parentesco->codigo_grau_parentesco; ?>"><?php echo $grau_parentesco->nome; ?></a>
+            <a title="Editar" href="<?php echo base_url() . 'grau_parentesco/editar/' . $grau_parentesco->codigo_grau_parentesco; ?>"><?php echo $grau_parentesco->descricao; ?></a>
           
             
         </li>

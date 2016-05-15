@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         
-                        <li><a href="#">OOI</a></li>
+                        <li><a href="login">Área Restrita</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Área Restrita <span class="caret"></span></a>
                             <ul class="dropdown-menu">
@@ -46,22 +46,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </nav>
         <div class="panel panel-default">
             <div class="panel-body">
-	<?php echo form_open('renda_familiar/atualizar', 'codigo_renda="form-renda_familiar"'); ?>
-<h1>RENDA FAMILIAR</h1> 
-	<input type="hidden" name="codigo_renda" value="<?php echo $dados_renda[0]->codigo_renda; ?>"/>
- 
-	<label for="descricao">Descrição:</label><br/>
-	<input class='form-control' type="text" name="descricao" value="<?php echo $dados_renda[0]->descricao; ?>"/>
-	<div class="error"><?php echo form_error('descricao'); ?></div>
- 
-	
- 
-	<input class='btn btn-default'type="submit" name="atualizar" value="Atualizar" />
- 
-	<?php echo form_close(); ?>
+				<form method="POST" action="<?= base_url() ?>login/validaLogin">
+			 
+			
+			 <h2 class="form-signin-heading"> 
+                <img src='assets/img/autenticar.png'/> 
+                &nbsp;&nbsp;Autenticação
+            </h2>
+				<label for="login">Usuário:</label><br/>
+				<input class='form-control' type="text" name="login" />
+				
+			 
+				<label for="senha">Senha:</label><br/>
+				<input class='form-control' type="password" name="senha" />
+                <?php  if(isset($error) && $error) { echo '<div class="alert alert-warning" role="alert"class="error">'?><?php  echo "Login Inválido";} ?></div>
+			 
+				<input class='btn btn-default'  type="submit" name="atualizar" value="Entrar" />
+			 
+				</form>
 
-	<div id="body">
-                    <p><a class='btn btn-default' href="../../renda_familiar"> Retornar</a></p>
+	 			<div id="body">
+                    <p><a class='btn btn-default' href="../../welcome_message.php"> Retornar</a></p>
                 </div>
             </div>
             <div class="panel-footer">

@@ -28,7 +28,7 @@ class auxilio_social extends CI_Controller {
 		$this->form_validation->set_error_delimiters('<span>', '</span>');
 	 
 		/* Define as regras para validação */
-		$this->form_validation->set_rules('nome_auxilio_social', 'Nome', 'required|max_length[100]');
+		$this->form_validation->set_rules('nome', 'Nome', 'required|max_length[100]');
 		$this->form_validation->set_rules('origem', 'Origem', 'trim|required|max_length[45]');
 	 
 		/* Executa a validação e caso houver erro chama a função index do controlador */
@@ -37,8 +37,8 @@ class auxilio_social extends CI_Controller {
 		/* Senão, caso sucesso: */	
 		} else {
 			/* Recebe os dados do formulário (visão) */
-			$data['nome_auxilio_social'] = strtoupper($this->input->post('nome_auxilio_social'));
-			$data['origem'] = strtoupper($this->input->post('origem'));
+			$data['nome'] = $this->input->post('nome');
+			$data['origem'] = $this->input->post('origem');
 	 
 	 		/* Carrega o modelo */
 			
@@ -76,7 +76,7 @@ class auxilio_social extends CI_Controller {
 		   na função inserir do controlador, porém estou mudando a forma de escrita */
 		$validations = array(
 			array(
-				'field' => 'nome_auxilio_social',
+				'field' => 'nome',
 				'label' => 'Nome',
 				'rules' => 'trim|required|max_length[100]'
 			),
@@ -94,7 +94,7 @@ class auxilio_social extends CI_Controller {
 		} else {
 			/* Senão obtém os dados do formulário */
 			$data['codigo_auxilio_social'] = $this->input->post('codigo_auxilio_social');
-			$data['nome_auxilio_social'] = strtoupper($this->input->post('nome_auxilio_social'));
+			$data['nome'] = strtoupper($this->input->post('nome'));
 			$data['origem'] = strtoupper($this->input->post('origem'));
 	 
 			/* Executa a função atualizar do modelo passando como parâmetro os dados obtidos do formulário */

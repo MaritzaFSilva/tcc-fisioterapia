@@ -7,27 +7,27 @@ class substancia_gestacao_model extends CI_Model {
     }
  
     function inserir($data) {
-        return $this->db->insert('tb_substancia_gestacao', $data);
+        return $this->db->insert('tb_substancia_gestacao_mae', $data);
     }
  
     function listar() {
-        $query = $this->db->get('tb_substancia_gestacao');
+        $query = $this->db->get('tb_substancia_gestacao_mae');
         return $query->result();
     }
     function editar($codigo_substancia) {
     $this->db->where('codigo_substancia', $codigo_substancia);
-    $query = $this->db->get('tb_substancia_gestacao');
+    $query = $this->db->get('tb_substancia_gestacao_mae');
     return $query->result();
     }
      
     function atualizar($data) {
         $this->db->where('codigo_substancia', $data['codigo_substancia']);
         $this->db->set($data);
-        return $this->db->update('tb_substancia_gestacao');
+        return $this->db->update('tb_substancia_gestacao_mae');
     }
      
     function deletar($codigo_substancia) {
         $this->db->where('codigo_substancia', $codigo_substancia);
-        return $this->db->delete('tb_substancia_gestacao');
+        return $this->db->delete('tb_substancia_gestacao_mae');
     }
 }
