@@ -1,23 +1,31 @@
 .panel-footer{
-            text-align: right;
-        }
-        
-        body{
-            background-color: rgb(255,206,231);
-        }
-        .panel-default{
-            width: 80%;
-            margin: 0 auto;
-        }
-                h1{
-            text-align: center;
-            font-size: 12pt;
-            font-weight: bold;
-        }
-        .btn.btn-default{
-            margin: 1em auto;
-        }
-         
-        #retorno{
-            text-align: right;
-        }
+    text-align: right;
+}
+
+body{
+    background-color: rgb(255,228,225);
+    //255,206,231255,228,225
+}
+.panel-default{
+    width: 80%;
+    margin: 0 auto;
+}
+#login{
+    width: 30%;
+    margin: 0 auto;
+}
+
+
+h1{
+    text-align: center;
+    font-size: 12pt;
+    font-weight: bold;
+}
+.btn.btn-default{
+    margin: 1em auto;
+}
+
+#retorno{
+    text-align: right;
+}
+
