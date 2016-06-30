@@ -37,8 +37,8 @@ class doenca extends CI_Controller {
 		/* Senão, caso sucesso: */	
 		} else {
 			/* Recebe os dados do formulário (visão) */
-			$data['nome'] = strtoupper($this->input->post('nome'));
-			$data['orientacoes'] = strtoupper($this->input->post('orientacoes'));
+			$data['nome'] = $this->input->post('nome');
+			$data['orientacoes'] = $this->input->post('orientacoes');
 			$data['observacoes'] = $this->input->post('observacoes');
 	 
 	 		/* Carrega o modelo */
@@ -99,8 +99,8 @@ class doenca extends CI_Controller {
 		} else {
 			/* Senão obtém os dados do formulário */
 			$data['codigo_doenca'] = $this->input->post('codigo_doenca');
-			$data['nome'] = strtoupper($this->input->post('nome'));
-			$data['orientacoes'] = strtoupper($this->input->post('orientacoes'));
+			$data['nome'] = $this->input->post('nome');
+			$data['orientacoes'] = $this->input->post('orientacoes');
 			$data['observacoes'] = $this->input->post('observacoes');
 	 
 			/* Executa a função atualizar do modelo passando como parâmetro os dados obtidos do formulário */

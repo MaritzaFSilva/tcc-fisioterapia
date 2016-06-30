@@ -58,12 +58,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<input class='form-control' type="text" name="cpf_paciente" value="<?php echo $dados_paciente[0]->cpf_paciente; ?>"/>
 	<div class="error"><?php echo form_error('cpf_paciente'); ?></div>
 
-	<input type="submit" name="atualizar" value="Atualizar" />
+	<input type="submit" name="atualizar" value="b_atualizar" />
  
 	<?php echo form_close(); ?>
 
 	 			<div id="body">
-                    <p><a class='btn btn-default' href="../../paciente"> Retornar</a></p>
+                    <p><a class='btn btn-default' href="../../paciente">b_retornar</a></p>
                 </div>
             </div>
             <div class="panel-footer">

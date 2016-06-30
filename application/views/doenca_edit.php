@@ -69,7 +69,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <!-- ------------------------------------- CORPO DA PÁGINA ------------------------------------- -->
 
                 <div class="panel panel-default">
-                    <div align="center"  class="panel-heading"><h1>AUXÍLIO SOCIAL</h1></div>
+                    <div align="center"  class="panel-heading"><h1>DOENÇAS</h1></div>
                     <div class="panel-body">
                         <?php echo form_open('doenca/atualizar', 'codigo_doenca="form-doenca"'); ?>
 
@@ -87,12 +87,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <input class='form-control' type="textarea" name="observacoes" value="<?php echo $dados_doenca[0]->observacoes; ?>"/>
                         <div class="error"><?php echo form_error('observacoes'); ?></div>
 
-                        <input class='btn btn-default'type="submit" name="atualizar" value="Atualizar" />
+                        <input class='btn btn-default'type="submit" name="atualizar" value="b_atualizar" />
 
                         <?php echo form_close(); ?>
                         <!-- Fim Lista -->
                         <div id="body">
-                            <p><a class='btn btn-default'href="../../doenca"> Retornar</a></p>
+                            <p><a class='btn btn-default'href="../../doenca">b_retornar</a></p>
                         </div>
                     </div>
                     <div class="panel-footer">

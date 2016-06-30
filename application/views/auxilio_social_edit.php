@@ -81,13 +81,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <input class='form-control' type="text" name="origem" value="<?php echo $dados_auxilio_social[0]->origem; ?>"/>
                         <div class="error"><?php echo form_error('origem'); ?></div>
 
-                        <input class='btn btn-default'  type="submit" name="atualizar" value="Atualizar" />
+                        <input class='btn btn-default'  type="submit" name="atualizar" value="b_atualizar" />
 
                         <?php echo form_close(); ?>
 
 
                         <div id="body">
-                            <p><a class='btn btn-default' href="../../auxilio_social"> Retornar</a></p>
+                            <p><a class='btn btn-default' href="../../auxilio_social">b_retornar</a></p>
                         </div>
                     </div>
                     <div class="panel-footer">

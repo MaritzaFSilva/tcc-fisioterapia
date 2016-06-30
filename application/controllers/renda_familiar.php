@@ -35,7 +35,7 @@ class renda_familiar extends CI_Controller {
 		/* Senão, caso sucesso: */	
 		} else {
 			/* Recebe os dados do formulário (visão) */
-			$data['descricao'] = strtoupper($this->input->post('descricao'));
+			$data['descricao'] = $this->input->post('descricao');
 	 
 	 		/* Carrega o modelo */
 			
@@ -85,7 +85,7 @@ class renda_familiar extends CI_Controller {
 		} else {
 			/* Senão obtém os dados do formulário */
 			$data['codigo_renda'] = $this->input->post('codigo_renda');
-			$data['descricao'] = strtoupper($this->input->post('descricao'));
+			$data['descricao'] = $this->input->post('descricao');
 	 
 			/* Executa a função atualizar do modelo passando como parâmetro os dados obtidos do formulário */
 			if ($this->model->atualizar($data)) {

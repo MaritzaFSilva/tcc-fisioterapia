@@ -80,7 +80,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <label for="origem">Origem:</label>
                         <input class='form-control' type="text" name="origem" value="<?php echo set_value('origem'); ?>"/>
                         <div class="error"><?php echo form_error('origem'); ?></div>
-                        <input class='btn btn-default' type="submit" name="cadastrar" value="Cadastrar" />
+                        <input class='btn btn-default' type="submit" name="cadastrar" value="b_cadastrar" />
 
                         <?php echo form_close(); ?>
 
@@ -101,7 +101,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                         <!-- Fim Lista -->
                         <div id="body">
-                            <p><a class='btn btn-default'href="welcome"> Retornar</a></p>
+                            <p><a class='btn btn-default'href="welcome">b_retornar</a></p>
                         </div>
                     </div>
                     <div class="panel-footer">

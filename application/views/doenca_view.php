@@ -69,7 +69,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <!-- ------------------------------------- CORPO DA PÁGINA ------------------------------------- -->
 
                 <div class="panel panel-default">
-                    <div align="center"  class="panel-heading"><h1>AUXÍLIO SOCIAL</h1></div>
+                    <div align="center"  class="panel-heading"><h1>DOENÇAS</h1></div>
                     <div class="panel-body">
                         <?php echo form_open('doenca/inserir', 'codigo_doenca="form-doenca"'); ?>
                         <label for="nome">Nome:</label><br/>
@@ -81,7 +81,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <label for="observacoes">Observações:</label><br/>
                         <input class='form-control' type="textarea" name="observacoes" value="<?php echo set_value('observacoes'); ?>"/>
                         <div class="error"><?php echo form_error('observacoes'); ?></div>
-                        <input class='btn btn-default' type="submit" name="cadastrar" value="Cadastrar" />
+                        <input class='btn btn-default' type="submit" name="cadastrar" value="b_cadastrar" />
                         <?php echo form_close(); ?>
                         <!-- Lista as doenca Cadastradas -->
                         <div id="grid-doenca">
@@ -103,7 +103,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                         <!-- Fim Lista -->
                         <div id="body">
-                            <p><a class='btn btn-default'href="welcome"> Retornar</a></p>
+                            <p><a class='btn btn-default'href="welcome">b_retornar</a></p>
                         </div>
                     </div>
                     <div class="panel-footer">
@@ -180,10 +180,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <span >VOCÊ NÃO TEM PERMISSÃO PARA ACESSAR ESTA PÁGINA</span>
                 </div>
             </div>
-        </div>
-        <?php
-    }
-    ?>
-</body>
+
+            <?php
+        }
+        ?>
+    </body>
 
 </html>

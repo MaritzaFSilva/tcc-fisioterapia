@@ -79,7 +79,7 @@ function loadCombo($tabela, $campo) {
         </nav>
         <div class="panel panel-default">
             <div class="panel-body">
-<?php echo form_open('paciente/inserir', 'codigo_paciente="form-paciente"'); ?>
+                <?php echo form_open('paciente/inserir', 'codigo_paciente="form-paciente"'); ?>
 
                 <h1>CADASTRO DE PACIENTE</h1>
                 <div class="panel panel-default" >
@@ -100,9 +100,9 @@ function loadCombo($tabela, $campo) {
 
                         <label for="nome_responsavel">Nome Responsável:</label>
                         <select class='form-control' placeholder="Nome Completo do Responsável" name="combo_responsavel" >
-<?php
-loadCombo('tb_responsavel', 'nome_responsavel')
-?></select> </br>
+                            <?php
+                            loadCombo('tb_responsavel', 'nome_responsavel')
+                            ?></select> </br>
 
                         <label for="nome_mae">Nome Mãe:</label><br/>
                         <input class='form-control' type="text" placeholder="Nome Completo da Mãe" name="nome_mae" value="<?php echo set_value('nome_mae'); ?>"/>
@@ -118,9 +118,9 @@ loadCombo('tb_responsavel', 'nome_responsavel')
                                 <td ><input class='form-control' type="date" name="data_nascimento" value="<?php echo set_value('data_nascimento'); ?>" style="width : 250px;"/>
                                     <div class="error"><?php echo form_error('data_nascimento'); ?></div></td>
                                 <td><select class='form-control' name="combo_cidade_natal" style="width : 250px;">
-<?php
-loadCombo('tb_cidade', 'nome_cidade');
-?>
+                                        <?php
+                                        loadCombo('tb_cidade', 'nome_cidade');
+                                        ?>
                                     </select></td>
                                 <td><select class='form-control' name="combo_renda" style="width : 250px;">
                                         <?php
@@ -149,9 +149,9 @@ loadCombo('tb_cidade', 'nome_cidade');
 
                         <label for="nome_habito">Nome:</label><br/>
                         <select class='form-control' name="combo_habito" >
-<?php
-loadCombo('tb_habito_alimentar', 'descricao')
-?> </select> </br>
+                            <?php
+                            loadCombo('tb_habito_alimentar', 'descricao')
+                            ?> </select> </br>
 
                         <label for="frequencia_semanal_habito">Frequência Semanal:</label><br/>
                         <input class='form-control' type="text" name="frequencia_habito" value="<?php echo set_value('frequencia_semanal_habito'); ?>"/>
@@ -173,9 +173,9 @@ loadCombo('tb_habito_alimentar', 'descricao')
                     <div class="panel-body">
                         <label for="nome_substancia">Nome:</label><br/>
                         <select class='form-control' name="combo_substancia" >
-<?php
-loadCombo('tb_substancia_gestacao', 'nome_substancia')
-?></select> </br>
+                            <?php
+                            loadCombo('tb_substancia_gestacao', 'nome_substancia')
+                            ?></select> </br>
 
                         <label for="frequencia_semanal_substancia">Frequência Semanal:</label><br/>
                         <input class='form-control' type="text" name="frequencia_substancia" value="<?php echo set_value('frequencia_semanal_substancia'); ?>"/>
@@ -197,9 +197,9 @@ loadCombo('tb_substancia_gestacao', 'nome_substancia')
                     <div class="panel-body">
                         <label for="nome_doenca">Nome:</label><br/>
                         <select class='form-control' name="combo_doenca" >
-<?php
-loadCombo('tb_doenca', 'nome_doenca')
-?>
+                            <?php
+                            loadCombo('tb_doenca', 'nome_doenca')
+                            ?>
                         </select> </br>
 
                         <label for="observacao_doenca">Observação:</label><br/>
@@ -219,9 +219,9 @@ loadCombo('tb_doenca', 'nome_doenca')
                         <label for="nome_auxilio_social">Nome:</label><br/>
 
                         <select class='form-control' name="combo_auxilio_social" >
-<?php
-loadCombo('tb_auxilio_social', 'nome_auxilio_social')
-?>
+                            <?php
+                            loadCombo('tb_auxilio_social', 'nome_auxilio_social')
+                            ?>
                         </select> </br>
 
                         <table align="center" border="0" style="width:100%" margin: auto> 
@@ -255,29 +255,29 @@ loadCombo('tb_auxilio_social', 'nome_auxilio_social')
                 </div>
                 </br>
 
-                <input class='btn btn-default' type="submit" name="cadastrar" value="Cadastrar" />
+                <input class='btn btn-default' type="submit" name="cadastrar" value="b_cadastrar" />
 
-<?php echo form_close(); ?>
+                <?php echo form_close(); ?>
 
                 <!-- Lista as paciente Cadastradas -->
                 <div id="grid-paciente">
                     <ul>
-<?php foreach ($paciente as $paciente): ?>
+                        <?php foreach ($paciente as $paciente): ?>
                             <li>
                                 <a title="Deletar" href="<?php echo base_url() . 'paciente/deletar/' . $paciente->codigo_paciente; ?>" onclick="return confirm('Confirma a exclusão deste registro?')"><img src="<?php echo base_url(); ?>assets/img/lixo.png"/></a>
                                 <span> - </span>
                                 <a title="Editar" href="<?php echo base_url() . 'paciente/editar/' . $paciente->codigo_paciente; ?>">
-    <?php echo $paciente->nome_paciente; ?></a>
+                                    <?php echo $paciente->nome_paciente; ?></a>
                                 <span> - </span>
                                 <span><?php echo $paciente->nome_mae; ?></span>
 
                             </li>
-<?php endforeach ?>
+                        <?php endforeach ?>
                     </ul>
                 </div>
                 <!-- Fim Lista -->
                 <div id="body">
-                    <p><a class='btn btn-default'href="welcome"> Retornar</a></p>
+                    <p><a class='btn btn-default'href="welcome">b_retornar</a></p>
                 </div>
             </div>
             <div class="panel-footer">

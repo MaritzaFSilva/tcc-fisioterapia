@@ -94,8 +94,8 @@ class auxilio_social extends CI_Controller {
 		} else {
 			/* Senão obtém os dados do formulário */
 			$data['codigo_auxilio_social'] = $this->input->post('codigo_auxilio_social');
-			$data['nome'] = strtoupper($this->input->post('nome'));
-			$data['origem'] = strtoupper($this->input->post('origem'));
+			$data['nome'] =$this->input->post('nome');
+			$data['origem'] = $this->input->post('origem');
 	 
 			/* Executa a função atualizar do modelo passando como parâmetro os dados obtidos do formulário */
 			if ($this->model->atualizar($data)) {

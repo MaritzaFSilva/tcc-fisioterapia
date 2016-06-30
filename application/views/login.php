@@ -81,7 +81,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <br>                    
                     <input class='form-control' type="password" name="senha" placeholder="Senha"/>
                     <br>
-                    <input align="center" class="btn btn-lg btn-danger btn-block" type="submit" name="atualizar" value="Entrar" />
+                    <input align="center" class="btn btn-lg btn-danger btn-block" type="submit" name="atualizar" value="b_entrar" />
 
                     <?php
                     if (isset($error) && $error) {
