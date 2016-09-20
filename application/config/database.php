@@ -75,11 +75,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	/*'hostname' => 'infoprojetos.com.br',
-	'port' => '3132',
-	'username' => 'info13_maritza',
-	'password' => 'maritza',
-	'database' => 'DMN_Producao',*/
+
 	'hostname' => 'localhost',
 	'username' => 'fisioterapia',
 	'password' => '12345',
