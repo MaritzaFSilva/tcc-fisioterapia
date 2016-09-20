@@ -4,7 +4,22 @@
 
 body{
     background-color: rgb(255,228,225);
-    //255,206,231255,228,225
+}
+
+#body-crianca{
+    
+    background-color: rgb(236,230,218);
+    background-image: url('../img/baby2.jpg');
+    background-repeat: no-repeat;
+    background-size:100%;
+}
+
+#body-urso{
+    
+    background-color: rgb(255,228,225);
+    background-image: url('../img/ursinhos.jpg');
+    background-repeat: no-repeat;
+    background-size:100%;
 }
 .panel-default{
     width: 80%;
@@ -21,11 +36,13 @@ h1{
     font-size: 12pt;
     font-weight: bold;
 }
-.btn.btn-default{
-    margin: 1em auto;
-}
+
 
 #retorno{
     text-align: right;
+}
+
+#b_cad{
+    float: right;
 }
 
