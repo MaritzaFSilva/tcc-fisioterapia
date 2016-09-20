@@ -1,6 +1,6 @@
 <?php
  
-class paciente_model extends CI_Model {
+class paciente_habito_alimentar_model extends CI_Model {
  
     function __construct() {
         parent::__construct();
@@ -35,7 +35,7 @@ class paciente_model extends CI_Model {
     }
     
     function codigodoPaciente($nome){
-        $conexao = mysqli_connect("localhost", "fisioterapia", "12345", "DMN_Producao");
+        $conexao = mysqli_connect("localhost", "fisioterapia", "12345", "fisioterapia");
         $sql = "SELECT codigo_paciente FROM tb_paciente WHERE nome_paciente = '".$nome."'";// pega o código de acordo com o nome do paciente
         $result = $conexao->query($sql) or trigger_error($conexao->error." [$sql]"); // executa sql
         $row = $result->fetch_array();//pega o valor
@@ -44,7 +44,7 @@ class paciente_model extends CI_Model {
     }
 
     function codigodoResponsavel($nome){
-        $conexao = mysqli_connect("localhost", "fisioterapia", "12345", "DMN_Producao");
+        $conexao = mysqli_connect("localhost", "fisioterapia", "12345", "fisioterapia");
         $sql = "SELECT codigo_responsavel FROM tb_responsavel WHERE nome_paciente = '".$nome."'";// pega o código de acordo com o nome do paciente
         $result = $conexao->query($sql) or trigger_error($conexao->error." [$sql]"); // executa sql
         $row = $result->fetch_array();//pega o valor
@@ -54,7 +54,7 @@ class paciente_model extends CI_Model {
 
 
     function pegando_codigo($campo, $tabela, $onde, $igual){
-        $conexao = mysqli_connect("localhost", "fisioterapia", "12345", "DMN_Producao");
+        $conexao = mysqli_connect("localhost", "fisioterapia", "12345", "fisioterapia");
         $sql = "SELECT ".$campo." FROM ".$tabela." WHERE ".$onde." = '".$igual."'";// pega o código de acordo com o nome do auxilio
         $result = $conexao->query($sql) or trigger_error($conexao->error." [$sql]"); // executa sql
         $row = $result->fetch_array();//pega o valor

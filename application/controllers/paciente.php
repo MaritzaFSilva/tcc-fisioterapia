@@ -48,9 +48,9 @@ class paciente extends CI_Controller {
 			$data_paciente['codigo_responsavel'] = $codigoResponsavel[0];
 			$data_paciente['nome_mae'] = strtoupper($this->input->post('nome_mae'));
 			$data_paciente['data_nascimento'] = strtoupper($this->input->post('data_nascimento'));
-			$codigoCidadeNatal = $this->model->pegando_codigo('codigo_cidade','tb_cidade','nome_cidade',$this->input->post('combo_cidade_natal'));
+			$codigoCidadeNatal = $this->model->pegando_codigo('codigo_cidade','tb_cidade','nome',$this->input->post('combo_cidade_natal'));
 			$data_paciente['codigo_cidade_natal'] = $codigoCidadeNatal[0];
-			$codigoRenda = $this->model->pegando_codigo('codigo_renda_familiar','tb_renda_familiar','descricao',$this->input->post('combo_renda'));
+			$codigoRenda = $this->model->pegando_codigo('codigo_renda','tb_renda_familiar','descricao',$this->input->post('combo_renda'));
 			$data_paciente['codigo_renda'] = $codigoRenda[0];
 
 			if($this->input->post('passou_pela_uti') == "sim") {
@@ -142,6 +142,16 @@ class paciente extends CI_Controller {
 	 	/* Carrega a página de edição com os dados da paciente */
 		$this->load->view('paciente_edit', $data_paciente);
 	}
+        function insert()  {
+			
+		/* Aqui vamos definir o título da página de edição */
+		$data_paciente['titulo'] = "CIAF | Paciente";
+	 
+		/* Carrega a página de edição com os dados da paciente */
+		$this->load->view('paciente_insert_view', $data_paciente);
+	}
+        
+        
 	 
 	function atualizar() {
 	 

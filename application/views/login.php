@@ -5,6 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <head>
         <title><?php echo $titulo; ?></title>
         <meta charset="utf-8">
+    
         <link href="<?php echo base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
         <link href="<?php echo base_url('assets/css/font-awesome.min.css') ?>" rel="stylesheet">
         <script src="<?php echo base_url('assets/js/jquery.min.js') ?>"></script>
@@ -12,7 +13,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <link href="<?php echo base_url('assets/css/estilo.css') ?>" rel="stylesheet">
 
     </head>
-    <body>
+    <body id="body-crianca">
+        <div ></div>
         <!-- ------------------------------------- MENU DA PÁGINA ------------------------------------- -->
         <?php
         if (isset($user['codigo_privilegio'])) {
@@ -76,12 +78,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </h2>
 
             <div id="panel-login" class="panel-body">
-                <form method="POST" action="<?= base_url() ?>login/validaLogin">                  
-                    <input class='form-control' type="text" name="login" placeholder="Login"/>
-                    <br>                    
-                    <input class='form-control' type="password" name="senha" placeholder="Senha"/>
-                    <br>
-                    <input align="center" class="btn btn-lg btn-danger btn-block" type="submit" name="atualizar" value="b_entrar" />
+                <form method="POST" action="<?= base_url() ?>login/validaLogin">     
+
+
+                    <div style="margin-bottom: 25px" class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input class='form-control' type="text" name="login" placeholder="Login"/>
+                    </div>
+               
+                    <div style="margin-bottom: 25px" class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input class='form-control' type="password" name="senha" placeholder="Senha"/>
+                    </div>
+                    <input align="center" class="btn btn-lg btn-danger btn-block" type="submit" name="atualizar" value="Entrar" />
 
                     <?php
                     if (isset($error) && $error) {

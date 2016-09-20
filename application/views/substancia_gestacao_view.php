@@ -19,7 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <link href="<?php echo base_url('assets/css/estilo.css') ?>" rel="stylesheet">
 
     </head>
-    <body>
+    <body id="body-urso">
 
         <?php
         //<!-- --------------------------------------------------------------------------------- -->
@@ -72,16 +72,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div align="center"  class="panel-heading"><h1>SUBSTÂNCIAS DA GESTAÇÃO DA MÃE</h1></div>
                     <div class="panel-body">
                         <?php echo form_open('substancia_gestacao/inserir', 'codigo_substancia="form-substancia_gestacao"'); ?>
-
-                        <label for="nome">Nome:</label><br/>
-                        <input class='form-control' type="text" name="nome" value="<?php echo set_value('nome'); ?>"/>
-                        <div class="error"><?php echo form_error('nome'); ?></div>
-                        <input class='btn btn-default' type="submit" name="cadastrar" value="b_cadastrar" />
+                        <div class="col-lg-12" >
+                            <label for="nome">Nome:</label><br/>
+                            <input class='form-control' type="text" name="nome" value="<?php echo set_value('nome'); ?>"/>
+                            <div class="error"><?php echo form_error('nome'); ?></div>
+                            </br>
+                        </div>
+                        <div class="col-lg-12" >
+                            <div class="pull-right">
+                            <input class='btn btn-default' type="submit" name="cadastrar" value="Cadastrar" />
+                            </div>
+                        </div>
 
                         <?php echo form_close(); ?>
 
                         <!-- Lista as substancia_gestacao Cadastradas -->
                         <div id="grid-substancia_gestacao">
+                            
+                            <div class="col-lg-12" >
+                                </br>
                             <ul>
                                 <?php foreach ($substancia_gestacao as $substancia): ?>
                                     <li class="list-group-item">
@@ -91,11 +100,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     </li>
                                 <?php endforeach ?>
                             </ul>
+                                </div>
                         </div>
 
                         <!-- Fim Lista -->
                         <div id="body">
-                            <p><a class='btn btn-default'href="welcome">b_retornar</a></p>
+                            <div class="pull-left">
+                                </br>
+                                <div class="col-lg-12" >
+                            <p><a class='btn btn-default glyphicon glyphicon-arrow-left'href="welcome"></a></p>
+                            </div>
+                            </div>
                         </div>
                     </div>
                     <div class="panel-footer">
@@ -105,46 +120,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <?php
             }
 
-            else if ($user['codigo_privilegio'] == 2) {
-                //<!-- --------------------------------------------------------------------------------- -->
-                //<!-- ---------------------------------- ATENDENTE ------------------------------------ -->
-                //<!-- --------------------------------------------------------------------------------- -->                
-                ?>
-                <nav class="navbar navbar-default">
-                    <div class="container-fluid">
-                        <!-- Brand and toggle get grouped for better mobile display -->
-                        <div class="navbar-header">
-                            <a href="<?= base_url() ?>welcome"><span class="navbar-brand" href="welcome">CIAF</span></a>
-                        </div>
-
-                        <!-- Collect the nav links, forms, and other content for toggling -->
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <ul class="nav navbar-nav">
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CADASTROS<span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="<?= base_url() ?>responsavel">Cadastro Responsável</a></li>
-                                        <li><a href="<?= base_url() ?>paciente">Cadastro Paciente</a></li>
-                                    </ul>
-                                </li>
-                            </ul> 
-
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><span class="navbar-brand" ><?php echo $user['login']; ?></span></li>
-                                <li><a href="<?= base_url() ?>login/logout">Logout</a></li>
-                            </ul>
-                        </div><!-- /.navbar-collapse -->
-                    </div><!-- /.container-fluid -->
-                </nav>
-                <div class="panel-body">
-                    <div class="alert alert-danger" role="alert">
-                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                        <span class="sr-only">Error:</span>
-                        <span >VOCÊ NÃO TEM PERMISSÃO PARA ACESSAR ESTA PÁGINA</span>
-                    </div>
-                </div>
-                <?php
-            }
         } else {
             //<!-- --------------------------------------------------------------------------------- -->
             //<!-- ---------------------------------- DESLOGADO ------------------------------------ -->
