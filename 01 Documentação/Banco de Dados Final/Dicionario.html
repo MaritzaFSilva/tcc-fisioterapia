@@ -1,0 +1,1375 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title>DBdoc</title> 
+</head> 
+<style type="text/css"> 
+	table {width: 100%; border-collapse: collapse;} 
+	table, td, th {border: 1px solid black;} 
+</style> 
+<body> 
+<h1>DMN_Producao</h1> 
+<ol> 
+<li><a href="#tb_avaliacao">tb_avaliacao</a> (14 campos)</li><li><a href="#tb_cidade">tb_cidade</a> (3 campos)</li><li><a href="#tb_escolaridade">tb_escolaridade</a> (2 campos)</li><li><a href="#tb_estado">tb_estado</a> (3 campos)</li><li><a href="#tb_avaliador">tb_avaliador</a> (10 campos)</li><li><a href="#tb_intensidade">tb_intensidade</a> (2 campos)</li><li><a href="#tb_intensidade_questao">tb_intensidade_questao</a> (2 campos)</li><li><a href="#tb_intensidade_questao_valor">tb_intensidade_questao_valor</a> (5 campos)</li><li><a href="#tb_mes">tb_mes</a> (3 campos)</li><li><a href="#tb_paciente">tb_paciente</a> (25 campos)</li><li><a href="#tb_posicao">tb_posicao</a> (3 campos)</li><li><a href="#tb_privilegio">tb_privilegio</a> (2 campos)</li><li><a href="#tb_questao">tb_questao</a> (4 campos)</li><li><a href="#tb_questao_avaliacao">tb_questao_avaliacao</a> (4 campos)</li><li><a href="#tb_responsavel">tb_responsavel</a> (14 campos)</li><li><a href="#tb_telefone_avaliador">tb_telefone_avaliador</a> (2 campos)</li><li><a href="#tb_telefone_responsavel">tb_telefone_responsavel</a> (2 campos)</li><li><a href="#tb_doenca">tb_doenca</a> (4 campos)</li><li><a href="#tb_paciente_doenca_mae">tb_paciente_doenca_mae</a> (4 campos)</li><li><a href="#tb_habito_alimentar">tb_habito_alimentar</a> (2 campos)</li><li><a href="#tb_paciente_habito_alimentar_mae">tb_paciente_habito_alimentar_mae</a> (5 campos)</li><li><a href="#tb_substancia_gestacao_mae">tb_substancia_gestacao_mae</a> (2 campos)</li><li><a href="#tb_paciente_substancia">tb_paciente_substancia</a> (5 campos)</li><li><a href="#tb_auxilio_social">tb_auxilio_social</a> (3 campos)</li><li><a href="#tb_paciente_auxilio_social">tb_paciente_auxilio_social</a> (7 campos)</li><li><a href="#tb_grau_parentesco">tb_grau_parentesco</a> (2 campos)</li><li><a href="#tb_renda_familiar">tb_renda_familiar</a> (2 campos)</li><li><a href="#tb_pergunta">tb_pergunta</a> (2 campos)</li><li><a href="#tb_classificacao">tb_classificacao</a> (2 campos)</li></ol> 
+<ol> 
+<li id="tb_avaliacao"> 
+<h2>tb_avaliacao</h2> 
+<p>Esta tabela armazena as avaliações realizadas.</p> 
+<table> 
+<tr> 
+<th>CAMPO</th> 
+<th>TIPO</th> 
+<th>NULO</th> 
+<th>EXTRA</th> 
+<th>COMENTARIOS</th> 
+</tr> 
+<tr> 
+   <td>codigo_avaliacao</td> 
+   <td>INT(11)</td> 
+    <td>NO</td> 
+    <td>AUTO_INCREMENT</td> 
+    <td>Este campo armazena um código que referencia a avaliação.</td> 
+</tr> 
+<tr> 
+   <td>codigo_avaliador</td> 
+   <td>INT</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo representa, por meio de um código, o avaliador que está realizando a avaliação.</td> 
+</tr> 
+<tr> 
+   <td>codigo_paciente</td> 
+   <td>INT(11)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo representa, por meio de um código, o paciente que está sendo avaliado.</td> 
+</tr> 
+<tr> 
+   <td>data</td> 
+   <td>DATE</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo registra a data de quando ocorreu a avaliação.</td> 
+</tr> 
+<tr> 
+   <td>horario</td> 
+   <td>TIME</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Esete campo registra o horário em que ocorreu a avaliação.</td> 
+</tr> 
+<tr> 
+   <td>idade_motora</td> 
+   <td>INT(11)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo indica a idade motora, em meses, do paciente que está sendo avaliado.</td> 
+</tr> 
+<tr> 
+   <td>idade_cronologica</td> 
+   <td>INT(11)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo indica a idade cronológica, em meses, do paciente que está sendo avaliado.</td> 
+</tr> 
+<tr> 
+   <td>peso_atual</td> 
+   <td>FLOAT</td> 
+    <td>SI</td> 
+    <td> - </td> 
+    <td>Este campo indica o peso atual do paciente.</td> 
+</tr> 
+<tr> 
+   <td>comprimento_atual</td> 
+   <td>FLOAT</td> 
+    <td>SI</td> 
+    <td> - </td> 
+    <td>Este campo indica o comprimento atuial do paciente.</td> 
+</tr> 
+<tr> 
+   <td>perimetro_cefalico_atual</td> 
+   <td>FLOAT</td> 
+    <td>SI</td> 
+    <td> - </td> 
+    <td>Este campo indica o perímetro encefálico atual do paciente.</td> 
+</tr> 
+<tr> 
+   <td>amamentacao_exclusiva</td> 
+   <td>TINYINT(4)</td> 
+    <td>SI</td> 
+    <td> - </td> 
+    <td>Este campo indica se o paciente está sendo alimentado exclusivamente com leite materno. Se sim, o valor é 1, senão é 0.</td> 
+</tr> 
+<tr> 
+   <td>atraso_dmt</td> 
+   <td>INT</td> 
+    <td>SI</td> 
+    <td> - </td> 
+    <td>Este campo indica o atraso em meses no desenvolvimento motor normal.	</td> 
+</tr> 
+<tr> 
+   <td>parecer</td> 
+   <td>TEXT</td> 
+    <td>SI</td> 
+    <td> - </td> 
+    <td>Este campo destina-se a descrição de um parecer por parte do avaliador.</td> 
+</tr> 
+<tr> 
+   <td>observacao</td> 
+   <td>TEXT</td> 
+    <td>SI</td> 
+    <td> - </td> 
+    <td>Este campo registra o atraso motor do paciente em meses.</td> 
+</tr> 
+</table> 
+</li> 
+<li id="tb_cidade"> 
+<h2>tb_cidade</h2> 
+<p>Esta tabela armazena uma lista de cidades.</p> 
+<table> 
+<tr> 
+<th>CAMPO</th> 
+<th>TIPO</th> 
+<th>NULO</th> 
+<th>EXTRA</th> 
+<th>COMENTARIOS</th> 
+</tr> 
+<tr> 
+   <td>codigo_cidade</td> 
+   <td>INT(11)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Representa o código de uma determinada cidade.</td> 
+</tr> 
+<tr> 
+   <td>codigo_estado</td> 
+   <td>INT(11)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo apresenta um código que referencia um determinado estado.</td> 
+</tr> 
+<tr> 
+   <td>nome</td> 
+   <td>VARCHAR(100)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena o nome da cidade.</td> 
+</tr> 
+</table> 
+</li> 
+<li id="tb_escolaridade"> 
+<h2>tb_escolaridade</h2> 
+<p>Esta tabela armazena uma lista de graus de escolaridade.</p> 
+<table> 
+<tr> 
+<th>CAMPO</th> 
+<th>TIPO</th> 
+<th>NULO</th> 
+<th>EXTRA</th> 
+<th>COMENTARIOS</th> 
+</tr> 
+<tr> 
+   <td>codigo_grau_escolaridade</td> 
+   <td>INT(11)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena um código que referencia um determinado grau de escolaridade.</td> 
+</tr> 
+<tr> 
+   <td>descricao</td> 
+   <td>VARCHAR(45)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena uma descrição para o grau de escolaridade. Por exmplo: analfabeto, fundamental incompleto, fundamental, médio, técnico, graduação, pós-graduação.</td> 
+</tr> 
+</table> 
+</li> 
+<li id="tb_estado"> 
+<h2>tb_estado</h2> 
+<p>Esta tabela armazena uma lista de estados.</p> 
+<table> 
+<tr> 
+<th>CAMPO</th> 
+<th>TIPO</th> 
+<th>NULO</th> 
+<th>EXTRA</th> 
+<th>COMENTARIOS</th> 
+</tr> 
+<tr> 
+   <td>codigo_estado</td> 
+   <td>INT(11)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Esta campo armazena um código para um determinado estado.</td> 
+</tr> 
+<tr> 
+   <td>uf_estado</td> 
+   <td>VARCHAR(45)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena uma sigla para o estado.</td> 
+</tr> 
+<tr> 
+   <td>nome_estado</td> 
+   <td>VARCHAR(100)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena o nome do estado.</td> 
+</tr> 
+</table> 
+</li> 
+<li id="tb_avaliador"> 
+<h2>tb_avaliador</h2> 
+<p>Esta tabela armazena dados sobre os avaliadores (fisioterapeutas).</p> 
+<table> 
+<tr> 
+<th>CAMPO</th> 
+<th>TIPO</th> 
+<th>NULO</th> 
+<th>EXTRA</th> 
+<th>COMENTARIOS</th> 
+</tr> 
+<tr> 
+   <td>codigo_avaliador</td> 
+   <td>INT</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena o codigo do avaliador (fisioterapeuta).</td> 
+</tr> 
+<tr> 
+   <td>codigo_privilegio</td> 
+   <td>INT(11)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena o código do privilégio do avaliador.</td> 
+</tr> 
+<tr> 
+   <td>cpf_avaliador</td> 
+   <td>VARCHAR(45)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo indica o cpf do avaliador.</td> 
+</tr> 
+<tr> 
+   <td>profissao</td> 
+   <td>VARCHAR(45)</td> 
+    <td>SI</td> 
+    <td> - </td> 
+    <td>Este campo armazena a profissão do avaliador.</td> 
+</tr> 
+<tr> 
+   <td>numero_conselho</td> 
+   <td>VARCHAR(45)</td> 
+    <td>SI</td> 
+    <td> - </td> 
+    <td>Este campo armazena o número de registro da classe do avaliador. Por exemplo o CREFITO caso o avaliador seja fisioterapeuta.</td> 
+</tr> 
+<tr> 
+   <td>nome</td> 
+   <td>VARCHAR(45)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena o nome do avaliador.</td> 
+</tr> 
+<tr> 
+   <td>email</td> 
+   <td>VARCHAR(45)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena o e-mail do avaliador.</td> 
+</tr> 
+<tr> 
+   <td>login</td> 
+   <td>VARCHAR(45)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena o login do avaliador.</td> 
+</tr> 
+<tr> 
+   <td>senha</td> 
+   <td>VARCHAR(45)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Campo que armazena o CPF do avalliador.</td> 
+</tr> 
+<tr> 
+   <td>ativo</td> 
+   <td>TINYINT(4)</td> 
+    <td>SI</td> 
+    <td> - </td> 
+    <td>Este campo indica se o avaliador está ativo (1) ou não (0) no sistema.</td> 
+</tr> 
+</table> 
+</li> 
+<li id="tb_intensidade"> 
+<h2>tb_intensidade</h2> 
+<p>As questões podem ser subdivididas em diferentes intensidades. Esta tabela realiza este controle através de uma lista de intensidades possíveis.</p> 
+<table> 
+<tr> 
+<th>CAMPO</th> 
+<th>TIPO</th> 
+<th>NULO</th> 
+<th>EXTRA</th> 
+<th>COMENTARIOS</th> 
+</tr> 
+<tr> 
+   <td>codigo_intensidade</td> 
+   <td>INT(11)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo representa um código para uma determinada intensidade.</td> 
+</tr> 
+<tr> 
+   <td>intensidade</td> 
+   <td>VARCHAR(45)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo descreve o valor de uma determinada intensidade. Por exemplo: ausente, fraco, normal, intenso, etc.</td> 
+</tr> 
+</table> 
+</li> 
+<li id="tb_intensidade_questao"> 
+<h2>tb_intensidade_questao</h2> 
+<p>Tabela de associação entre questão e intensidade. Nesta tabela associa-se uma determinada questão, por exemplo: Reflexo de Prensão Tônica Palmar a suas intensidades: Ausente, Fraco, Normal, Intenso.</p> 
+<table> 
+<tr> 
+<th>CAMPO</th> 
+<th>TIPO</th> 
+<th>NULO</th> 
+<th>EXTRA</th> 
+<th>COMENTARIOS</th> 
+</tr> 
+<tr> 
+   <td>codigo_questao</td> 
+   <td>INT(11)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo representa o código de uma determinada questão.</td> 
+</tr> 
+<tr> 
+   <td>codigo_intensidade</td> 
+   <td>INT(11)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo representa um código para uma determinada intensidade.</td> 
+</tr> 
+</table> 
+</li> 
+<li id="tb_intensidade_questao_valor"> 
+<h2>tb_intensidade_questao_valor</h2> 
+<p>Esta tabela associa valores a uma determinada questão em uma determinada intensidade.Por exemplo. A questão: Reflexo de Prensão Tônica Palmar, com intensidade Intenso pode assumir os valores 1 e 2. Estes valores indicam meses, portanto podem variar de 1 a 12.</p> 
+<table> 
+<tr> 
+<th>CAMPO</th> 
+<th>TIPO</th> 
+<th>NULO</th> 
+<th>EXTRA</th> 
+<th>COMENTARIOS</th> 
+</tr> 
+<tr> 
+   <td>codigo</td> 
+   <td>INT(11)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo identifica unicamente cada registro dentro da tabela.</td> 
+</tr> 
+<tr> 
+   <td>codigo_questao</td> 
+   <td>INT(11)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo indica o código da questão e é oriundo da tabela tb_intensidade_questão.</td> 
+</tr> 
+<tr> 
+   <td>codigo_intensidade</td> 
+   <td>INT(11)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo indica o código de uma determinada questão.</td> 
+</tr> 
+<tr> 
+   <td>mes</td> 
+   <td>INT(11)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo representa o mês a qual associa-se uma questão a uma intensidade e um valor.</td> 
+</tr> 
+<tr> 
+   <td>valor</td> 
+   <td>INT(11)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo indica o valor que a associação questão - intensidade pode assumir. Este valor pode variar de 1 a 12.</td> 
+</tr> 
+</table> 
+</li> 
+<li id="tb_mes"> 
+<h2>tb_mes</h2> 
+<p>Uma questão da avaliação pode aparecer em diferentes meses do desenvolvimento. Esta tabela relaciona as questões com os meses nas quais elas devem ser aplicadas. Definindo também a ordem, ou posição, da questão dentro do questionário de avaliação.</p> 
+<table> 
+<tr> 
+<th>CAMPO</th> 
+<th>TIPO</th> 
+<th>NULO</th> 
+<th>EXTRA</th> 
+<th>COMENTARIOS</th> 
+</tr> 
+<tr> 
+   <td>codigo_mes</td> 
+   <td>INT(11)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena o mes relacionado a questão. Este campo pode assumir valores entre 1 e 12.</td> 
+</tr> 
+<tr> 
+   <td>codigo_questao</td> 
+   <td>INT(11)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo indica a questão por meio de seu código.</td> 
+</tr> 
+<tr> 
+   <td>posicao_no_questionario</td> 
+   <td>INT</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo indica a posição, ou ordem, na qual a questão deve aparecer dentro do questionário. Por exemplo, se será a primeira, segunda ou terceira questão no questionário de um determinado mês.</td> 
+</tr> 
+</table> 
+</li> 
+<li id="tb_paciente"> 
+<h2>tb_paciente</h2> 
+<p>Esta tabela armazena a relação de pacientes.</p> 
+<table> 
+<tr> 
+<th>CAMPO</th> 
+<th>TIPO</th> 
+<th>NULO</th> 
+<th>EXTRA</th> 
+<th>COMENTARIOS</th> 
+</tr> 
+<tr> 
+   <td>codigo_paciente</td> 
+   <td>INT(11)</td> 
+    <td>NO</td> 
+    <td>AUTO_INCREMENT</td> 
+    <td>Este campo armazena um código que representa um paciente. Este código é gerado automaticamente pelo banco de dados.</td> 
+</tr> 
+<tr> 
+   <td>codigo_responsavel</td> 
+   <td>INT</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena o CPF do responsável pelo paciente.</td> 
+</tr> 
+<tr> 
+   <td>codigo_renda</td> 
+   <td>INT</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo possui um código que repreesnta a faixa de renda familiar do paciente oriunda da tabela tb_renda_familiar.</td> 
+</tr> 
+<tr> 
+   <td>codigo_cidade</td> 
+   <td>INT(11)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena a cidade de nascimento do paciente.</td> 
+</tr> 
+<tr> 
+   <td>nome_paciente</td> 
+   <td>VARCHAR(100)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena o nome do paciente</td> 
+</tr> 
+<tr> 
+   <td>iniciais_nome_paciente</td> 
+   <td>VARCHAR(10)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena as iniciais do nome do paciente para identificação em relatórios.</td> 
+</tr> 
+<tr> 
+   <td>nome_mae</td> 
+   <td>VARCHAR(100)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena o nome da mãe do paciente.</td> 
+</tr> 
+<tr> 
+   <td>data_nascimento</td> 
+   <td>DATE</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena a data de nascimento do paciente.</td> 
+</tr> 
+<tr> 
+   <td>sexo</td> 
+   <td>VARCHAR(45)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena o sexo paciente. Por exemplo: masculino, feminino.</td> 
+</tr> 
+<tr> 
+   <td>passou_pela_uti</td> 
+   <td>TINYINT(1)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo indica se paciente passou ou não pela UTI. Caso tenha passado o valor armazenado é 1 , caso não é 0.</td> 
+</tr> 
+<tr> 
+   <td>pq_passou_pela_uti</td> 
+   <td>VARCHAR(1000)</td> 
+    <td>SI</td> 
+    <td> - </td> 
+    <td>Este campo armazena uma descrição detalhado nos motivos que levaram o paciente para UTI.</td> 
+</tr> 
+<tr> 
+   <td>tipo_parto</td> 
+   <td>VARCHAR(45)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena o tipo de parto do paciente, Por exemplo: normal ou cesária.</td> 
+</tr> 
+<tr> 
+   <td>idade_gestacional_nascimento</td> 
+   <td>FLOAT</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo indica o período de gestação do paciente mensurado em meses.</td> 
+</tr> 
+<tr> 
+   <td>presenca_icterisia_neonatal</td> 
+   <td>TINYINT(1)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo registra a presença de icterisia neonatal. Caso sim registra-se 1, caso não 0.</td> 
+</tr> 
+<tr> 
+   <td>comprimento_nascimento</td> 
+   <td>FLOAT</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo registra o comprimento do paciente ao nascimento.</td> 
+</tr> 
+<tr> 
+   <td>peso_nascimento</td> 
+   <td>FLOAT</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo registra o peso do paciente ao nascimento.</td> 
+</tr> 
+<tr> 
+   <td>perimetro_encefalico_nascimento</td> 
+   <td>FLOAT</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo registra o perímetro encefácilo do paciente ao nascimento.</td> 
+</tr> 
+<tr> 
+   <td>apgar_1_min</td> 
+   <td>INT</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo registra a nota do apgar ao primeiro minuto de vida. Deve variar de 0 a 10.</td> 
+</tr> 
+<tr> 
+   <td>apgar_5_min</td> 
+   <td>INT</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo registra a nota do apgar no quinto minuto de vida. Deve variar de 0 a 10.</td> 
+</tr> 
+<tr> 
+   <td>apgar_10_min</td> 
+   <td>INT</td> 
+    <td>SI</td> 
+    <td> - </td> 
+    <td>Este campo registra a nota do apgar no décimo minuto de vida. Deve variar de 0 a 10.</td> 
+</tr> 
+<tr> 
+   <td>idade_mae_parto</td> 
+   <td>INT</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo registra a idade da mãe no nascimento do paciente.</td> 
+</tr> 
+<tr> 
+   <td>numero_gestacoes_mae</td> 
+   <td>INT</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo registra o número de gestações da mãe.</td> 
+</tr> 
+<tr> 
+   <td>numero_abortos_mae</td> 
+   <td>INT</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo registra o número de abortos da mãe.</td> 
+</tr> 
+<tr> 
+   <td>data_cadastro</td> 
+   <td>DATE</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo registra a data do cadastro do paciente.</td> 
+</tr> 
+<tr> 
+   <td>ativo</td> 
+   <td>TINYINT(4)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo indica se o paciente está ativo. Para ativo o valor é 1, caso contrário é 0.</td> 
+</tr> 
+</table> 
+</li> 
+<li id="tb_posicao"> 
+<h2>tb_posicao</h2> 
+<p>Esta tabela apresenta uma lista das posições físicas assumidas pelo paciente durante a avaliação.</p> 
+<table> 
+<tr> 
+<th>CAMPO</th> 
+<th>TIPO</th> 
+<th>NULO</th> 
+<th>EXTRA</th> 
+<th>COMENTARIOS</th> 
+</tr> 
+<tr> 
+   <td>codigo_posicao</td> 
+   <td>INT(11)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo apresenta um código para uma posição específica	</td> 
+</tr> 
+<tr> 
+   <td>posicao</td> 
+   <td>VARCHAR(100)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo descreve a posição. Por exemplo: no colo da mãe, criança em pé, decúbito dorsal, decúbito ventral, etc.</td> 
+</tr> 
+<tr> 
+   <td>observacao</td> 
+   <td>VARCHAR(255)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Campo disponível para o registro de orientações a respeito da posição</td> 
+</tr> 
+</table> 
+</li> 
+<li id="tb_privilegio"> 
+<h2>tb_privilegio</h2> 
+<p>Esta tabela armazena uma lista dos privilégios relacionados aos usuários do sistema. </p> 
+<table> 
+<tr> 
+<th>CAMPO</th> 
+<th>TIPO</th> 
+<th>NULO</th> 
+<th>EXTRA</th> 
+<th>COMENTARIOS</th> 
+</tr> 
+<tr> 
+   <td>codigo_privilegio</td> 
+   <td>INT(11)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo atribui um código para cada privilégio dentro do sistema.</td> 
+</tr> 
+<tr> 
+   <td>descricao</td> 
+   <td>VARCHAR(45)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo apresenta a descrição do privilégio. Por exemplo: administrador, usuário.</td> 
+</tr> 
+</table> 
+</li> 
+<li id="tb_questao"> 
+<h2>tb_questao</h2> 
+<p>Esta tabela armezena todas as questões referentes ao processo de avaliação.</p> 
+<table> 
+<tr> 
+<th>CAMPO</th> 
+<th>TIPO</th> 
+<th>NULO</th> 
+<th>EXTRA</th> 
+<th>COMENTARIOS</th> 
+</tr> 
+<tr> 
+   <td>codigo_questao</td> 
+   <td>INT(11)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena um código de referencia para questão.</td> 
+</tr> 
+<tr> 
+   <td>codigo_posicao</td> 
+   <td>INT(11)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena um codigo que representa a posição na qual a questão deve ser avaliada. Por exemplo: decúbito dorsa.</td> 
+</tr> 
+<tr> 
+   <td>codigo_classificacao</td> 
+   <td>INT</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo indica o código da classificação da questão oriundo da tabela tb_classificacao.</td> 
+</tr> 
+<tr> 
+   <td>codigo_pergunta</td> 
+   <td>INT</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo apresenta o código de uma pergunta oriundo da tabela tb_pergunta. Por exemplo: Reflexo de prensão tônica palmar, reflexo da marcha automática, etc.</td> 
+</tr> 
+</table> 
+</li> 
+<li id="tb_questao_avaliacao"> 
+<h2>tb_questao_avaliacao</h2> 
+<p>Esta tabela associa as questões de uma avaliação a suas respectivas intensidades e valores indicados pelo avaliador .</p> 
+<table> 
+<tr> 
+<th>CAMPO</th> 
+<th>TIPO</th> 
+<th>NULO</th> 
+<th>EXTRA</th> 
+<th>COMENTARIOS</th> 
+</tr> 
+<tr> 
+   <td>codigo_avaliacao</td> 
+   <td>INT(11)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo representa o código da avaliação que esta sendo armazenada.</td> 
+</tr> 
+<tr> 
+   <td>codigo_questao</td> 
+   <td>INT(11)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo representa o código da questão que está sendo armazenada.</td> 
+</tr> 
+<tr> 
+   <td>codigo_intensidade</td> 
+   <td>INT(11)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo representa o código da intensiodade a qual a quiestão foi associada.</td> 
+</tr> 
+<tr> 
+   <td>valor</td> 
+   <td>INT(11)</td> 
+    <td>SI</td> 
+    <td> - </td> 
+    <td>Este campo indica o valor associado a intensidade marcada.</td> 
+</tr> 
+</table> 
+</li> 
+<li id="tb_responsavel"> 
+<h2>tb_responsavel</h2> 
+<p>Esta tabela armazena informações a respeito dos responsáveis pelos pacientes.</p> 
+<table> 
+<tr> 
+<th>CAMPO</th> 
+<th>TIPO</th> 
+<th>NULO</th> 
+<th>EXTRA</th> 
+<th>COMENTARIOS</th> 
+</tr> 
+<tr> 
+   <td>codigo_responsavel</td> 
+   <td>INT</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena o código do responsável.</td> 
+</tr> 
+<tr> 
+   <td>codigo_cidade</td> 
+   <td>INT(11)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena um código que indica a cidade onde mora o respponsável.</td> 
+</tr> 
+<tr> 
+   <td>codigo_grau_escolaridade</td> 
+   <td>INT(11)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena um código que indica o grau de escolaridade do responsável.</td> 
+</tr> 
+<tr> 
+   <td>codigo_grau_parentesco</td> 
+   <td>INT</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena um código que indica o grau de parentesco eexistente entre o responsável e o paciente.</td> 
+</tr> 
+<tr> 
+   <td>nome_responsavel</td> 
+   <td>VARCHAR(100)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena o nome do responsável.</td> 
+</tr> 
+<tr> 
+   <td>sexo</td> 
+   <td>VARCHAR(45)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena o sexo do responsável. Por exemplo: masculino, feminino.</td> 
+</tr> 
+<tr> 
+   <td>rua</td> 
+   <td>VARCHAR(100)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena a rua onde mora o paciente.</td> 
+</tr> 
+<tr> 
+   <td>numero</td> 
+   <td>INT(11)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena o número da residência do responsável.</td> 
+</tr> 
+<tr> 
+   <td>complemento</td> 
+   <td>VARCHAR(255)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena um complemento para o endereço, se necessário.</td> 
+</tr> 
+<tr> 
+   <td>bairro</td> 
+   <td>VARCHAR(45)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena o bairro da residencia do responsável.</td> 
+</tr> 
+<tr> 
+   <td>cep</td> 
+   <td>VARCHAR(10)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena o CEP do endereço do responsável.</td> 
+</tr> 
+<tr> 
+   <td>ativo</td> 
+   <td>TINYINT(4)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo indica se o responsável ainda está ativo no sistema. Para ativo o valor é 1, caso contrário é 0.</td> 
+</tr> 
+<tr> 
+   <td>cpf_responsavel</td> 
+   <td>VARCHAR(45)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena o CPF do responsável.</td> 
+</tr> 
+<tr> 
+   <td>email</td> 
+   <td>VARCHAR(50)</td> 
+    <td>SI</td> 
+    <td> - </td> 
+    <td>Este campo armazena o e-mail do responsável.</td> 
+</tr> 
+</table> 
+</li> 
+<li id="tb_telefone_avaliador"> 
+<h2>tb_telefone_avaliador</h2> 
+<p>Esta tabela armazena os telefones dos fisioterapeutas.</p> 
+<table> 
+<tr> 
+<th>CAMPO</th> 
+<th>TIPO</th> 
+<th>NULO</th> 
+<th>EXTRA</th> 
+<th>COMENTARIOS</th> 
+</tr> 
+<tr> 
+   <td>numero_telefone</td> 
+   <td>VARCHAR(45)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena o telefone de um determinado avaliador (fisioterapeuta).</td> 
+</tr> 
+<tr> 
+   <td>codigo_avaliador</td> 
+   <td>INT</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena o codigo do avaliador (fisioterapeuta).</td> 
+</tr> 
+</table> 
+</li> 
+<li id="tb_telefone_responsavel"> 
+<h2>tb_telefone_responsavel</h2> 
+<p>Esta tabela associa um responsável a seus contatos telefônicos.</p> 
+<table> 
+<tr> 
+<th>CAMPO</th> 
+<th>TIPO</th> 
+<th>NULO</th> 
+<th>EXTRA</th> 
+<th>COMENTARIOS</th> 
+</tr> 
+<tr> 
+   <td>numero_telefone</td> 
+   <td>VARCHAR(14)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazena um número de telefone.</td> 
+</tr> 
+<tr> 
+   <td>codigo_responsavel</td> 
+   <td>INT</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo representa um responsável por meio de seu código.</td> 
+</tr> 
+</table> 
+</li> 
+<li id="tb_doenca"> 
+<h2>tb_doenca</h2> 
+<p>Esta tabela armazena uma lista de doenças que a mãe pode possuir.</p> 
+<table> 
+<tr> 
+<th>CAMPO</th> 
+<th>TIPO</th> 
+<th>NULO</th> 
+<th>EXTRA</th> 
+<th>COMENTARIOS</th> 
+</tr> 
+<tr> 
+   <td>codigo_doenca</td> 
+   <td>INT</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo apresenta um código para uma referida doença.</td> 
+</tr> 
+<tr> 
+   <td>nome</td> 
+   <td>VARCHAR(45)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo apresenta o nome de uma determinada doença. Exemplos: diabetes, hipertensão, toxoplamose, rubéola, citomegalovírus, hérpes simples, sífilis, HIV, outra.</td> 
+</tr> 
+<tr> 
+   <td>orientacoes</td> 
+   <td>VARCHAR(45)</td> 
+    <td>SI</td> 
+    <td> - </td> 
+    <td>Este campo não é obrigatório e pode ser utilizado para definição de orientações sobre a referida doença.</td> 
+</tr> 
+<tr> 
+   <td>observacoes</td> 
+   <td>VARCHAR(255)</td> 
+    <td>SI</td> 
+    <td> - </td> 
+    <td>Campo não obrigatório para observações importantes a respeito da doença. Um exemplo de seria a apresentação de nomes populares para a doença.</td> 
+</tr> 
+</table> 
+</li> 
+<li id="tb_paciente_doenca_mae"> 
+<h2>tb_paciente_doenca_mae</h2> 
+<p>Esta tabela relaciona um paciente a doenças de sua mãe.</p> 
+<table> 
+<tr> 
+<th>CAMPO</th> 
+<th>TIPO</th> 
+<th>NULO</th> 
+<th>EXTRA</th> 
+<th>COMENTARIOS</th> 
+</tr> 
+<tr> 
+   <td>codigo_doenca</td> 
+   <td>INT</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Campo que apresenta o código da doença da mãe.</td> 
+</tr> 
+<tr> 
+   <td>codigo_paciente</td> 
+   <td>INT(11)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Campo que apresenta o código do paciente.</td> 
+</tr> 
+<tr> 
+   <td>observacao</td> 
+   <td>VARCHAR(255)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Campo destinado ao cadastro de observações referentes ao paciente e a doença de sua mãe.</td> 
+</tr> 
+<tr> 
+   <td>data_cadastro</td> 
+   <td>DATE</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Campo utilizado para registrar a data de cadastro no sistema da associação paciente - doença da mãe.</td> 
+</tr> 
+</table> 
+</li> 
+<li id="tb_habito_alimentar"> 
+<h2>tb_habito_alimentar</h2> 
+<p>Esta tabela armezana uma lista de hábitos alimentares relevantes.</p> 
+<table> 
+<tr> 
+<th>CAMPO</th> 
+<th>TIPO</th> 
+<th>NULO</th> 
+<th>EXTRA</th> 
+<th>COMENTARIOS</th> 
+</tr> 
+<tr> 
+   <td>codigo_habito_alimentar</td> 
+   <td>INT</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este código representa um hábito alimentar.</td> 
+</tr> 
+<tr> 
+   <td>descricao</td> 
+   <td>VARCHAR(45)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo descreve o hábito alimentar. Exemplos: peixe, carne, frutas e vegetais, leite e derivados, não respondeu.</td> 
+</tr> 
+</table> 
+</li> 
+<li id="tb_paciente_habito_alimentar_mae"> 
+<h2>tb_paciente_habito_alimentar_mae</h2> 
+<p>Esta tabela relaciona os hábitos alimentares da mãe com o paciente.</p> 
+<table> 
+<tr> 
+<th>CAMPO</th> 
+<th>TIPO</th> 
+<th>NULO</th> 
+<th>EXTRA</th> 
+<th>COMENTARIOS</th> 
+</tr> 
+<tr> 
+   <td>codigo_paciente</td> 
+   <td>INT(11)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este vampo representa o paciente por meio de seu código.</td> 
+</tr> 
+<tr> 
+   <td>codigo_habito_alimentar</td> 
+   <td>INT</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo representa o hábito halimentar por meio de seu código.</td> 
+</tr> 
+<tr> 
+   <td>frequencia_semanal</td> 
+   <td>INT</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo representa a frequencia semanal de consumo do hábito alimentar. Deve ser mensurado em dias, podendo variar de 1 a 7.</td> 
+</tr> 
+<tr> 
+   <td>data_cadastro</td> 
+   <td>DATE</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo registra a data do cadastro da relação entre paciente e hábito alimentar da mãe.</td> 
+</tr> 
+<tr> 
+   <td>observacao</td> 
+   <td>VARCHAR(45)</td> 
+    <td>SI</td> 
+    <td> - </td> 
+    <td>Campo não obrigatório para registro de observações sobre a associação paciente - hábito alimentar.</td> 
+</tr> 
+</table> 
+</li> 
+<li id="tb_substancia_gestacao_mae"> 
+<h2>tb_substancia_gestacao_mae</h2> 
+<p>Esta tabela armazena uma lista de substâncias que podem ter sido consumidas pela mãe do paciente.</p> 
+<table> 
+<tr> 
+<th>CAMPO</th> 
+<th>TIPO</th> 
+<th>NULO</th> 
+<th>EXTRA</th> 
+<th>COMENTARIOS</th> 
+</tr> 
+<tr> 
+   <td>codigo_substancia</td> 
+   <td>INT</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo registra o código da substância.</td> 
+</tr> 
+<tr> 
+   <td>nome</td> 
+   <td>VARCHAR(45)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo registra o nome da substância. Por exemplo: drogas, álcool, cigarro, não respondeu.</td> 
+</tr> 
+</table> 
+</li> 
+<li id="tb_paciente_substancia"> 
+<h2>tb_paciente_substancia</h2> 
+<p>Esta tabela relaciona o paciente a substância consumidas pela mãe.</p> 
+<table> 
+<tr> 
+<th>CAMPO</th> 
+<th>TIPO</th> 
+<th>NULO</th> 
+<th>EXTRA</th> 
+<th>COMENTARIOS</th> 
+</tr> 
+<tr> 
+   <td>codigo_paciente</td> 
+   <td>INT(11)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo representa o paciente através de seu código.</td> 
+</tr> 
+<tr> 
+   <td>codigo_substancia</td> 
+   <td>INT</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo representa a substância consumida pela mãe do paciente por meio de um código.</td> 
+</tr> 
+<tr> 
+   <td>frequencia_semanal</td> 
+   <td>INT</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo representa a frequencia de consumo semanal de uma substância. Deve ser mensurado em dias, variando de 1 a 7.</td> 
+</tr> 
+<tr> 
+   <td>data_cadastro</td> 
+   <td>DATE</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo representa a data de cadastro da associação entre paciente e substância consumida pela mãe.</td> 
+</tr> 
+<tr> 
+   <td>observacao</td> 
+   <td>VARCHAR(45)</td> 
+    <td>SI</td> 
+    <td> - </td> 
+    <td>Campo não obrigatório destinado ao registro de observações.</td> 
+</tr> 
+</table> 
+</li> 
+<li id="tb_auxilio_social"> 
+<h2>tb_auxilio_social</h2> 
+<p>Esta tabela armazena uma lista de possíveis auxílios recebidos pelo paciente ou por sua família.</p> 
+<table> 
+<tr> 
+<th>CAMPO</th> 
+<th>TIPO</th> 
+<th>NULO</th> 
+<th>EXTRA</th> 
+<th>COMENTARIOS</th> 
+</tr> 
+<tr> 
+   <td>codigo_auxilio_social</td> 
+   <td>INT</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo codifica os auxílios sociais cadastrados.</td> 
+</tr> 
+<tr> 
+   <td>nome</td> 
+   <td>VARCHAR(45)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo rotula um determinado auxílio social. Por exemplo: Programa Bolsa Família, Programa do Leite, Passe Livre, Tarifa Social de Energia Elétrica, PETI - Programa de Erradicação do Trabalho Infantil, BPC - Benefício de Prestação Continuada, Cartão do Idoso, Programas Habitacionais: Rural e Urbano - Minha Casa Minha Vida, PRONATEC - Programa Nacional de Ensino Técnico Profissionalizante, Donas(o) de Casa - Contribuição Previdenciária, Situação de Rua (Morador), Telefonia Popular, Tarifa Social da Água, Concurso Público - Isenção de Taxa Inscrição. </td> 
+</tr> 
+<tr> 
+   <td>origem</td> 
+   <td>VARCHAR(45)</td> 
+    <td>SI</td> 
+    <td> - </td> 
+    <td>Indica a fonte pagadora do auxílio. Por exemplo: Governo Federal, Estadual ou Municipal. É um campo não obrigatório.</td> 
+</tr> 
+</table> 
+</li> 
+<li id="tb_paciente_auxilio_social"> 
+<h2>tb_paciente_auxilio_social</h2> 
+<p>Esta tabela relaciona o paciente a auxílios recebidos por ele ou por sua família.</p> 
+<table> 
+<tr> 
+<th>CAMPO</th> 
+<th>TIPO</th> 
+<th>NULO</th> 
+<th>EXTRA</th> 
+<th>COMENTARIOS</th> 
+</tr> 
+<tr> 
+   <td>codigo_paciente</td> 
+   <td>INT(11)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo representa um paciente por meio de seu código.</td> 
+</tr> 
+<tr> 
+   <td>codigo_auxilio_social</td> 
+   <td>INT</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo representa um auxílio social por meio de seu código.</td> 
+</tr> 
+<tr> 
+   <td>data_inicio_auxilio</td> 
+   <td>DATE</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo indica a data em que o paciente ou sua família começou a receber o auxílio.</td> 
+</tr> 
+<tr> 
+   <td>data_termino_auxilio</td> 
+   <td>DATE</td> 
+    <td>SI</td> 
+    <td> - </td> 
+    <td>Este campo indica a data em que o paciente ou sua família deixou de receber o auxílio.</td> 
+</tr> 
+<tr> 
+   <td>data_cadastro</td> 
+   <td>DATE</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo armazana a data de cadastro do auxílio associado ao paciente.</td> 
+</tr> 
+<tr> 
+   <td>valor</td> 
+   <td>FLOAT</td> 
+    <td>SI</td> 
+    <td> - </td> 
+    <td>Este campo armazena o valor do auxílio. Não é obrigatório.</td> 
+</tr> 
+<tr> 
+   <td>observacao</td> 
+   <td>VARCHAR(255)</td> 
+    <td>SI</td> 
+    <td> - </td> 
+    <td>Este é um campo não obrigatório para o registro de observações.</td> 
+</tr> 
+</table> 
+</li> 
+<li id="tb_grau_parentesco"> 
+<h2>tb_grau_parentesco</h2> 
+<p>Esta tabela armazena uma lista de grau de parentesco.</p> 
+<table> 
+<tr> 
+<th>CAMPO</th> 
+<th>TIPO</th> 
+<th>NULO</th> 
+<th>EXTRA</th> 
+<th>COMENTARIOS</th> 
+</tr> 
+<tr> 
+   <td>codigo_grau_parentesco</td> 
+   <td>INT</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo atribui um código a um determinado grau de parentesco.</td> 
+</tr> 
+<tr> 
+   <td>descricao</td> 
+   <td>VARCHAR(45)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo rotula um determinado grau de parentesco. Por exemplo: mão, pai, tio, tia, avô, avó, primo, prima, tutor, tutora, etc.</td> 
+</tr> 
+</table> 
+</li> 
+<li id="tb_renda_familiar"> 
+<h2>tb_renda_familiar</h2> 
+<p>Esta tabela armazena intervalos para representação da renda familiar.</p> 
+<table> 
+<tr> 
+<th>CAMPO</th> 
+<th>TIPO</th> 
+<th>NULO</th> 
+<th>EXTRA</th> 
+<th>COMENTARIOS</th> 
+</tr> 
+<tr> 
+   <td>codigo_renda</td> 
+   <td>INT</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo codifica a renda familiar.</td> 
+</tr> 
+<tr> 
+   <td>descricao</td> 
+   <td>VARCHAR(80)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo descreve um intervalo de valores para renda familiar.</td> 
+</tr> 
+</table> 
+</li> 
+<li id="tb_pergunta"> 
+<h2>tb_pergunta</h2> 
+<p>Esta tabela armazena as perguntas utilizadas nos questionários de avaliação independentemente do mês.</p> 
+<table> 
+<tr> 
+<th>CAMPO</th> 
+<th>TIPO</th> 
+<th>NULO</th> 
+<th>EXTRA</th> 
+<th>COMENTARIOS</th> 
+</tr> 
+<tr> 
+   <td>codigo_pergunta</td> 
+   <td>INT</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo representa um código para cada pergunta.</td> 
+</tr> 
+<tr> 
+   <td>pergunta</td> 
+   <td>VARCHAR(255)</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo apresenta uma descrição das perguntas que darão origem aos questionários de avaliação.</td> 
+</tr> 
+</table> 
+</li> 
+<li id="tb_classificacao"> 
+<h2>tb_classificacao</h2> 
+<p>Esta tabela apresenta um classificação que será associada as questões. Por exemplo: reflexo.</p> 
+<table> 
+<tr> 
+<th>CAMPO</th> 
+<th>TIPO</th> 
+<th>NULO</th> 
+<th>EXTRA</th> 
+<th>COMENTARIOS</th> 
+</tr> 
+<tr> 
+   <td>codigo_classificacao</td> 
+   <td>INT</td> 
+    <td>NO</td> 
+    <td> - </td> 
+    <td>Este campo codifica as classificações.</td> 
+</tr> 
+<tr> 
+   <td>descricao</td> 
+   <td>VARCHAR(45)</td> 
+    <td>SI</td> 
+    <td> - </td> 
+    <td>Este campo descreve cada uma das classificações.</td> 
+</tr> 
+</table> 
+</li> 
+</ol> 
+</body> 
+</html>

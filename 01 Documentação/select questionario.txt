@@ -1,0 +1,9 @@
+SELECT m.posicao_no_questionario, m.codigo_questao, c.descricao, p.pergunta, i.intensidade
+FROM tb_intensidade_questao iq, tb_intensidade i, tb_classificacao c,tb_questao q,tb_pergunta p, tb_mes m 
+WHERE m.codigo_questao=q.codigo_questao 
+AND q.codigo_pergunta=p.codigo_pergunta 
+AND m.codigo_mes = 1 
+AND c.codigo_classificacao = q.codigo_classificacao
+AND q.codigo_questao = iq.codigo_questao
+AND iq.codigo_intensidade = i.codigo_intensidade
+order by m.posicao_no_questionario, i.codigo_intensidade
