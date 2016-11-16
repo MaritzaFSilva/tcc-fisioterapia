@@ -20,6 +20,16 @@ class paciente_habito_alimentar extends CI_Controller {
     }
 
     function inserir() {
+
+        echo $_POST['obj'];
+        //$data_habito = json_decode($_POST['obj'], true);
+
+        header('Content-Type: text/html; charset=utf-8'); // para formatar corretamente os acentos
+
+        $arr = json_decode($_POST['obj'], true);
+
+
+
         /* Carrega a biblioteca do CodeIgniter Paciente pela validação dos formulários */
         $this->load->library('form_validation');
 
@@ -35,20 +45,35 @@ class paciente_habito_alimentar extends CI_Controller {
             $this->index();
             /* Senão, caso sucesso: */
         } else {
-
             $this->load->helper('cookie');
-            $cookie_name = 'data_form_paciente';
-
-            $cookie = get_cookie($cookie_name);
-            print_r(unserialize($cookie['value']));
-
-
+            $cookie = get_cookie('data_form_paciente');
+            echo '<pre> xx';
+            print_r(unserialize($cookie));
+            echo '</pre>';
 
 
-
-
-            //$this->model->inserir($data_paciente, 'tb_paciente');
-            //redirect('paciente_habito_alimentar',$data_paciente);
+//            //Salvar cookie
+//            $this->load->helper('cookie');
+//
+//            $cookie = array(
+//                'name' => 'data_form_paciente',
+//                'value' => serialize($arr),
+//                'expire' => '86500'
+//            );
+//
+//            $this->input->set_cookie($cookie);
+//
+//            ///Pegar cookie
+//            //$this->load->helper('cookie');
+//            $cookie = get_cookie('data_form_paciente');
+//            echo '<pre>-x-';
+//            print_r(unserialize($cookie));
+//            echo '</pre>';
+//            
+//              print_r($arr);
+//            ////
+//            //$this->model->inserir($data_paciente, 'tb_paciente');
+//            //redirect('paciente_habito_alimentar',$data_paciente);
         }
 
         function editar($codigo_paciente) {

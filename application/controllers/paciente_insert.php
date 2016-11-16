@@ -86,9 +86,10 @@ class paciente_insert extends CI_Controller {
             ///Pegar cookie
             //$this->load->helper('cookie');
             $cookie = get_cookie('data_form_paciente');
-            echo '<pre>';
+          /*  echo '<pre> xx';
             print_r(unserialize($cookie));
             echo '</pre>';
+            */
             ////
 
             //$this->model->inserir($data_paciente, 'tb_paciente');

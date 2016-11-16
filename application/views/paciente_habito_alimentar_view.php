@@ -22,7 +22,7 @@ function loadCombo($tabela, $campo) {
     while ($cont < $total) {
         $aux = $valores[$cont];
         $valor = $aux[$campo];
-        $opt = "<option> " . $valor . "</option>";
+        $opt = "<option value='" . $aux['codigo_habito_alimentar'] . "'> " . $valor . "</option>";
         echo $opt;
         $cont ++;
     }
@@ -49,7 +49,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <script src="<?php echo base_url('assets/js/jquery.min.js') ?>"></script>
         <script src="<?php echo base_url('assets/js/bootstrap.min.js') ?>"></script>
         <link href="<?php echo base_url('assets/css/estilo.css') ?>" rel="stylesheet">
+        <script type='text/javascript'>function enviar() {
+                
+                var arrHabitos = [];
+                var i = 0;
 
+                $('#table-habitos tr').each(function () {
+                    var objHabito = new Object();
+
+                    objHabito.codigo_habito_alimentar = ($(this).find('.col-cod')).attr('id');
+                    objHabito.observacao = ($(this).find('.col-obs')).html();
+                    objHabito.frequencia_semanal = ($(this).find('.col-frequencia')).html();
+                    objHabito.data_cadastro = ($(this).find('.col-data')).html();
+
+                    arrHabitos[i] = objHabito;
+                    i++;
+
+                });
+
+                
+                $.ajax({
+                    url: '<?= base_url('paciente_habito_alimentar/inserir') ?>', // colocar minha url
+                    type: 'POST',
+                    data: 'obj=' + JSON.stringify(arrHabitos)
+
+                }).done(function (data) {
+                    alert();
+                    for (d in data){
+                        console.log("d: "+d);
+                    }
+                });
+                
+
+                return true;
+
+            }
+        </script>
     </head>
     <body>
 
@@ -111,7 +146,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     </div>
                                 </div>
                                 <?php /* echo form_open('paciente/inserir', 'codigo_paciente="form-paciente"'); */ ?>                 
-                                <form method="post" action="<?= base_url('paciente_habito_alimentar/inserir') ?>" id="form-habito-alimentar">
+                                <form method="post" id="form-habito-alimentar">
                                     <div class="col-lg-12" >
                                         <label for="combo_habito">Hábito Alimentar:</label>
                                         <select class='form-control' name="combo_habito" id="combo-habito" >
@@ -131,7 +166,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     </div>
                                     <div class="col-lg-3" >
                                         <label for="data_cadastro">Data Cadastro:</label><br/>
-                                        <input class='form-control' type="text" name="data_cadastro" value="<?php echo set_value('data_cadastro'); ?>"/>
+                                        <input id="input-data-cadastro" class='form-control' type="text" name="data_cadastro" value="<?php echo set_value('data_cadastro'); ?>"/>
                                         <div class="error"><?php echo form_error('data_cadastro'); ?></div></br>
                                     </div>
 
@@ -141,6 +176,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <th>Hábito Alimentar</th>
                                                 <th>Observação</th>
                                                 <th>Frequência</th>
+                                                <th>Data Cadastro</th>
                                                 <th>Ações</th>
                                             </tr>
                                         </thead>
@@ -149,17 +185,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     </table>
 
                                     <div class="col-lg-12" >
-                                        <input class='btn btn-default' id="b_cad" type="submit" name="cadastrar" value="AVANÇAR" />
+                                        <button class='btn btn-default' id="b_cad" onclick="enviar()" type="button" name="cadastrar" value="AVANÇAR" >AVANÇAR</button>
                                     </div>
 
                             </div>
-                            <?php echo form_close(); ?>
                         </div>
                     </div>
 
                     <div class="panel-footer">
                         <label>
                             Aline Sieczko e Maritza Silva &copy 2016
+
                         </label>
                     </div>
                 </div>
@@ -206,14 +242,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         //$('#table-habitos').append('<tr><td>' + $('#combo-habito').val() + '</td><td>' + $('#input-observacao').val() + '</td><td><button class="btn btn-xs btn-default">Remover</button></td></tr>');
 
 
-
-        $('#table-habitos').append('<tr><td>'
-                + $('#combo-habito').val() + '</td><td>'
-                + $('#input-observacao').val() + '</td><td>'
-                + $('#input-frequencia').val()
-                + '</td><td><button class="btn btn-xs btn-default">Remover</button></td></tr>');
+        $('#table-habitos').append('<tr><td class="col-cod" id="' + $('#combo-habito').val() + '">'
+                + $('#combo-habito option:selected').text() + '</td><td class="col-obs">'
+                + $('#input-observacao').val() + '</td><td class="col-frequencia">'
+                + $('#input-frequencia').val() + '</td><td class="col-data">'
+                + $('#input-data-cadastro').val()
+                + '</td><td><a class="btn btn-xs btn-default" onclick="RemoveTableRow(this)">Remover</a></td></tr>');
 
     });
+
+    //Remove row 
+    (function ($) {
+
+        RemoveTableRow = function (handler) {
+            var tr = $(handler).closest('tr');
+
+            tr.fadeOut(400, function () {
+                tr.remove();
+            });
+
+            return false;
+        };
+    })(jQuery);
+
+
 
 </script>
 

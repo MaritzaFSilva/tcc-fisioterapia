@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 29-Jun-2016 às 20:04
--- Versão do servidor: 5.5.49-0+deb8u1
+-- Generation Time: Aug 12, 2016 at 10:52 AM
+-- Server version: 5.5.49-0+deb8u1
 -- PHP Version: 5.6.20-0+deb8u1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_auxilio_social`
+-- Table structure for table `tb_auxilio_social`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_auxilio_social` (
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `tb_auxilio_social` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Esta tabela armazena uma lista de possíveis auxílios recebidos pelo paciente ou por sua família.';
 
 --
--- Extraindo dados da tabela `tb_auxilio_social`
+-- Dumping data for table `tb_auxilio_social`
 --
 
 INSERT INTO `tb_auxilio_social` (`codigo_auxilio_social`, `nome`, `origem`) VALUES
@@ -57,7 +57,7 @@ INSERT INTO `tb_auxilio_social` (`codigo_auxilio_social`, `nome`, `origem`) VALU
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_avaliacao`
+-- Table structure for table `tb_avaliacao`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_avaliacao` (
@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS `tb_avaliacao` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_avaliador`
+-- Table structure for table `tb_avaliador`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_avaliador` (
@@ -96,10 +96,17 @@ CREATE TABLE IF NOT EXISTS `tb_avaliador` (
   `ativo` tinyint(4) DEFAULT '0' COMMENT 'Este campo indica se o avaliador está ativo (1) ou não (0) no sistema.'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Esta tabela armazena dados sobre os avaliadores (fisioterapeutas).';
 
+--
+-- Dumping data for table `tb_avaliador`
+--
+
+INSERT INTO `tb_avaliador` (`codigo_avaliador`, `codigo_privilegio`, `cpf_avaliador`, `profissao`, `numero_conselho`, `nome`, `email`, `login`, `senha`, `ativo`) VALUES
+(0, 0, '0', 'Desconhecido', 'Desconhecido', 'Desconhecido', 'Desconhecido', 'Desconhecido', 'Desconhecido', 1);
+
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_cidade`
+-- Table structure for table `tb_cidade`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_cidade` (
@@ -109,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `tb_cidade` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Esta tabela armazena uma lista de cidades.';
 
 --
--- Extraindo dados da tabela `tb_cidade`
+-- Dumping data for table `tb_cidade`
 --
 
 INSERT INTO `tb_cidade` (`codigo_cidade`, `codigo_estado`, `nome`) VALUES
@@ -1112,12 +1119,13 @@ INSERT INTO `tb_cidade` (`codigo_cidade`, `codigo_estado`, `nome`) VALUES
 (997, 9, 'Itaberaí'),
 (998, 9, 'Itaguari'),
 (999, 9, 'Itaguaru'),
-(1000, 9, 'Itajá');
+(1000, 9, 'Itajá'),
+(1001, 16, 'Pontal do Paraná');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_classificacao`
+-- Table structure for table `tb_classificacao`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_classificacao` (
@@ -1126,7 +1134,7 @@ CREATE TABLE IF NOT EXISTS `tb_classificacao` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Esta tabela apresenta um classificação que será associada as questões. Por exemplo: reflexo.';
 
 --
--- Extraindo dados da tabela `tb_classificacao`
+-- Dumping data for table `tb_classificacao`
 --
 
 INSERT INTO `tb_classificacao` (`codigo_classificacao`, `descricao`) VALUES
@@ -1140,7 +1148,7 @@ INSERT INTO `tb_classificacao` (`codigo_classificacao`, `descricao`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_doenca`
+-- Table structure for table `tb_doenca`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_doenca` (
@@ -1151,7 +1159,7 @@ CREATE TABLE IF NOT EXISTS `tb_doenca` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Esta tabela armazena uma lista de doenças que a mãe pode possuir.';
 
 --
--- Extraindo dados da tabela `tb_doenca`
+-- Dumping data for table `tb_doenca`
 --
 
 INSERT INTO `tb_doenca` (`codigo_doenca`, `nome`, `orientacoes`, `observacoes`) VALUES
@@ -1165,7 +1173,7 @@ INSERT INTO `tb_doenca` (`codigo_doenca`, `nome`, `orientacoes`, `observacoes`) 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_escolaridade`
+-- Table structure for table `tb_escolaridade`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_escolaridade` (
@@ -1173,10 +1181,17 @@ CREATE TABLE IF NOT EXISTS `tb_escolaridade` (
   `descricao` varchar(45) NOT NULL COMMENT 'Este campo armazena uma descrição para o grau de escolaridade. Por exmplo: analfabeto, fundamental incompleto, fundamental, médio, técnico, graduação, pós-graduação.'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Esta tabela armazena uma lista de graus de escolaridade.';
 
+--
+-- Dumping data for table `tb_escolaridade`
+--
+
+INSERT INTO `tb_escolaridade` (`codigo_grau_escolaridade`, `descricao`) VALUES
+(0, '"Desconhecido"');
+
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_estado`
+-- Table structure for table `tb_estado`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_estado` (
@@ -1186,7 +1201,7 @@ CREATE TABLE IF NOT EXISTS `tb_estado` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Esta tabela armazena uma lista de estados.';
 
 --
--- Extraindo dados da tabela `tb_estado`
+-- Dumping data for table `tb_estado`
 --
 
 INSERT INTO `tb_estado` (`codigo_estado`, `uf_estado`, `nome_estado`) VALUES
@@ -1222,7 +1237,7 @@ INSERT INTO `tb_estado` (`codigo_estado`, `uf_estado`, `nome_estado`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_grau_parentesco`
+-- Table structure for table `tb_grau_parentesco`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_grau_parentesco` (
@@ -1231,10 +1246,11 @@ CREATE TABLE IF NOT EXISTS `tb_grau_parentesco` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Esta tabela armazena uma lista de grau de parentesco.';
 
 --
--- Extraindo dados da tabela `tb_grau_parentesco`
+-- Dumping data for table `tb_grau_parentesco`
 --
 
 INSERT INTO `tb_grau_parentesco` (`codigo_grau_parentesco`, `descricao`) VALUES
+(0, 'desconhecido'),
 (1, 'mãe'),
 (2, 'pai'),
 (3, 'tio'),
@@ -1249,7 +1265,7 @@ INSERT INTO `tb_grau_parentesco` (`codigo_grau_parentesco`, `descricao`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_habito_alimentar`
+-- Table structure for table `tb_habito_alimentar`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_habito_alimentar` (
@@ -1258,7 +1274,7 @@ CREATE TABLE IF NOT EXISTS `tb_habito_alimentar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Esta tabela armezana uma lista de hábitos alimentares relevantes.';
 
 --
--- Extraindo dados da tabela `tb_habito_alimentar`
+-- Dumping data for table `tb_habito_alimentar`
 --
 
 INSERT INTO `tb_habito_alimentar` (`codigo_habito_alimentar`, `descricao`) VALUES
@@ -1271,7 +1287,7 @@ INSERT INTO `tb_habito_alimentar` (`codigo_habito_alimentar`, `descricao`) VALUE
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_intensidade`
+-- Table structure for table `tb_intensidade`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_intensidade` (
@@ -1280,7 +1296,7 @@ CREATE TABLE IF NOT EXISTS `tb_intensidade` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='As questões podem ser subdivididas em diferentes intensidades. Esta tabela realiza este controle através de uma lista de intensidades possíveis.';
 
 --
--- Extraindo dados da tabela `tb_intensidade`
+-- Dumping data for table `tb_intensidade`
 --
 
 INSERT INTO `tb_intensidade` (`codigo_intensidade`, `intensidade`) VALUES
@@ -1297,7 +1313,7 @@ INSERT INTO `tb_intensidade` (`codigo_intensidade`, `intensidade`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_intensidade_questao`
+-- Table structure for table `tb_intensidade_questao`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_intensidade_questao` (
@@ -1306,7 +1322,7 @@ CREATE TABLE IF NOT EXISTS `tb_intensidade_questao` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Tabela de associação entre questão e intensidade. Nesta tabela associa-se uma determinada questão, por exemplo: Reflexo de Prensão Tônica Palmar a suas intensidades: Ausente, Fraco, Normal, Intenso.';
 
 --
--- Extraindo dados da tabela `tb_intensidade_questao`
+-- Dumping data for table `tb_intensidade_questao`
 --
 
 INSERT INTO `tb_intensidade_questao` (`codigo_questao`, `codigo_intensidade`) VALUES
@@ -1468,7 +1484,7 @@ INSERT INTO `tb_intensidade_questao` (`codigo_questao`, `codigo_intensidade`) VA
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_intensidade_questao_valor`
+-- Table structure for table `tb_intensidade_questao_valor`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_intensidade_questao_valor` (
@@ -1480,7 +1496,7 @@ CREATE TABLE IF NOT EXISTS `tb_intensidade_questao_valor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Esta tabela associa valores a uma determinada questão em uma determinada intensidade.Por exemplo. A questão: Reflexo de Prensão Tônica Palmar, com intensidade Intenso pode assumir os valores 1 e 2. Estes valores indicam meses, portanto podem variar de 1 a 12.';
 
 --
--- Extraindo dados da tabela `tb_intensidade_questao_valor`
+-- Dumping data for table `tb_intensidade_questao_valor`
 --
 
 INSERT INTO `tb_intensidade_questao_valor` (`codigo`, `codigo_questao`, `codigo_intensidade`, `mes`, `valor`) VALUES
@@ -2325,7 +2341,7 @@ INSERT INTO `tb_intensidade_questao_valor` (`codigo`, `codigo_questao`, `codigo_
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_mes`
+-- Table structure for table `tb_mes`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_mes` (
@@ -2335,7 +2351,7 @@ CREATE TABLE IF NOT EXISTS `tb_mes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Uma questão da avaliação pode aparecer em diferentes meses do desenvolvimento. Esta tabela relaciona as questões com os meses nas quais elas devem ser aplicadas. Definindo também a ordem, ou posição, da questão dentro do questionário de avaliação.';
 
 --
--- Extraindo dados da tabela `tb_mes`
+-- Dumping data for table `tb_mes`
 --
 
 INSERT INTO `tb_mes` (`codigo_mes`, `codigo_questao`, `posicao_no_questionario`) VALUES
@@ -2685,7 +2701,7 @@ INSERT INTO `tb_mes` (`codigo_mes`, `codigo_questao`, `posicao_no_questionario`)
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_paciente`
+-- Table structure for table `tb_paciente`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_paciente` (
@@ -2714,12 +2730,432 @@ CREATE TABLE IF NOT EXISTS `tb_paciente` (
   `numero_abortos_mae` int(11) NOT NULL COMMENT 'Este campo registra o número de abortos da mãe.',
   `data_cadastro` date NOT NULL COMMENT 'Este campo registra a data do cadastro do paciente.',
   `ativo` tinyint(4) NOT NULL COMMENT 'Este campo indica se o paciente está ativo. Para ativo o valor é 1, caso contrário é 0.'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Esta tabela armazena a relação de pacientes.';
+) ENGINE=InnoDB AUTO_INCREMENT=414 DEFAULT CHARSET=latin1 COMMENT='Esta tabela armazena a relação de pacientes.';
+
+--
+-- Dumping data for table `tb_paciente`
+--
+
+INSERT INTO `tb_paciente` (`codigo_paciente`, `codigo_responsavel`, `codigo_renda`, `codigo_cidade`, `nome_paciente`, `iniciais_nome_paciente`, `nome_mae`, `data_nascimento`, `sexo`, `passou_pela_uti`, `pq_passou_pela_uti`, `tipo_parto`, `idade_gestacional_nascimento`, `presenca_icterisia_neonatal`, `comprimento_nascimento`, `peso_nascimento`, `perimetro_encefalico_nascimento`, `apgar_1_min`, `apgar_5_min`, `apgar_10_min`, `idade_mae_parto`, `numero_gestacoes_mae`, `numero_abortos_mae`, `data_cadastro`, `ativo`) VALUES
+(1, 0, 1, 1001, 'Adrian Gabriel dos Santos Ferreira ', 'AGSF', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 38, 1, 48, 2930, 32, 9, 10, -1, 18, 2, 0, '0000-00-00', 1),
+(2, 0, 4, 1001, 'Adrian Nascimento dos Santos', 'ANS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 41, 1, 49, 3120, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(3, 0, 1, 1001, 'Agata Costa Baldessari', 'ACB', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 40, 1, 49, 3290, 33, 5, 7, 10, 31, 3, 0, '0000-00-00', 1),
+(4, 0, 1, 1001, 'Agatha Cristini Sans Ramos', 'ACSR', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 38.5, 2, 49, 3680, 36.5, 8, 9, -1, 23, 2, 1, '0000-00-00', 1),
+(5, 0, 4, 1001, 'Agatha Victória C. Pereira dos Santos', 'AVCPS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 40, 1, 52, 3560, 0, 10, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(6, 0, 4, 1001, 'Alan Guimarães Purcino', 'AGP', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 40, 1, 50, 3550, 35, 9, 10, -1, 31, 1, 0, '0000-00-00', 1),
+(7, 0, 1, 1001, 'Alana da Silva Oliveira', 'ASO', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 40, 1, 48, 3880, 34, 9, 10, -1, 21, 3, 0, '0000-00-00', 1),
+(8, 0, 4, 1001, 'Alana dos Santos J Martins', 'ASJM', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 37, 1, 42, 2255, 0, 7, 9, -1, 0, -1, -1, '0000-00-00', 1),
+(9, 0, 1, 1001, 'Alessandra Amarilha Gregorio Cordeiro', 'AAGC', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 38.5, 1, 46, 2810, 33, 9, 10, -1, 35, 3, 0, '0000-00-00', 1),
+(10, 0, 4, 1001, 'Alex Miguel de Campos', 'AMC', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 40, 1, 51, 3615, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(11, 0, 4, 1001, 'Alice Benassi Martins', 'ABM', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 38.5, 1, 47, 3085, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(12, 0, 1, 1001, 'Alice Cristina D. Rosetti', 'ACDR', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 38, 1, 48, 2855, 33, 9, 10, -1, 16, 1, 0, '0000-00-00', 1),
+(13, 0, 2, 1001, 'Alice Justiciano Luczynski', 'AJL', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38.5, 2, 48, 3335, 35, 9, 9, -1, 31, 3, 0, '0000-00-00', 1),
+(14, 0, 4, 1001, 'Alice Maria Gerolin', 'AMG', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39, 1, 50, 3625, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(15, 0, 2, 1001, 'Alice Pravedau Antunes', 'APA', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 40, 1, 50, 3785, 36, 9, 9, -1, 16, 1, -1, '0000-00-00', 1),
+(16, 0, 0, 1001, 'Alice Serra da Silva', 'ASS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 41.5, 1, 50, 3735, 34, 9, 9, -1, 29, 2, 0, '0000-00-00', 1),
+(17, 0, 4, 1001, 'Alice Valentine Camargo Coito', 'AVCC', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 40, 1, 49, 3440, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(18, 0, 4, 1001, 'Alice Valetine Campos Camargo', 'AVCC', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 40, 1, 49, 3345, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(19, 0, 4, 1001, 'Alice Vieira dos Santos', 'AVS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 40, 1, 44.5, 3215, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(20, 0, 4, 1001, 'Alice Vitória Souza da Silva', 'AVSS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 40, 1, 48, 3330, 40, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(21, 0, 4, 1001, 'Alisson Junior Nascimento da Silva', 'AFNS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 39.5, 1, 51, 4440, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(22, 0, 4, 1001, 'Amanda da Costa Rodrigues', 'ACR', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 41, 1, 51, 4100, 36, 9, 9, -1, 21, 1, 0, '0000-00-00', 1),
+(23, 0, 1, 1001, 'Amanda Gabrielle Sampaio Bahls', 'AGSB', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 40, 1, 48, 3290, 36, 8, 9, -1, 22, 2, 0, '0000-00-00', 1),
+(24, 0, 4, 1001, 'Ana Alice Caetano de Lima', 'AACL', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38.5, 1, 47, 2850, 32, 9, 10, -1, 34, 2, 0, '0000-00-00', 1),
+(25, 0, 4, 1001, 'Ana Carolina Souza de Araújo', 'ACSA', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 38.5, 1, 45, 2650, 0, 10, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(26, 0, 1, 1001, 'Ana Gabriella França da Silva', 'AGFS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 42, 1, 50, 3370, 36, 10, 10, -1, 19, 2, 1, '0000-00-00', 1),
+(27, 0, 4, 1001, 'Ana Júlia dos Santos da Silva Martins', 'AJSSM', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38, 1, 48, 3505, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(28, 0, 4, 1001, 'Ana Júlia Mendes da Silva', 'AJMS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39, 1, 49, 3300, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(29, 0, 4, 1001, 'Ana Júlia Minella Lanartowicz', 'AJML', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 37, 1, 46, 2680, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(30, 0, 1, 1001, 'Ana Livia Ferreira Barbosa', 'ALFB', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 38, 1, 47.5, 2805, 32, 9, 10, -1, 29, 2, 0, '0000-00-00', 1),
+(31, 0, 2, 1001, 'Ana Luiza Kuhnen Cumin', 'ALKC', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 41, 1, 48, 3180, 33.5, 9, 10, -1, 26, 1, 0, '0000-00-00', 1),
+(32, 0, 4, 1001, 'Ana Luiza Oliveira da Silva', 'ALOS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 39.5, 1, 55, 5520, 0, 7, 9, -1, 0, -1, -1, '0000-00-00', 1),
+(33, 0, 1, 1001, 'André Kaique Machado Kessele', 'AKMK', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 41.5, 1, 52, 3620, 37, 10, 10, -1, 15, 1, 0, '0000-00-00', 1),
+(34, 0, 4, 1001, 'Andrey Correia Mota', 'ACM', 'Desconhecido', '0000-00-00', '1', 2, 'Desconhecido', '1', 35, 2, 47, 2485, 0, 10, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(35, 0, 1, 1001, 'Anthony Gabriel França da Silva', 'AGFS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 38, 1, 50, 2995, 33, 9, 10, -1, 25, 3, 0, '0000-00-00', 1),
+(36, 0, 0, 1001, 'Arthur Gabriel da Veiga', 'AGV', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 2, 48, 3295, 34, 10, 10, -1, 26, 2, 0, '0000-00-00', 1),
+(37, 0, 1, 1001, 'Arthur Pereira Ocanha', 'APO', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 38, 2, 52, 3440, 35, 6, 10, -1, 17, 1, 0, '0000-00-00', 1),
+(38, 0, 2, 1001, 'Arthur Santos Barboza de Carvalho', 'ASBC', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39.5, 2, 52, 3470, 32, 9, 10, -1, 0, 1, 0, '0000-00-00', 1),
+(39, 0, 1, 1001, 'Arthur Schurnning Marinho', 'ASM', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 39, 1, 46, 2720, 34, 9, 10, -1, 25, 3, 0, '0000-00-00', 1),
+(40, 0, 4, 1001, 'Arthur Tavares Soares', 'ATS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 39.5, 2, 48.5, 3005, 36, 9, 10, -1, 37, 1, 0, '0000-00-00', 1),
+(41, 0, 4, 1001, 'Arthur Torres Percino', 'ATP', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 1, 49, 2960, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(42, 0, 2, 1001, 'Arthut Zucoloto Olandini', 'AZO', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 1, 45, 2535, 31, 10, 10, -1, 25, 1, 0, '0000-00-00', 1),
+(43, 0, 1, 1001, 'Artur Pereira Ocanha', 'APO', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 38, 2, 52, 3440, 35, 10, 10, -1, 17, 2, 1, '0000-00-00', 1),
+(44, 0, 1, 1001, 'Audrey Correia da Mata', 'ACM', 'Desconhecido', '0000-00-00', '1', 2, 'Desconhecido', '2', 35, 2, 47, 2485, 32, 10, 10, -1, 32, 6, 1, '0000-00-00', 1),
+(45, 0, 1, 1001, 'Aylla Amaral Jaskio', 'AAJ', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 39, 1, 50, 3845, 35, 10, 10, -1, 20, 2, 0, '0000-00-00', 1),
+(46, 0, 1, 1001, 'Beatriz Araújo Fontoura', 'BAF', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 38.5, 2, 49, 3340, 35.5, 9, 10, -1, 30, 2, 0, '0000-00-00', 1),
+(47, 0, 4, 1001, 'Beatriz Britto da Silva', 'BBS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 39, 1, 49, 3010, 0, 8, 9, -1, 0, -1, -1, '0000-00-00', 1),
+(48, 0, 1, 1001, 'Beatriz Fernandes de Almeida', 'BFA', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 40, 1, 50, 3465, 34, -1, -1, -1, 25, 2, 0, '0000-00-00', 1),
+(49, 0, 4, 1001, 'Beatriz Muller', 'BM', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 38, 1, 49, 3215, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(50, 0, 3, 1001, 'Beatriz Rossi Trog', 'BRT', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 37, 1, 45.5, 2620, 33.5, 9, 10, -1, 28, 1, 0, '0000-00-00', 1),
+(51, 0, 4, 1001, 'Bernardo Abraão Pain', 'BAP', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 40, 1, 50, 3585, 0, 7, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(52, 0, 0, 1001, 'Bernardo Mesquita da Silva ', 'BMS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 41.5, 2, 49, 3485, 33, 9, 9, -1, 17, 1, 0, '0000-00-00', 1),
+(53, 0, 4, 1001, 'Bernardo Passos Ulivarri', 'BPU', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 38, 1, 49, 3500, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(54, 0, 1, 1001, 'Bernardo Suda Oliveira', 'BSO', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 39.5, 2, 49, 3130, 34, 9, 10, -1, 23, 1, 1, '0000-00-00', 1),
+(55, 0, 1, 1001, 'Bernardo Zuntini Guiguer', 'BZG', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 36, 2, 44, 2670, 34, 8, 9, -1, 21, 1, 0, '0000-00-00', 1),
+(56, 0, 0, 1001, 'Bianca Costa de Souza', 'BCS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38, 1, 47, 3485, 33, 10, 10, -1, 26, 2, 0, '0000-00-00', 1),
+(57, 0, 1, 1001, 'Bianca Falcão dos Anjos', 'BFA', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 39, 1, 45.5, 2595, 33, 9, 10, -1, 16, 1, 0, '0000-00-00', 1),
+(58, 0, 4, 1001, 'Bianca Florenço Matozo', 'BFM', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 40, 1, 49, 3316, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(59, 0, 1, 1001, 'Brenda Regina Mazepa', 'BRM', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38.5, 1, 51.5, 3480, 36, 8, 9, -1, 23, 3, 1, '0000-00-00', 1),
+(60, 0, 4, 1001, 'Breno Felipe O. de Miranda de Paula', 'BFOMP', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 34, 1, 43, 2500, 0, 8, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(61, 0, 4, 1001, 'Bryan Gomes', 'BG', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 2, 52, 4060, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(62, 0, 0, 1001, 'Bryan Oliveira da Costa', 'BOC', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 40, 1, 49, 3355, 33, 2, 8, -1, 25, 1, 0, '0000-00-00', 1),
+(63, 0, 4, 1001, 'Bryan Rudolf Kraker Machado da Silva Ferreira', 'BRKMSF', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 39, 1, 49, 3285, 0, 10, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(64, 0, 4, 1001, 'Camilly Eduarda Oliveira de Almeida', 'CEOA', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39, 1, 48, 2090, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(65, 0, 2, 1001, 'Carolina Matos de Moura', 'CMM', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 39.5, 1, 49, 3685, 38, 10, 10, -1, 32, 2, 0, '0000-00-00', 1),
+(66, 0, 4, 1001, 'Christiano de Oliveira', 'CO', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 38, 1, 50, 3500, 32, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(67, 0, 4, 1001, 'Christiano Silva', 'CS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 38.5, 1, 48, 3315, 34, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(68, 0, 1, 1001, 'Clara Luiza Siqueira de Araujo', 'CLSA', 'Desconhecido', '0000-00-00', '2', 2, 'Desconhecido', '1', 34, 1, 41, 1775, 34, 6, 9, 10, 20, 1, 0, '0000-00-00', 1),
+(69, 0, 4, 1001, 'Clara Maria Antunes Welter', 'CMAW', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 42, 1, 55, 3955, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(70, 0, 4, 1001, 'Cláudia Gomes Silva', 'CGS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 40, 1, 33, 3025, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(71, 0, 1, 1001, 'Cleber da Costa Brazão', 'CCB', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 38.5, 2, 48.5, 3410, 34, 9, 10, -1, 25, 2, 0, '0000-00-00', 1),
+(72, 0, 0, 1001, 'Daniel de Lima Ferreira Nascimento', 'DLFN', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '0', 40, 1, 49, 3340, 34, 10, 10, -1, 18, 2, 0, '0000-00-00', 1),
+(73, 0, 4, 1001, 'Daniel Luiz', 'DLT', 'Desconhecido', '0000-00-00', '1', 2, 'Desconhecido', '1', 23, 2, 33, 950, 0, 7, 8, -1, 0, -1, -1, '0000-00-00', 1),
+(74, 0, 1, 1001, 'Daniel Martins Roberto de Paula', 'DMRP', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 40, 2, 50, 3325, 34, 10, 10, -1, 19, 1, 0, '0000-00-00', 1),
+(75, 0, 2, 1001, 'Daniel Mendes do Nascimento Alves', 'DMNA', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 38.5, 2, 49, 3010, 36, 9, 10, -1, 35, 2, 0, '0000-00-00', 1),
+(76, 0, 4, 1001, 'Daniel Pibinski Teixeira', 'DPT', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 1, 50, 3320, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(77, 0, 4, 1001, 'Daniele Sophia Carvalho da Silva', 'DSCS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39, 1, 49, 3150, 34, 9, 10, -1, 17, 3, 1, '0000-00-00', 1),
+(78, 0, 0, 1001, 'Danielle Vitória Castro Lopes Nimberg', 'DVCLN', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 38.5, 1, 46, 2735, 33, 9, 10, -1, 19, 2, 1, '0000-00-00', 1),
+(79, 0, 3, 1001, 'Davi Aristides Lima', 'DAL', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 39.5, 1, 50, 3580, 36, 9, 10, -1, 33, 2, 0, '0000-00-00', 1),
+(80, 0, 4, 1001, 'Davi Gabriel de França', 'DGF', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 40, 1, 44.5, 2445, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(81, 0, 1, 1001, 'Davi Guilherme Santana Bombieri', 'DGSB', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 41.5, 2, 51, 3795, 35, 9, 10, -1, 23, 1, 0, '0000-00-00', 1),
+(82, 0, 4, 1001, 'Davi Gustavao Almeida Ferreira', 'DGAF', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 38.5, 2, 53, 3700, 0, 8, 9, -1, 0, -1, -1, '0000-00-00', 1),
+(83, 0, 4, 1001, 'Davi Hipólito Martins', 'DHM', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 41, 1, 49, 3725, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(84, 0, 1, 1001, 'Davi Lucas Costa Dagnetti', 'DLCD', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 40, 1, 50, 3440, 37, 9, 10, -1, 35, 2, 0, '0000-00-00', 1),
+(85, 0, 4, 1001, 'Davi Luis Ferraro', 'DLF', 'Desconhecido', '0000-00-00', '1', 2, 'Desconhecido', '2', 33, 2, 45, 2235, 0, 8, 9, -1, 0, -1, -1, '0000-00-00', 1),
+(86, 0, 4, 1001, 'Davi Magaievski Kokoty', 'DMK', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 1, 51, 3850, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(87, 0, 4, 1001, 'Davi Martins Macário', 'DMM', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 39, 1, 54, 4010, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(88, 0, 4, 1001, 'Davi Miguel da Silva', 'DMS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 38.5, 1, 51, 4360, 38, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(89, 0, 4, 1001, 'Davi Pereira Manosso da Luz', 'DPML', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39.5, 1, 52, 3975, 35.5, 9, 10, -1, 34, 2, 0, '0000-00-00', 1),
+(90, 0, 4, 1001, 'Davi Ribeiro da Luz', 'DRL', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 40, 1, 46, 2960, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(91, 0, 1, 1001, 'Dionatha da Silva Rossi', 'DSR', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39.5, 2, 51, 3490, 33, 9, 10, -1, 31, 6, 0, '0000-00-00', 1),
+(92, 0, 4, 1001, 'Douglas Emanoel Goncalves Tobias', 'DEGT', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 40, 1, 50, 3800, 36, 9, 9, -1, 0, -1, -1, '0000-00-00', 1),
+(93, 0, 0, 1001, 'Eduardo Apucia Nicoline Vieira', 'EGNV', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 40, 1, 51, 3640, 0, 9, 10, -1, 18, 2, 1, '0000-00-00', 1),
+(94, 0, 4, 1001, 'Eduardo Duran Vieira de Borba', 'EDVB', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 38, 1, 50, 3385, 35, 8, 9, -1, 0, -1, -1, '0000-00-00', 1),
+(95, 0, 2, 1001, 'Eduardo Simeão Palharo', 'ESP', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39.5, 1, 48.5, 3185, 35, 9, 10, -1, 28, 1, 0, '0000-00-00', 1),
+(96, 0, 4, 1001, 'Eduardo Vieira de Borba', 'EVB', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 38, 1, 50, 3850, 0, 8, 9, -1, 0, -1, -1, '0000-00-00', 1),
+(97, 0, 4, 1001, 'Elisa Zeni Ozalinski', 'EZO', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 36, 1, 47, 2715, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(98, 0, 2, 1001, 'Eloá dos Santos Baldessari', 'ESB', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38, 1, 48, 2515, 30.5, 7, 10, -1, 15, 1, 1, '0000-00-00', 1),
+(99, 0, 4, 1001, 'Emanuelle Bianca da Silva Mantovani', 'EBSM', 'Desconhecido', '0000-00-00', '2', 2, 'Desconhecido', '2', 34, 2, 43, 2165, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(100, 0, 1, 1001, 'Emanuelly Brandel de Andrade', 'EBA', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39, 1, 49.5, 3510, 34, 10, 10, -1, 22, 1, 0, '0000-00-00', 1),
+(101, 0, 4, 1001, 'Emanuelly Francisco de Paula', 'EFP', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 39, 1, 47, 3050, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(102, 0, 4, 1001, 'Emelly Vitória Silva', 'EVS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 35, 1, 46, 2020, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(103, 0, 0, 1001, 'Enzo Felipe Vieira dos Santos', 'EFVS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 0, 1, 52, 4045, 35, 9, 10, -1, 24, 1, 0, '0000-00-00', 1),
+(104, 0, 1, 1001, 'Enzo Gabriel Mazeika', 'EGM', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 39.5, 1, 47.5, 2980, 30, 9, 10, -1, 28, 1, 0, '0000-00-00', 1),
+(105, 0, 4, 1001, 'Enzo Lima Taborda Drosdoski', 'ELTD', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 1, 48, 3455, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(106, 0, 4, 1001, 'Enzo Loreno', 'EL', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 38.5, 1, 49, 3110, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(107, 0, 4, 1001, 'Enzzo Rhuan da Silva Dias', 'ERSD', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 1, 47, 3370, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(108, 0, 0, 1001, 'Erick Henrique Magalhães de Souza', 'EHMS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 1, 50, 3050, 0, -1, -1, -1, 26, 2, 0, '0000-00-00', 1),
+(109, 0, 3, 1001, 'Ester Heloiza Alves Quilhaute', 'EHAQ', 'Desconhecido', '0000-00-00', '2', 2, 'Desconhecido', '2', 31, 2, 43, 1760, 30, 8, 10, -1, 21, 2, 0, '0000-00-00', 1),
+(110, 0, 1, 1001, 'Estevão dos Santos da Silva', 'ESS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 38, 1, 49, 3180, 34, 9, 10, -1, 27, 2, 0, '0000-00-00', 1),
+(111, 0, 4, 1001, 'Esther Vitória da Silva Ferreira', 'EVSF', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 41, 2, 53, 4190, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(112, 0, 4, 1001, 'Evellen Bídris Gonçalves Crisanta', 'EBGC', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38, 1, 49, 2950, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(113, 0, 0, 1001, 'Evellyn Valquiria Miranda Leozebio', 'EVML', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38.5, 1, 48.5, 3280, 32, 10, 10, -1, 17, 1, 0, '0000-00-00', 1),
+(114, 0, 2, 1001, 'Fabiana Oliveira Fabricio', 'FOF', 'Desconhecido', '0000-00-00', '2', 2, 'Desconhecido', '2', 40, 2, 52, 3720, 35, 9, 10, -1, 21, 2, 0, '0000-00-00', 1),
+(115, 0, 4, 1001, 'Fábio de Oliveira Santos', 'FOS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 40, 1, 48, 3000, 0, 10, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(116, 0, 0, 1001, 'Felipe Augusto V. P. da Silva', 'FAVPS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 1, 52, 3815, 34, 10, 10, -1, 29, 3, 0, '0000-00-00', 1),
+(117, 0, 4, 1001, 'Felipe Castro Mesquita', 'FCM', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 38, 1, 47, 2700, 36, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(118, 0, 4, 1001, 'Felipe Cunha Alves', 'FCA', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 38.5, 2, 49, 3100, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(119, 0, 4, 1001, 'Felipe Emanuel dos Santos Yan', 'FESY', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 1, 47, 2980, 0, 9, 9, -1, 0, -1, -1, '0000-00-00', 1),
+(120, 0, 0, 1001, 'Felipe Hadib Azzi Elias', 'FHAE', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 40, 2, 48, 3315, 35, 10, 10, -1, 28, 2, 0, '0000-00-00', 1),
+(121, 0, 2, 1001, 'Felipe Miguel Cardoso Zombuski', 'FMCZ', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 40, 1, 50, 4350, 36, 9, 10, -1, 32, 4, 1, '0000-00-00', 1),
+(122, 0, 4, 1001, 'Fernanda Rodrigues da Silva', 'FRS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 38, 1, 49, 3490, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(123, 0, 1, 1001, 'Fernando Henrique Cordeiro', 'FHC', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 40, 1, 50, 3585, 36, 9, 10, -1, 36, 3, 0, '0000-00-00', 1),
+(124, 0, 4, 1001, 'Filipe Antoniacomi', 'FA', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 40, 1, 51, 3750, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(125, 0, 4, 1001, 'Gabriel Alberto Medina Severo', 'GAMS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 38, 1, 47, 2975, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(126, 0, 0, 1001, 'Gabriel Felipe Pires Agostinho', 'GFPA', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 40, 1, 50, 3825, 34, 9, 10, -1, 27, 2, 0, '0000-00-00', 1),
+(127, 0, 4, 1001, 'Gabriel Maffvei Ceglio', 'GMC', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 41, 2, 51, 3575, 0, 9, 9, -1, 0, -1, -1, '0000-00-00', 1),
+(128, 0, 2, 1001, 'Gabriel Maricato do Rosario', 'GMR', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 38, 1, 50, 3840, 37, 9, 10, -1, 25, 2, 0, '0000-00-00', 1),
+(129, 0, 4, 1001, 'Gabriel Rampasso Rodrigues', 'GRR', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 36, 1, 47, 2900, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(130, 0, 1, 1001, 'Gabriel Smaniato dos Santos', 'GSS', 'Desconhecido', '0000-00-00', '1', 2, 'Desconhecido', '1', 38.5, 2, 48.5, 3400, 34, 9, 10, -1, 26, 2, 0, '0000-00-00', 1),
+(131, 0, 4, 1001, 'Gabriel Souza Constante', 'GSC', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 1, 51, 3540, 0, 7, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(132, 0, 1, 1001, 'Gabriele Aparecida Gonçalves Sladler', 'GAGS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38.5, 2, 47, 2765, 34, 10, 10, -1, 30, 1, 0, '0000-00-00', 1),
+(133, 0, 4, 1001, 'Gabrielle Heloise Banhos', 'GHB', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 36, 2, 48, 2915, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(134, 0, 4, 1001, 'Giovana Alves da Veiga', 'GAV', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 39.5, 2, 47, 3110, 34, 9, 10, -1, 32, 4, 1, '0000-00-00', 1),
+(135, 0, 0, 1001, 'Giovana Joaquina Ribeiro', 'GJR', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 39.5, 1, 46, 2795, 31.5, 9, 10, -1, 41, 3, 0, '0000-00-00', 1),
+(136, 0, 4, 1001, 'Giovanna Arvani Rodrigues', 'GAR', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39.5, 1, 47, 3345, 33, 8, 9, -1, 23, 2, 1, '0000-00-00', 1),
+(137, 0, 0, 1001, 'Giovanna Helena Ribeiro dias da Rosa', 'GHRDR', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 40, 2, 50, 3315, 33, 10, 10, -1, 34, 3, 0, '0000-00-00', 1),
+(138, 0, 4, 1001, 'Graziela da Silva Tobias', 'GST', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39, 2, 47, 3095, 0, 10, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(139, 0, 4, 1001, 'Guilherme Willian Cunha', 'GWC', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 38.5, 1, 47, 2700, 0, 9, 9, -1, 0, -1, -1, '0000-00-00', 1),
+(140, 0, 1, 1001, 'Gustavo Henrique Alves de Lima', 'GHAL', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 41, 1, 49, 3145, 33, 8, 10, -1, 20, 1, 0, '0000-00-00', 1),
+(141, 0, 1, 1001, 'Hadassa Emanuelly Martins', 'HEM', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 40, 1, 49, 2980, 32, 7, 10, -1, 29, 2, 0, '0000-00-00', 1),
+(142, 0, 0, 1001, 'Hadassa Maria Sales Lagher', 'HMSL', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 38.5, 1, 50, 4180, 35, 10, 10, -1, 35, 3, 0, '0000-00-00', 1),
+(143, 0, 4, 1001, 'Harumi  Sajura Ueda', 'HSU', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 40, 1, 49, 3545, 0, 9, 10, 10, 0, -1, -1, '0000-00-00', 1),
+(144, 0, 1, 1001, 'Heitor Benício Alves Batista', 'HBAB', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 38.5, 2, 49, 2790, 32, 9, 10, -1, 21, 1, 0, '0000-00-00', 1),
+(145, 0, 1, 1001, 'Heitor de Almeida Bueno', 'HAB', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39.5, 1, 52, 3430, 33, 9, 10, -1, 18, 1, 0, '0000-00-00', 1),
+(146, 0, 4, 1001, 'Heitor Pereira Paes ', 'HPP', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 38.5, 2, 45, 3365, 35, 9, 10, -1, 18, 1, 0, '0000-00-00', 1),
+(147, 0, 4, 1001, 'Heitor Soares de Souza Marques', 'HSSM', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 37, 1, 47, 2960, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(148, 0, 0, 1001, 'Hellena Mikaela Kuraviski', 'HMK', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39, 1, 50, 3100, 34, 10, 10, -1, 23, 1, 0, '0000-00-00', 1),
+(149, 0, 1, 1001, 'Heloa Rodrigues Machado', 'HRM', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 33, 1, 51, 3905, 33, 10, 10, -1, 17, 1, 0, '0000-00-00', 1),
+(150, 0, 1, 1001, 'Heloisa dos Santos Favoreto', 'HSF', 'Desconhecido', '0000-00-00', '2', 2, 'Desconhecido', '2', 40.5, 2, 51, 4020, 35, 9, 10, -1, 34, 3, 0, '0000-00-00', 1),
+(151, 0, 4, 1001, 'Heloisa Satoski Neguello', 'HSN', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39, 1, 48, 2925, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(152, 0, 1, 1001, 'Henrique Cardoso Ferreira', 'HCF', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 38, 2, 50, 2710, 32, 9, 10, -1, 17, 1, 0, '0000-00-00', 1),
+(153, 0, 4, 1001, 'Henrique E. Camargo Franco', 'HECF', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 1, 50, 3390, 0, 10, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(154, 0, 4, 1001, 'Higor Cunha da Silva', 'HCS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 1, 48, 3060, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(155, 0, 1, 1001, 'Ian Salgueiro Portz', 'ISP', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 40, 1, 48, 3285, 35, 9, 10, -1, 20, 1, 0, '0000-00-00', 1),
+(156, 0, 4, 1001, 'Iris Dina Martins', 'IDM', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 40, 2, 49, 3495, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(157, 0, 1, 1001, 'Isaac Paes da Luz', 'IPL', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 40, 1, 48, 2500, 33, 3, 7, 9, 19, 1, 0, '0000-00-00', 1),
+(158, 0, 4, 1001, 'Isaac Tavares Branco de Matos', 'ITBM', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 1, 50, 3250, 34, 9, 9, -1, 0, -1, -1, '0000-00-00', 1),
+(159, 0, 4, 1001, 'Isabela Coelho Corrêa dos Santos', 'ICCS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 38.5, 1, 44, 2885, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(160, 0, 2, 1001, 'Isabela Passos Vieira Pires', 'IPVP', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38.5, 2, 46, 2795, 32, 10, 10, -1, 22, 2, 0, '0000-00-00', 1),
+(161, 0, 4, 1001, 'Isabella dos Santos Notte', 'ISN', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38, 1, 44, 2640, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(162, 0, 1, 1001, 'Isabella Pietra Fagundes', 'IPF', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 40, 1, 52, 3645, 34, 8, 10, -1, 32, 2, 1, '0000-00-00', 1),
+(163, 0, 4, 1001, 'Isabelli Maria Duarte Brusco', 'IMDB', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38.5, 1, 47, 2975, 0, 8, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(164, 0, 4, 1001, 'Isabelly Aleixo Rosa Caetano', 'IARC', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39, 1, 50, 3585, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(165, 0, 2, 1001, 'Isabelly Aparecida Padaratz', 'IAP', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 40, 1, 50, 3260, 34, 9, 10, -1, 22, 1, 0, '0000-00-00', 1),
+(166, 0, 4, 1001, 'Isabelly Maria Duarte Brusco', 'IMDB', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38.5, 1, 47, 2975, 32.5, 8, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(167, 0, 4, 1001, 'Isac Hideki Matsuzaki', 'IHM', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 39.5, 1, 50, 3860, 0, 10, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(168, 0, 2, 1001, 'Isadora Marcomini Eppinger', 'IME', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 38, 1, 48, 2955, 34, 8, 9, -1, 38, 1, 0, '0000-00-00', 1),
+(169, 0, 4, 1001, 'Isadora Moreira Machado', 'IMM', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 38, 1, 46, 2770, 0, 8, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(170, 0, 4, 1001, 'Isadora Silino Túlio', 'IST', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 39, 1, 50, 3590, 0, 7, 9, -1, 0, -1, -1, '0000-00-00', 1),
+(171, 0, 4, 1001, 'Isaque Rocha Vieira', 'IRV', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 38, 1, 48, 2900, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(172, 0, 1, 1001, 'Isis Farias Zdiarski Maier', 'IFZM', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39, 1, 48, 2670, 32, 9, 10, -1, 18, 1, 0, '0000-00-00', 1),
+(173, 0, 2, 1001, 'Isis Leal Tavares', 'ILT', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38, 2, 47, 2930, 33, 9, 10, -1, 21, 1, -1, '0000-00-00', 1),
+(174, 0, 1, 1001, 'Isis Lohana Silva da Conceição', 'ILSC', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39, 1, 48, 3240, 34, 9, 10, -1, 22, 1, 0, '0000-00-00', 1),
+(175, 0, 4, 1001, 'Izaac Tavares Branco de Mattos', 'ITBM', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 1, 50, 3250, 0, 9, 9, -1, 0, -1, -1, '0000-00-00', 1),
+(176, 0, 4, 1001, 'Jaqueline Larissa Camim dos Reis', 'JLCR', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 40, 1, 52, 3960, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(177, 0, 0, 1001, 'Jhulia Vitória Amorim dos Santos', 'JVAS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39, 1, 51, 3930, 34, 10, 10, -1, 20, 2, 0, '0000-00-00', 1),
+(178, 0, 4, 1001, 'João Francisco Nascimento Clemente', 'JFNC', 'Desconhecido', '0000-00-00', '1', 2, 'Desconhecido', '1', 35, 2, 43, 1940, 0, 8, 9, -1, 0, -1, -1, '0000-00-00', 1),
+(179, 0, 4, 1001, 'João Gabriel de Mello Raimundo', 'JGMR', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 1, 50, 3710, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(180, 0, 4, 1001, 'João Gabriel Hilgenberg da Rosa', 'JGHR', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 1, 50, 3920, 0, 10, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(181, 0, 0, 1001, 'João Guilherme Alves D''Santi Pereira', 'JGADSP', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 40, 1, 52, 3700, 35, 9, 10, -1, 27, 3, 1, '0000-00-00', 1),
+(182, 0, 4, 1001, 'João Guilherme Fodanelli', 'JGF', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 40, 2, 52, 3465, 0, 9, 9, -1, 0, -1, -1, '0000-00-00', 1),
+(183, 0, 4, 1001, 'João Henrique Penteado de Souza', 'JHPS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 39, 1, 52, 4405, 0, 8, 9, -1, 0, -1, -1, '0000-00-00', 1),
+(184, 0, 4, 1001, 'João Lucas Alves Pires', 'JLAP', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 36, 2, 47, 2555, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(185, 0, 1, 1001, 'João Lucas Ferreira Buava', 'JLFB', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39.5, 1, 53, 3590, 36, 7, 10, -1, 16, 1, 0, '0000-00-00', 1),
+(186, 0, 4, 1001, 'João Miguel Rodrigues Alves', 'JMRA', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 38.5, 1, 50, 3200, 0, 8, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(187, 0, 1, 1001, 'João Miguel Ruper', 'JMR', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 37, 1, 46, 2965, 33, 7, 10, -1, 19, 2, 1, '0000-00-00', 1),
+(188, 0, 1, 1001, 'João Pedro dos Reis', 'JPR', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 40, 1, 50, 3550, 35, 9, 10, -1, 22, 2, 0, '0000-00-00', 1),
+(189, 0, 4, 1001, 'João Pedro Gonsalves Machado', 'JPGM', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 38.5, 1, 49, 3870, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(190, 0, 1, 1001, 'João Pedro Lemes de Oliveira', 'JPLO', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 41, 1, 50, 3345, 35, 9, 10, -1, 30, 3, 0, '0000-00-00', 1),
+(191, 0, 1, 1001, 'João Vitor Biancato Paulino Batista', 'JVBPB', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 1, 50, 3280, 33, 10, 10, -1, 20, 2, 1, '0000-00-00', 1),
+(192, 0, 4, 1001, 'John Benjamin Gelinski Correia', 'JBGC', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 36, 1, 50, 3380, 34.5, 8, 9, -1, 0, -1, -1, '0000-00-00', 1),
+(193, 0, 0, 1001, 'John K. Veiga Souza', 'JKVS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 0, 1, 48, 2825, 34, 9, 10, -1, 20, 1, 0, '0000-00-00', 1),
+(194, 0, 0, 1001, 'Jonathan Huillca Quispe', 'JHQ', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 40, 1, 51, 3440, 36.5, 9, 10, -1, 26, 2, 0, '0000-00-00', 1),
+(195, 0, 3, 1001, 'José Davi Garcia Klein', 'JDGK', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 40, 1, 52, 3815, 35, 9, 10, -1, 23, 3, 2, '0000-00-00', 1),
+(196, 0, 1, 1001, 'José Miguel dos Santos Anjos', 'JMSA', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 1, 50, 3695, 35, 9, 10, -1, 25, 2, 0, '0000-00-00', 1),
+(197, 0, 4, 1001, 'Julia Basso Moreira', 'JBM', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 40, 1, 50, 3000, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(198, 0, 1, 1001, 'Julia do Nascimento Figueredo', 'JNF', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38, 1, 47, 2535, 32, 10, 10, -1, 17, 1, 0, '0000-00-00', 1),
+(199, 0, 4, 1001, 'Julia Eduarda Velozo', 'JEV', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 37, 2, 47, 2970, 0, 6, 8, 10, 0, -1, -1, '0000-00-00', 1),
+(200, 0, 4, 1001, 'Julia Emanueli Medeios Glack', 'JEMG', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 41, 1, 48, 3420, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(201, 0, 4, 1001, 'Júlia Fonseca Alves', 'JFA', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39, 1, 46, 2395, 31, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(202, 0, 1, 1001, 'Julia Isadora da Paz Gonçalves', 'JIPG', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38.5, 2, 47, 2980, 34, 8, 10, -1, 27, 3, 0, '0000-00-00', 1),
+(203, 0, 0, 1001, 'Júlia Milena Gonçalves Duarte', 'JMGD', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39, 1, 46, 2925, 34, 10, 10, -1, 26, 2, 0, '0000-00-00', 1),
+(204, 0, 1, 1001, 'Julia Miranda Alves', 'JMA', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 40, 1, 50, 3375, 35, 9, 10, -1, 26, 1, -1, '0000-00-00', 1),
+(205, 0, 0, 1001, 'Julia Vitória de Jesus Albino de Souza', 'JVJAS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 36, 2, 44, 2055, 32, 9, 9, -1, 25, 3, 1, '0000-00-00', 1),
+(206, 0, 4, 1001, 'Julio Castilho Weinert', 'JCW', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 36, 1, 44, 2255, 0, 7, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(207, 0, 4, 1001, 'Júlya Marche Xavier Silva', 'JMXS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 40, 2, 49, 2855, 0, 10, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(208, 0, 4, 1001, 'Kailan Antunes de Lima', 'KAL', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 38, 1, 49, 2985, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(209, 0, 1, 1001, 'Kaio Izaias Daquino de Lima', 'KIDL', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 40.5, 1, 47, 2720, 34, 9, 10, -1, 34, 2, 0, '0000-00-00', 1),
+(210, 0, 1, 1001, 'Kalebe Camargo Braga Prepo', 'KCBP', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '0', 40, 1, 50, 3620, 34, 9, 10, -1, 28, 3, 0, '0000-00-00', 1),
+(211, 0, 3, 1001, 'Kalic Camargo da Silva', 'KCS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 40, 1, 49, 3435, 36, 9, 10, -1, 20, 2, 1, '0000-00-00', 1),
+(212, 0, 1, 1001, 'Kamila Cocenso Santana', 'KCS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 40, 1, 50, 3945, 36, 9, 10, -1, 23, 2, 0, '0000-00-00', 1),
+(213, 0, 1, 1001, 'Kauã Henrique da Silva Saiz', 'KHSS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 40, 1, 53, 3720, 33, 6, 10, -1, 19, 1, 0, '0000-00-00', 1),
+(214, 0, 1, 1001, 'Kauê Mauricio Telles Pedroso', 'KMTP', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 41, 1, 50, 3505, 35, 9, 10, -1, 19, 3, 2, '0000-00-00', 1),
+(215, 0, 4, 1001, 'Kaue Santana', 'KS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 39, 1, 52, 4420, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(216, 0, 2, 1001, 'Kawê Mauricio Telles Pedroso', 'KMTP', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 41, 1, 50, 3505, 35, 9, 10, -1, 19, 3, 2, '0000-00-00', 1),
+(217, 0, 4, 1001, 'Kemily Cardoso dos Santos', 'KCS', 'Desconhecido', '0000-00-00', '2', 2, 'Desconhecido', '2', 40, 1, 46, 2700, 0, 1, 4, -1, 0, -1, -1, '0000-00-00', 1),
+(218, 0, 1, 1001, 'Kevyn Rodrigues Dias', 'KRD', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 34, 2, 49, 2610, 33, 9, 10, -1, 20, 2, 0, '0000-00-00', 1),
+(219, 0, 4, 1001, 'Laira Cristine Miva de Souza', 'LCMS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38.5, 1, 48, 3525, 34, 9, 10, -1, 17, 1, 0, '0000-00-00', 1),
+(220, 0, 4, 1001, 'Laoanny Gabrieli Caetano de Olandra', 'LGCO', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 37, 1, 43, 2370, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(221, 0, 4, 1001, 'Lara Gabriela Xavier Santos', 'LGXS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38, 1, 47, 2955, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(222, 0, 1, 1001, 'Lara Krupczak', 'LK', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39, 1, 47, 3175, 34, 9, 10, -1, 22, 2, 0, '0000-00-00', 1),
+(223, 0, 4, 1001, 'Lara Malheiros Lopes', 'LML', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 38, 2, 48, 3175, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(224, 0, 4, 1001, 'Lara Passos Bitencourt', 'LPB', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39, 1, 48, 2860, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(225, 0, 0, 1001, 'Larissa Emanoelly Kosloki', 'LEK', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 40, 1, 51, 3350, 34, 9, 10, -1, 15, 1, 0, '0000-00-00', 1),
+(226, 0, 4, 1001, 'Lauanny Gabrielle Correa de Olandra', 'LGCO', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 37, 1, 43, 2370, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(227, 0, 1, 1001, 'Laura A. Mendes Alves', 'LAMA', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 38.5, 1, 49, 3465, 34.5, 9, 10, -1, 31, 3, 0, '0000-00-00', 1),
+(228, 0, 0, 1001, 'Laura Alves Polli', 'LAP', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 37, 1, 46, 2870, 33, 8, 10, -1, 20, 1, 0, '0000-00-00', 1),
+(229, 0, 0, 1001, 'Laura Cristine Mira de Souza', 'LCMS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38.5, 1, 48, 3525, 34, 9, 10, -1, 17, 1, 0, '0000-00-00', 1),
+(230, 0, 1, 1001, 'Laura Dering Guimarães', 'LDG', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39, 1, 47, 2905, 32, 5, 10, -1, 34, 4, 1, '0000-00-00', 1),
+(231, 0, 1, 1001, 'Laura Elisa Siqueira de Araujo', 'LESA', 'Desconhecido', '0000-00-00', '2', 2, 'Desconhecido', '1', 34, 1, 41, 1955, 32, 9, 10, -1, 20, 1, 0, '0000-00-00', 1),
+(232, 0, 4, 1001, 'Laura Machado Schibicheski', 'LMS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 39, 1, 46, 2680, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(233, 0, 1, 1001, 'Laura Simaneli Machado', 'LSM', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 40, 2, 51, 3275, 34, 9, 10, -1, 28, 3, 1, '0000-00-00', 1),
+(234, 0, 0, 1001, 'Lavinia Campos Jagas', 'LCJ', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 40, 1, 49, 3315, 35, 10, 10, -1, 22, 1, 0, '0000-00-00', 1),
+(235, 0, 2, 1001, 'Leonardo Gustavo da Silva Tiere', 'LGST', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 40, 1, 52, 3750, 36, 9, 9, -1, 25, 3, 1, '0000-00-00', 1),
+(236, 0, 3, 1001, 'Leonardo da Veiga Gabardo', 'LVG', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 38.5, 1, 49, 3255, 35, 10, 10, -1, 34, 1, 0, '0000-00-00', 1),
+(237, 0, 0, 1001, 'Leonardo Davi Megiolaro Lopes', 'LDML', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 38.5, 1, 47, 2765, 35, 9, 10, -1, 31, 4, 1, '0000-00-00', 1),
+(238, 0, 1, 1001, 'Leonardo Rodrigues da Silva', 'LRS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 38, 1, 50.5, 3115, 33.5, 6, 8, -1, 25, 2, 0, '0000-00-00', 1),
+(239, 0, 1, 1001, 'Leticia Moreira Koike', 'LMK', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 39.5, 1, 51.5, 3940, 37, 9, 10, -1, 37, 3, 0, '0000-00-00', 1),
+(240, 0, 1, 1001, 'Livia Alves Scussel', 'LAS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38.5, 1, 48, 3425, 35, 9, 10, -1, 31, 3, -1, '0000-00-00', 1),
+(241, 0, 4, 1001, 'Lívia Bianca da Rosa Correia', 'LBRC', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 38.5, 1, 48, 3295, 0, 9, 9, -1, 0, -1, -1, '0000-00-00', 1),
+(242, 0, 1, 1001, 'Livia Constantino', 'LC', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 38.5, 1, 47, 3070, 35, 9, 10, -1, 33, 2, 0, '0000-00-00', 1),
+(243, 0, 1, 1001, 'Livia Rainerte Carvalho', 'LRC', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39, 1, 51, 3340, 35, 8, 10, -1, 19, 1, 0, '0000-00-00', 1),
+(244, 0, 4, 1001, 'Lohan Pyetro Martin', 'LPM', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 40, 1, 49, 3455, 0, 9, 9, -1, 0, -1, -1, '0000-00-00', 1),
+(245, 0, 0, 1001, 'Luan Miranda de Almeida', 'LMA', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 1, 46, 2340, 31, 9, 10, -1, 21, 1, 0, '0000-00-00', 1),
+(246, 0, 4, 1001, 'Luana dos Santos da Silva', 'LSS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 42, 1, 50, 3920, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(247, 0, 2, 1001, 'Lucas Eduardo Tavares da Silva', 'LETS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 40, 1, 51.5, 3675, 33, 10, 10, -1, 20, 2, 0, '0000-00-00', 1),
+(248, 0, 4, 1001, 'Lucas Notte Geraldo', 'LNG', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 41, 2, 53, 4446, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(249, 0, 4, 1001, 'Lucas Wirle da Silva Antunes', 'LWSA', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 1, 49, 3115, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(250, 0, 4, 1001, 'Ludmyla Milena de Almeida da Silva', 'LMAS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 40, 1, 47, 2790, 0, 10, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(251, 0, 3, 1001, 'Luis Miguel Assunção Souza', 'LMAS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 37, 1, 49, 2905, 33, 9, 10, -1, 30, 2, 1, '0000-00-00', 1),
+(252, 0, 4, 1001, 'Luiz Eduardo Bernaski Salomão', 'LEBS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 36, 1, 45, 2435, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(253, 0, 1, 1001, 'Luiz Felipe Nascimento de Souza', 'LFNS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 40, 2, 51, 3625, 35, 10, 10, -1, 40, 3, 0, '0000-00-00', 1),
+(254, 0, 0, 1001, 'Luiz Gustavo Santos Silveira', 'LGSS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 40, 2, 49, 3530, 34, 9, 10, -1, 22, 1, 0, '0000-00-00', 1),
+(255, 0, 4, 1001, 'Luiz Henrique Bernaski Salomão ', 'LHBS', 'Desconhecido', '0000-00-00', '1', 2, 'Desconhecido', '2', 36, 2, 46, 2605, 0, 3, 8, -1, 0, -1, -1, '0000-00-00', 1),
+(256, 0, 1, 1001, 'Luiz Miguel Assunção Souza', 'LMAS', 'Desconhecido', '0000-00-00', '1', 2, 'Desconhecido', '1', 38, 1, 49, 2905, 33, 9, 10, -1, 30, 2, 0, '0000-00-00', 1),
+(257, 0, 2, 1001, 'Luiz Miguel Bernardi Braz', 'LMBB', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 39, 1, 50, 3900, 38, 6, 9, -1, 37, 3, 1, '0000-00-00', 1),
+(258, 0, 1, 1001, 'Luiza Bachmann', 'LB', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38.5, 1, 52, 3755, 34, 10, 10, -1, 21, 1, 0, '0000-00-00', 1),
+(259, 0, 2, 1001, 'Luiza Oro Neves Alonso', 'LONA', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 34, 2, 44, 2120, 38, 9, 10, -1, 40, 1, 0, '0000-00-00', 1),
+(260, 0, 2, 1001, 'Luize Cristina Ferreira', 'LCS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 39.5, 1, 48, 3380, 34, 9, 10, -1, 29, 4, 1, '0000-00-00', 1),
+(261, 0, 0, 1001, 'Maheli Sales Ferreira', 'MSF', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39, 2, 48, 3065, 33, 10, 10, -1, 34, 3, 0, '0000-00-00', 1),
+(262, 0, 4, 1001, 'Malie Roberta Rebelo', 'MRR', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38, 1, 49, 3090, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(263, 0, 2, 1001, 'Manuela da Silva Balhuk', 'MSB', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38.5, 1, 42, 2505, 32, -1, -1, -1, 25, 2, 0, '0000-00-00', 1),
+(264, 0, 1, 1001, 'Marcela Camili Corrêa', 'MCC', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 39, 1, 49, 0, 0, 9, 10, -1, 34, 3, 0, '0000-00-00', 1),
+(265, 0, 4, 1001, 'Marcello Henrique dos Santos Matoso', 'MHSM', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 1, 52, 3800, 36, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(266, 0, 1, 1001, 'Marco Antonio de Andrade Filho', 'MAAF', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39.5, 2, 48, 3020, 33, 9, 10, -1, 40, 4, 1, '0000-00-00', 1),
+(267, 0, 4, 1001, 'Marco Antônio de Souza Faccio', 'MASF', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 40, 1, 49, 3485, 0, 10, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(268, 0, 1, 1001, 'Marcos Alfredo de Souza Junior', 'MASJ', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 1, 43, 3435, 36.5, 9, 10, -1, 30, 2, 0, '0000-00-00', 1),
+(269, 0, 4, 1001, 'Maria Beatriz Sceminski Batista', 'MBSB', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 39, 1, 50, 3105, 35, 9, 9, -1, 0, -1, -1, '0000-00-00', 1),
+(270, 0, 1, 1001, 'Maria Clara Rodrigues', 'MCR', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38, 1, 49, 3290, 33, 9, 10, -1, 35, 3, 0, '0000-00-00', 1),
+(271, 0, 4, 1001, 'Maria Eduarda Carvalho Silva', 'MECS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 39, 1, 50, 3705, 0, 8, 9, 10, 0, -1, -1, '0000-00-00', 1),
+(272, 0, 4, 1001, 'Maria Eduarda Ribeiro', 'MER', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 37, 1, 49, 2925, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(273, 0, 4, 1001, 'Maria Eduarda Rodrigues de Lima', 'MERL', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 41, 1, 50, 3475, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(274, 0, 2, 1001, 'Maria Eduarda Rodrigues Lecheta', 'MERL', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39, 1, 49.5, 3315, 33, 9, 10, -1, 18, 1, 0, '0000-00-00', 1),
+(275, 0, 1, 1001, 'Maria Fernanda Alves de Lima', 'MFAL', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39, 1, 47, 2660, 32.5, 9, 9, -1, 19, 2, 0, '0000-00-00', 1),
+(276, 0, 4, 1001, 'Maria Fernanda Gonzales', 'MFG', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 39, 1, 48, 3230, 0, 8, 9, -1, 0, -1, -1, '0000-00-00', 1),
+(277, 0, 4, 1001, 'Maria Gabrielly Kalb', 'MGK', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38, 1, 49, 3100, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(278, 0, 1, 1001, 'Maria Isis Svoboda Ribeiro', 'MISR', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38, 1, 46, 2610, 33, 9, 10, -1, 14, 1, 0, '0000-00-00', 1),
+(279, 0, 1, 1001, 'Maria Izabel Rocha', 'MIR', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38, 1, 50, 3290, 34, 10, 10, -1, 29, 2, 0, '0000-00-00', 1),
+(280, 0, 4, 1001, 'Maria Luisa Nascimento dos Santos', 'MLNS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 38, 1, 47, 2735, 0, 8, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(281, 0, 1, 1001, 'Maria Luise de Souza', 'MLS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 38, 1, 50, 3420, 34, 8, 9, -1, 20, 1, 0, '0000-00-00', 1),
+(282, 0, 4, 1001, 'Maria Luiza', 'ML ', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39, 1, 50, 3200, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(283, 0, 1, 1001, 'Maria Vitória Curcio', 'MVC', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 37, 1, 45, 2420, 31, 9, 10, -1, 28, 1, 0, '0000-00-00', 1),
+(284, 0, 4, 1001, 'Maria Vitória de Souza Taborda', 'MVST', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 38, 1, 51, 3835, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(285, 0, 4, 1001, 'Maria Vitoria Freitas dos Santos', 'MVFS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38.5, 1, 50, 3495, 36, 9, 10, -1, 38, 3, 0, '0000-00-00', 1),
+(286, 0, 1, 1001, 'Maria Y. Gonçalves', 'MYG', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 38.5, 1, 48, 3105, 35, 9, 9, -1, 21, 2, 0, '0000-00-00', 1),
+(287, 0, 4, 1001, 'Mariana de Almeida Lício', 'MAL', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 39, 1, 42, 2050, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1);
+INSERT INTO `tb_paciente` (`codigo_paciente`, `codigo_responsavel`, `codigo_renda`, `codigo_cidade`, `nome_paciente`, `iniciais_nome_paciente`, `nome_mae`, `data_nascimento`, `sexo`, `passou_pela_uti`, `pq_passou_pela_uti`, `tipo_parto`, `idade_gestacional_nascimento`, `presenca_icterisia_neonatal`, `comprimento_nascimento`, `peso_nascimento`, `perimetro_encefalico_nascimento`, `apgar_1_min`, `apgar_5_min`, `apgar_10_min`, `idade_mae_parto`, `numero_gestacoes_mae`, `numero_abortos_mae`, `data_cadastro`, `ativo`) VALUES
+(288, 0, 2, 1001, 'Mariana Wazima Guaita', 'MWG', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39.5, 1, 44, 2205, 33, 9, 10, -1, 23, 1, 0, '0000-00-00', 1),
+(289, 0, 4, 1001, 'Mariane Ortiz Silva', 'MOS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 39.5, 1, 47, 2695, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(290, 0, 4, 1001, 'Marina Dina', 'MD', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 37, 1, 48, 3325, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(291, 0, 1, 1001, 'Mateus Aparecido de Oliveira', 'MAO', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39.5, 2, 51, 3295, 36, 9, 9, -1, 21, 1, 0, '0000-00-00', 1),
+(292, 0, 4, 1001, 'Mateus Henrique Costa Adriano', 'MHCA', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 42, 1, 50, 3855, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(293, 0, 4, 1001, 'Mateus Henrique dos Santos Tavares', 'MHST', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 40, 1, 51, 3710, 0, 10, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(294, 0, 2, 1001, 'Mateus Simões Rocha', 'MSR', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 38.5, 1, 47, 3275, 0, 9, 10, -1, 28, 1, 0, '0000-00-00', 1),
+(295, 0, 1, 1001, 'Matheus Ferreira Barbosa', 'MFB', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 38, 1, 46.5, 2625, 33, 9, 10, -1, 29, 2, 0, '0000-00-00', 1),
+(296, 0, 4, 1001, 'Matheus Henrique Sobrinho', 'MHS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 40, 1, 51, 4245, 35, 10, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(297, 0, 4, 1001, 'Matheus Simoes Rocha', 'MSR', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 38.5, 1, 47, 3275, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(298, 0, 4, 1001, 'Maycon Douglas', 'MD', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 38, 1, 52, 4770, 0, 8, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(299, 0, 0, 1001, 'Melissa Moreira Padilha', 'MMP', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38.5, 1, 48, 3235, 36, 8, 10, -1, 33, 3, 0, '0000-00-00', 1),
+(300, 0, 4, 1001, 'Melissa Oliveira Kriger', 'MOK', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 40, 1, 49, 3470, 0, 7, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(301, 0, 4, 1001, 'Melissa Victória Correia Santos', 'MVCS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 40, 1, 47, 3265, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(302, 0, 1, 1001, 'Miguel Antonio Ferreria Dias', 'MAFD', 'Desconhecido', '0000-00-00', '1', 2, 'Desconhecido', '2', 31, 2, 43, 2035, 30, 8, 10, -1, 18, 2, 0, '0000-00-00', 1),
+(303, 0, 1, 1001, 'Miguel Antônio Sorrilha Jukievick', 'MASJ', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 41.5, 1, 51, 3740, 34, 9, 10, -1, 35, 3, 0, '0000-00-00', 1),
+(304, 0, 1, 1001, 'Miguel de Oliveira Fernandes', 'MOF', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 38, 2, 49, 3345, 34.5, 9, 10, -1, 24, 2, -1, '0000-00-00', 1),
+(305, 0, 1, 1001, 'Miguel Dias Vieira Schueiger', 'MDVS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 37, 1, 47, 2605, 32, 8, 10, -1, 20, 2, 0, '0000-00-00', 1),
+(306, 0, 4, 1001, 'Miguel Luiz Gomes', 'MLG', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 38, 1, 49, 2900, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(307, 0, 1, 1001, 'Miguel Souza de Jesus Machado', 'MSJM', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 41.5, 1, 52, 3590, 36, 9, 9, -1, 40, 1, 0, '0000-00-00', 1),
+(308, 0, 4, 1001, 'Miguel Weimmar Stolarski Araujo', 'MWSA', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 1, 47, 2635, 0, 10, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(309, 0, 0, 1001, 'Miguel Wesley da Silva de Paula', 'MWSP', 'Desconhecido', '0000-00-00', '1', 2, 'Desconhecido', '0', 40, 2, 54, 4180, 35, 5, 9, 10, 23, 1, -1, '0000-00-00', 1),
+(310, 0, 1, 1001, 'Mikaelly dos Santos Lourenço', 'MSL', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39.5, 1, 48, 3300, 33, 9, 10, -1, 15, 1, 0, '0000-00-00', 1),
+(311, 0, 4, 1001, 'Mirian Amorin dos Santos', 'MAS', 'Desconhecido', '0000-00-00', '2', 2, 'Desconhecido', '2', 40, 1, 53, 4110, 0, 3, 8, 8, 0, -1, -1, '0000-00-00', 1),
+(312, 0, 1, 1001, 'Murilo Elton Rogalo', 'MER', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 2, 52, 3995, 37, 9, 10, -1, 28, 1, 0, '0000-00-00', 1),
+(313, 0, 4, 1001, 'Murilo Henrique dos Santos Carvalho', 'MHSC', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 1, 53, 3710, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(314, 0, 4, 1001, 'Natália de Jesus Serra', 'NJS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39, 1, 49, 3145, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(315, 0, 3, 1001, 'Natalia Favoreto Cardoso', 'NFC', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38.5, 1, 49, 3325, 35, 10, 10, -1, 32, 3, 1, '0000-00-00', 1),
+(316, 0, 0, 1001, 'Nataly dos Santos', 'NS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39, 2, 48, 3075, 35, 9, 10, -1, 18, 3, 2, '0000-00-00', 1),
+(317, 0, 2, 1001, 'Natan Mendes Siqueira', 'NMS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 38, 2, 46, 3035, 46, 10, 10, -1, 16, 1, 0, '0000-00-00', 1),
+(318, 0, 1, 1001, 'Natasha Fernanda Miguel de Souza', 'NFMS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 40, 2, 50, 3285, 33, 9, 10, -1, 20, 2, 1, '0000-00-00', 1),
+(319, 0, 1, 1001, 'Nathalia Sophia Assumpção', 'NSA', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38.5, 1, 49, 3605, 35, 8, 10, -1, 28, 3, 0, '0000-00-00', 1),
+(320, 0, 4, 1001, 'Nathally Ribas Falke', 'NRF', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 40, 2, 49, 3960, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(321, 0, 0, 1001, 'Nathielly Jhuly Gonsalves Martins', 'NJGM', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 37, 1, 42, 2655, 32, 8, 9, -1, 29, 6, -1, '0000-00-00', 1),
+(322, 0, 4, 1001, 'Nícolas Asaph dos Santos Domingues', 'NASD', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 36, 2, 48, 3010, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(323, 0, 4, 1001, 'Nicolas Freitas Périco', 'NFP', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 38.5, 1, 47, 2835, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(324, 0, 4, 1001, 'Nícolas Jabonski', 'NJ', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 1, 49, 3585, 0, 8, 9, -1, 0, -1, -1, '0000-00-00', 1),
+(325, 0, 4, 1001, 'Nícolas Machado Gonçalves Bueno ', 'NMGB', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 41, 1, 49, 3460, 0, 7, 9, -1, 0, -1, -1, '0000-00-00', 1),
+(326, 0, 4, 1001, 'Nicole Cristina Carneiro', 'NCC', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 39, 1, 50, 3780, 0, 9, 9, -1, 0, -1, -1, '0000-00-00', 1),
+(327, 0, 4, 1001, 'Nicole Orttman Delorini', 'NOD', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 40, 1, 49, 3635, 0, 9, 9, -1, 0, -1, -1, '0000-00-00', 1),
+(328, 0, 4, 1001, 'Nicole Yasmin Westlei Shummann Lourenço', 'NYWSL', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 32, 1, 50, 3200, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(329, 0, 4, 1001, 'Nicolly Aparecida Carvalho', 'NAC', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39, 2, 44, 3435, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(330, 0, 4, 1001, 'Nicolly Silva de Lima ', 'SNL', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 40, 1, 49, 3305, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(331, 0, 0, 1001, 'Nicolly Vitória Soares Dias da Rosa', 'NVSDR', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 39.5, 1, 48, 3545, 34, 10, 10, -1, 20, 1, 0, '0000-00-00', 1),
+(332, 0, 4, 1001, 'Nikolas Davi Miguel', 'NDM', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 42, 1, 50, 3845, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(333, 0, 2, 1001, 'Otavio Scremin Sabino', 'OSS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 40, 1, 51, 4375, 37, 8, 10, -1, 29, 3, 0, '0000-00-00', 1),
+(334, 0, 1, 1001, 'Pablo da Silva Gonçalves', 'PSG', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 41, 1, 54, 4565, 37, 9, 10, -1, 29, 3, 1, '0000-00-00', 1),
+(335, 0, 4, 1001, 'Pablo Eduardo F. do Nascimento', 'PEFN', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 1, 48, 2700, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(336, 0, 4, 1001, 'Paloma Alves Melega', 'PAM', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 40, 1, 51, 4330, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(337, 0, 4, 1001, 'Patrícia Lima Antunes', 'PLA', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 40, 1, 51, 4700, 0, 9, 9, -1, 0, -1, -1, '0000-00-00', 1),
+(338, 0, 1, 1001, 'Paulo Miguel Gonsalves Vieira', 'PMGV', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 38, 1, 48, 2945, 31, 9, 10, -1, 25, 2, 0, '0000-00-00', 1),
+(339, 0, 4, 1001, 'Paulo Roberto Bruno da Silva Schultz', 'PRBSS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 37, 1, 47, 2470, 33, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(340, 0, 4, 1001, 'Pedro Aurélio P. da Veiga Nascimento', 'PAPVN', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 40, 1, 51, 4230, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(341, 0, 4, 1001, 'Pedro Henrique Dias Rodrigues', 'PHDR', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 40, 1, 49, 2069, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(342, 0, 1, 1001, 'Pedro Henrique Ferreira Zalaudeck', 'PHFZ', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 41, 1, 52, 3980, 36, 7, 9, -1, 18, 1, 0, '0000-00-00', 1),
+(343, 0, 4, 1001, 'Pedro Henrique Kerek dos Santos', 'PHKS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 38, 1, 46, 2900, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(344, 0, 0, 1001, 'Pedro Paulo Gondim Guanais', 'PPGG', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 2, 50, 3475, 33, -1, -1, -1, 22, 1, 0, '0000-00-00', 1),
+(345, 0, 1, 1001, 'Pedro Pupia Fenetto Mota', 'PPFM', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39.5, 1, 54.5, 3720, 36, 7, 9, -1, 22, 2, 1, '0000-00-00', 1),
+(346, 0, 4, 1001, 'Pérola Vitória Sesin Bracosta', 'PVSB', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39, 1, 49, 2995, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(347, 0, 1, 1001, 'Pietra Giroldo Isoppo', 'PGI', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39, 1, 49, 3130, 34.5, 10, 10, -1, 35, 4, 1, '0000-00-00', 1),
+(348, 0, 1, 1001, 'Pietro de França', 'PF', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 42, 1, 56, 4845, 0, 10, 10, -1, 20, 2, 1, '0000-00-00', 1),
+(349, 0, 0, 1001, 'Pietro Luiz Martins', 'PLM', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 37, 1, 45, 2145, 36, 8, 10, -1, 27, 2, 0, '0000-00-00', 1),
+(350, 0, 0, 1001, 'Pyetro Matheus Jacomel Marques', 'PMJM', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 36, 1, 50, 3560, 36, 8, 8, -1, 16, 1, 0, '0000-00-00', 1),
+(351, 0, 1, 1001, 'Rafael da Costa', 'RC', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 39.5, 1, 49, 3790, 37, 9, 10, -1, 34, 3, 0, '0000-00-00', 1),
+(352, 0, 0, 1001, 'Rafael Procopio Silva Ferreira', 'RPSF', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 1, 45, 3065, 40, -1, -1, -1, 32, 4, 0, '0000-00-00', 1),
+(353, 0, 1, 1001, 'Rafael Ruan Machado Gonçalves', 'RRMG', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 39, 1, 50, 3570, 35, 8, 9, -1, 35, 4, 1, '0000-00-00', 1),
+(354, 0, 4, 1001, 'Rafaelly Dias Calixto Elias', 'RDCE', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38.5, 1, 45, 2230, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(355, 0, 1, 1001, 'Raphael da Costa', 'RC', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 39.5, 1, 49, 3790, 37, 9, 10, -1, 34, 3, 0, '0000-00-00', 1),
+(356, 0, 0, 1001, 'Rayane Santos da Silva', 'RSS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39, 1, 47, 3200, 33, 9, 10, -1, 21, 2, 1, '0000-00-00', 1),
+(357, 0, 4, 1001, 'Rebeka Lopes Rodrigues Souza', 'RLRS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 41, 1, 47, 2790, 0, 9, 9, -1, 0, -1, -1, '0000-00-00', 1),
+(358, 0, 4, 1001, 'Rita dos Santos Carvalho', 'RSC', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39.5, 1, 50, 3085, 0, 8, 9, -1, 0, -1, -1, '0000-00-00', 1),
+(359, 0, 1, 1001, 'Ruan Amaro Seibert', 'RAS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 40, 2, 45.5, 3305, 33, 8, 10, -1, 34, 1, 0, '0000-00-00', 1),
+(360, 0, 4, 1001, 'Rubem Ribeiro', 'RR', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 2, 50, 3240, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(361, 0, 3, 1001, 'Samantha Batista de Medeiros Siqueira', 'SBMS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 41, 1, 62, 0, 0, -1, -1, -1, 21, 2, 0, '0000-00-00', 1),
+(362, 0, 4, 1001, 'Samuel O. Furquim', 'SOF', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 38, 1, 49, 2680, 0, 10, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(363, 0, 4, 1001, 'Samuel Pietro da Conceição', 'SPC', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 37.5, 2, 47, 2570, 32, 8, 9, -1, 35, 5, 0, '0000-00-00', 1),
+(364, 0, 0, 1001, 'Samuel Ronaldo H. Junior', 'SRHJ', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 40, 1, 49.5, 2965, 34, 10, 10, -1, 27, 1, 0, '0000-00-00', 1),
+(365, 0, 4, 1001, 'Santiago Soares', 'SS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 1, 48, 3530, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(366, 0, 1, 1001, 'Sara Helena H. Dalke', 'SHHD', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 36, 1, 44, 2380, 30.5, 10, 10, -1, 16, 1, 0, '0000-00-00', 1),
+(367, 0, 4, 1001, 'Sara Vitória Leiria Leite', 'SVLL', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 40, 1, 48, 3305, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(368, 0, 1, 1001, 'Saymon Nicollas Pereira Gomes', 'SNPG', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 2, 50, 3535, 36, 9, 10, -1, 20, 2, 0, '0000-00-00', 1),
+(369, 0, 3, 1001, 'Simone Su', 'SS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 40, 1, 52, 4015, 36, 9, 10, -1, 20, 1, 0, '0000-00-00', 1),
+(370, 0, 0, 1001, 'Sindel Heloise Cavalheiro de Souza dos Santos', 'SHCSS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 38.5, 1, 48, 3080, 34, 10, 10, -1, 19, 1, 0, '0000-00-00', 1),
+(371, 0, 4, 1001, 'Sofia Antunes', 'SA', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 37.5, 1, 48, 3240, 0, 7, 9, -1, 0, -1, -1, '0000-00-00', 1),
+(372, 0, 1, 1001, 'Sofia Hellas Passos', 'SHP', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39, 1, 48, 2995, 33.5, 10, 10, -1, 21, 2, 0, '0000-00-00', 1),
+(373, 0, 4, 1001, 'Sofia Mei Maryana Sonoda Nunes', 'SMMSN', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 39, 1, 52, 4200, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(374, 0, 0, 1001, 'Sophia Cristina Lourenço de Souza', 'SCLS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 40, 1, 49, 3570, 36, 9, 9, -1, 23, 1, 0, '0000-00-00', 1),
+(375, 0, 1, 1001, 'Sophia Eloa de Souza Morais', 'SESM', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '0', 39.5, 1, 45, 2835, 34, 9, 10, -1, 15, 1, 0, '0000-00-00', 1),
+(376, 0, 1, 1001, 'Sophia Morais', 'SM', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38, 1, 48, 3085, 32.5, 9, 10, -1, 20, 2, 1, '0000-00-00', 1),
+(377, 0, 1, 1001, 'Sophia Valentina de Oliveira', 'SVO', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38, 1, 51, 3475, 32, 5, 8, -1, 35, 1, 0, '0000-00-00', 1),
+(378, 0, 1, 1001, 'Sophia Vitória Mesquita de Morais', 'SVMM', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38, 1, 48, 3085, 32.5, 9, 10, -1, 20, 2, 1, '0000-00-00', 1),
+(379, 0, 4, 1001, 'Stefany da Silva Alves', 'SSA', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38, 1, 46, 2390, 0, 8, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(380, 0, 4, 1001, 'Stephanny Vitória de Oliveira', 'SVO', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 40, 1, 48, 3050, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(381, 0, 1, 1001, 'Thaila Ortiz Messina', 'TOM', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39.5, 1, 48, 2795, 31, 9, 10, -1, 25, 1, 0, '0000-00-00', 1),
+(382, 0, 0, 1001, 'Thales de Lima Bernardo', 'TLB', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 36, 1, 50, 3250, 35.5, 8, 9, -1, 30, 5, 2, '0000-00-00', 1),
+(383, 0, 4, 1001, 'Thales Santos Cruz', 'TSC', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 40, 1, 49, 3270, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(384, 0, 0, 1001, 'Thatiele de Lima Bernardo', 'TLB', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 36, 1, 50, 2870, 35, 8, 8, -1, 30, 5, 2, '0000-00-00', 1),
+(385, 0, 4, 1001, 'Thayla Bueno', 'TB', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39, 1, 48, 3220, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(386, 0, 4, 1001, 'Thiago Antunes dos Santos', 'TAS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 40, 1, 47, 3305, 33, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(387, 0, 1, 1001, 'Tiare Escobar Gabardo', 'TEG', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39, 1, 46, 2830, 32, 10, 10, -1, 24, 1, 0, '0000-00-00', 1),
+(388, 0, 4, 1001, 'Valentina de Almeida da Silva', 'VAS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 40, 1, 49, 3110, 0, 10, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(389, 0, 4, 1001, 'Verônica Mikaela Oliveira Silva', 'VMOS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39, 1, 48, 3395, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(390, 0, 1, 1001, 'Victor Gabriel Alves da Cruz dos Santos', 'VGACS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 39, 1, 54, 4580, 40, 9, 9, -1, 39, 5, 0, '0000-00-00', 1),
+(391, 0, 4, 1001, 'Victor Gabriel Neves de Oliveira', 'VGO', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 37, 1, 49.5, 3825, 40, 9, 10, -1, 42, 3, 0, '0000-00-00', 1),
+(392, 0, 1, 1001, 'Victor Hugo Souza da Silva', 'VHSS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 39.5, 1, 51.5, 3520, 37.5, 9, 10, -1, 22, 2, 0, '0000-00-00', 1),
+(393, 0, 1, 1001, 'Victor Hugo Tricher da Silva', 'VHTS', 'Desconhecido', '0000-00-00', '1', 2, 'Desconhecido', '1', 28, 1, 35.5, 950, 26.5, 8, 9, -1, 17, 3, 2, '0000-00-00', 1),
+(394, 0, 2, 1001, 'Victor Miguel de Souza Simões', 'VMSS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 41, 1, 52, 3325, 35, 9, 10, -1, 31, 3, 1, '0000-00-00', 1),
+(395, 0, 4, 1001, 'Vinicius da Silva Pasquali', 'VSP', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 39, 1, 50, 3430, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(396, 0, 1, 1001, 'Vinicius dos Santos Grechuski', 'VSG', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 2, 51, 3910, 34, 9, 10, -1, 28, 3, 0, '0000-00-00', 1),
+(397, 0, 1, 1001, 'Vinícius Kazuo Nomyama de Souza', 'VKNS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 38.5, 2, 50, 3130, 32, 7, 9, -1, 26, 2, 0, '0000-00-00', 1),
+(398, 0, 4, 1001, 'Vinícius Silva Monteiro', 'VSM', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 41, 1, 50, 4045, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(399, 0, 4, 1001, 'Vitor Alexandre Raiuki Viante', 'VARV', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 41, 2, 50, 3580, 0, 10, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(400, 0, 1, 1001, 'Vitor Hugo Souza da Silva', 'VHSS', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '1', 39.5, 1, 51, 3520, 37.5, 9, 10, -1, 22, 2, 0, '0000-00-00', 1),
+(401, 0, 4, 1001, 'Vitor Hugo Thichr da Silva', 'VHTS', 'Desconhecido', '0000-00-00', '1', 2, 'Desconhecido', '1', 28, 2, 35.5, 950, 0, 8, 9, -1, 0, -1, -1, '0000-00-00', 1),
+(402, 0, 1, 1001, 'Vitória Jakinzo de Camargo', 'VJC', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 41, 1, 52, 3720, 35, 9, 10, -1, 25, 3, 0, '0000-00-00', 1),
+(403, 0, 4, 1001, 'Wanderson L. D. X. Júnior', 'WLDXJ', 'Desconhecido', '0000-00-00', '1', 2, 'Desconhecido', '1', 34.5, 1, 48, 2675, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(404, 0, 4, 1001, 'Wendy Mara Oliveira Lisboa ', 'WMOL', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39, 2, 51, 3400, 0, 5, 8, -1, 0, -1, -1, '0000-00-00', 1),
+(405, 0, 0, 1001, 'Yara Kaillany Galvão Pereira', 'YKGP', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 41, 2, 48, 0, 33.5, 10, 10, -1, 21, 1, -1, '0000-00-00', 1),
+(406, 0, 1, 1001, 'Yara Lemos dos Santos', 'YLS', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 39, 1, 47, 2810, 33, 9, 10, -1, 35, 3, 0, '0000-00-00', 1),
+(407, 0, 4, 1001, 'Yasmim Gabrielle Cardoso Marques', 'YGCM', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 38, 2, 50, 2925, 0, 3, 7, 8, 0, -1, -1, '0000-00-00', 1),
+(408, 0, 4, 1001, 'Yasmin Rosa', 'YR', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 38.5, 1, 48.5, 3360, 33, 9, 10, -1, 0, -1, -1, '0000-00-00', 1),
+(409, 0, 1, 1001, 'Yasmin Victória Aparecida Teixeira', 'YVAT', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '2', 42, 1, 49, 2615, 32.5, 4, 8, -1, 21, 1, 0, '0000-00-00', 1),
+(410, 0, 4, 1001, 'Yoshinori Guilherme Quispe Mamari', 'YGQM', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 36, 1, 46, 2380, 0, 8, 9, -1, 0, -1, -1, '0000-00-00', 1),
+(411, 0, 0, 1001, 'Ysadora Sophia Rodrigues', 'YSR', 'Desconhecido', '0000-00-00', '2', 1, 'Desconhecido', '1', 37, 1, 46, 2600, 32.5, 9, 9, -1, 25, 2, 0, '0000-00-00', 1),
+(412, 0, 0, 1001, 'Yuri Felipe Silva Pedroso', 'YFSP', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 39, 1, 49, 3055, 33, 9, 9, -1, 18, 1, 0, '0000-00-00', 1),
+(413, 0, 4, 1001, 'Yuri Rocha Correia', 'YRC', 'Desconhecido', '0000-00-00', '1', 1, 'Desconhecido', '2', 37, 1, 45, 2800, 0, 9, 10, -1, 0, -1, -1, '0000-00-00', 1);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_paciente_auxilio_social`
+-- Table structure for table `tb_paciente_auxilio_social`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_paciente_auxilio_social` (
@@ -2735,7 +3171,7 @@ CREATE TABLE IF NOT EXISTS `tb_paciente_auxilio_social` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_paciente_doenca_mae`
+-- Table structure for table `tb_paciente_doenca_mae`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_paciente_doenca_mae` (
@@ -2748,7 +3184,7 @@ CREATE TABLE IF NOT EXISTS `tb_paciente_doenca_mae` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_paciente_habito_alimentar_mae`
+-- Table structure for table `tb_paciente_habito_alimentar_mae`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_paciente_habito_alimentar_mae` (
@@ -2762,7 +3198,7 @@ CREATE TABLE IF NOT EXISTS `tb_paciente_habito_alimentar_mae` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_paciente_substancia`
+-- Table structure for table `tb_paciente_substancia`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_paciente_substancia` (
@@ -2776,7 +3212,7 @@ CREATE TABLE IF NOT EXISTS `tb_paciente_substancia` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_pergunta`
+-- Table structure for table `tb_pergunta`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_pergunta` (
@@ -2785,7 +3221,7 @@ CREATE TABLE IF NOT EXISTS `tb_pergunta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Esta tabela armazena as perguntas utilizadas nos questionários de avaliação independentemente do mês.';
 
 --
--- Extraindo dados da tabela `tb_pergunta`
+-- Dumping data for table `tb_pergunta`
 --
 
 INSERT INTO `tb_pergunta` (`codigo_pergunta`, `pergunta`) VALUES
@@ -2842,7 +3278,7 @@ INSERT INTO `tb_pergunta` (`codigo_pergunta`, `pergunta`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_posicao`
+-- Table structure for table `tb_posicao`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_posicao` (
@@ -2852,7 +3288,7 @@ CREATE TABLE IF NOT EXISTS `tb_posicao` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Esta tabela apresenta uma lista das posições físicas assumidas pelo paciente durante a avaliação.';
 
 --
--- Extraindo dados da tabela `tb_posicao`
+-- Dumping data for table `tb_posicao`
 --
 
 INSERT INTO `tb_posicao` (`codigo_posicao`, `posicao`, `observacao`) VALUES
@@ -2865,7 +3301,7 @@ INSERT INTO `tb_posicao` (`codigo_posicao`, `posicao`, `observacao`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_privilegio`
+-- Table structure for table `tb_privilegio`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_privilegio` (
@@ -2873,10 +3309,17 @@ CREATE TABLE IF NOT EXISTS `tb_privilegio` (
   `descricao` varchar(45) NOT NULL COMMENT 'Este campo apresenta a descrição do privilégio. Por exemplo: administrador, usuário.'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Esta tabela armazena uma lista dos privilégios relacionados aos usuários do sistema. ';
 
+--
+-- Dumping data for table `tb_privilegio`
+--
+
+INSERT INTO `tb_privilegio` (`codigo_privilegio`, `descricao`) VALUES
+(0, 'Desconhecido');
+
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_questao`
+-- Table structure for table `tb_questao`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_questao` (
@@ -2887,7 +3330,7 @@ CREATE TABLE IF NOT EXISTS `tb_questao` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Esta tabela armezena todas as questões referentes ao processo de avaliação.';
 
 --
--- Extraindo dados da tabela `tb_questao`
+-- Dumping data for table `tb_questao`
 --
 
 INSERT INTO `tb_questao` (`codigo_questao`, `codigo_posicao`, `codigo_classificacao`, `codigo_pergunta`) VALUES
@@ -2944,7 +3387,7 @@ INSERT INTO `tb_questao` (`codigo_questao`, `codigo_posicao`, `codigo_classifica
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_questao_avaliacao`
+-- Table structure for table `tb_questao_avaliacao`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_questao_avaliacao` (
@@ -2957,7 +3400,7 @@ CREATE TABLE IF NOT EXISTS `tb_questao_avaliacao` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_renda_familiar`
+-- Table structure for table `tb_renda_familiar`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_renda_familiar` (
@@ -2966,10 +3409,11 @@ CREATE TABLE IF NOT EXISTS `tb_renda_familiar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Esta tabela armazena intervalos para representação da renda familiar.';
 
 --
--- Extraindo dados da tabela `tb_renda_familiar`
+-- Dumping data for table `tb_renda_familiar`
 --
 
 INSERT INTO `tb_renda_familiar` (`codigo_renda`, `descricao`) VALUES
+(0, 'Desconhecido'),
 (1, 'Até 1 salário mínimo'),
 (2, 'Entre 1 e 3 salários mínimos'),
 (3, 'Entre 3 e 5 salários mínimos'),
@@ -2978,7 +3422,7 @@ INSERT INTO `tb_renda_familiar` (`codigo_renda`, `descricao`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_responsavel`
+-- Table structure for table `tb_responsavel`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_responsavel` (
@@ -2998,10 +3442,17 @@ CREATE TABLE IF NOT EXISTS `tb_responsavel` (
   `email` varchar(50) DEFAULT NULL COMMENT 'Este campo armazena o e-mail do responsável.'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Esta tabela armazena informações a respeito dos responsáveis pelos pacientes.';
 
+--
+-- Dumping data for table `tb_responsavel`
+--
+
+INSERT INTO `tb_responsavel` (`codigo_responsavel`, `codigo_cidade`, `codigo_grau_escolaridade`, `codigo_grau_parentesco`, `nome_responsavel`, `sexo`, `rua`, `numero`, `complemento`, `bairro`, `cep`, `ativo`, `cpf_responsavel`, `email`) VALUES
+(0, 1001, 0, 0, 'Desconhecido', 'Desconhecido', 'Desconhecido', 0, 'Desconhecido', 'Desconhecido', '0', 1, '0', 'Desconhecido');
+
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_substancia_gestacao_mae`
+-- Table structure for table `tb_substancia_gestacao_mae`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_substancia_gestacao_mae` (
@@ -3010,7 +3461,7 @@ CREATE TABLE IF NOT EXISTS `tb_substancia_gestacao_mae` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Esta tabela armazena uma lista de substâncias que podem ter sido consumidas pela mãe do paciente.';
 
 --
--- Extraindo dados da tabela `tb_substancia_gestacao_mae`
+-- Dumping data for table `tb_substancia_gestacao_mae`
 --
 
 INSERT INTO `tb_substancia_gestacao_mae` (`codigo_substancia`, `nome`) VALUES
@@ -3022,7 +3473,7 @@ INSERT INTO `tb_substancia_gestacao_mae` (`codigo_substancia`, `nome`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_telefone_avaliador`
+-- Table structure for table `tb_telefone_avaliador`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_telefone_avaliador` (
@@ -3033,7 +3484,7 @@ CREATE TABLE IF NOT EXISTS `tb_telefone_avaliador` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_telefone_responsavel`
+-- Table structure for table `tb_telefone_responsavel`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_telefone_responsavel` (
@@ -3232,51 +3683,51 @@ MODIFY `codigo_avaliacao` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Este campo ar
 -- AUTO_INCREMENT for table `tb_paciente`
 --
 ALTER TABLE `tb_paciente`
-MODIFY `codigo_paciente` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Este campo armazena um código que representa um paciente. Este código é gerado automaticamente pelo banco de dados.';
+MODIFY `codigo_paciente` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Este campo armazena um código que representa um paciente. Este código é gerado automaticamente pelo banco de dados.',AUTO_INCREMENT=414;
 --
 -- Constraints for dumped tables
 --
 
 --
--- Limitadores para a tabela `tb_avaliacao`
+-- Constraints for table `tb_avaliacao`
 --
 ALTER TABLE `tb_avaliacao`
 ADD CONSTRAINT `fk_avaliacao_fisioterapeuta1` FOREIGN KEY (`codigo_avaliador`) REFERENCES `tb_avaliador` (`codigo_avaliador`) ON DELETE NO ACTION ON UPDATE NO ACTION,
 ADD CONSTRAINT `fk_avaliacao_paciente1` FOREIGN KEY (`codigo_paciente`) REFERENCES `tb_paciente` (`codigo_paciente`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `tb_avaliador`
+-- Constraints for table `tb_avaliador`
 --
 ALTER TABLE `tb_avaliador`
 ADD CONSTRAINT `fk_fisioterapeuta_privilegio1` FOREIGN KEY (`codigo_privilegio`) REFERENCES `tb_privilegio` (`codigo_privilegio`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `tb_cidade`
+-- Constraints for table `tb_cidade`
 --
 ALTER TABLE `tb_cidade`
 ADD CONSTRAINT `fk_cidade_estado1` FOREIGN KEY (`codigo_estado`) REFERENCES `tb_estado` (`codigo_estado`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `tb_intensidade_questao`
+-- Constraints for table `tb_intensidade_questao`
 --
 ALTER TABLE `tb_intensidade_questao`
 ADD CONSTRAINT `fk_Intensidade_has_Questões_Intensidade1` FOREIGN KEY (`codigo_intensidade`) REFERENCES `tb_intensidade` (`codigo_intensidade`) ON DELETE NO ACTION ON UPDATE NO ACTION,
 ADD CONSTRAINT `fk_Intensidade_has_Questões_Questões1` FOREIGN KEY (`codigo_questao`) REFERENCES `tb_questao` (`codigo_questao`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `tb_intensidade_questao_valor`
+-- Constraints for table `tb_intensidade_questao_valor`
 --
 ALTER TABLE `tb_intensidade_questao_valor`
 ADD CONSTRAINT `fk_intensidade_questao_valor_intensidade_questao1` FOREIGN KEY (`codigo_intensidade`, `codigo_questao`) REFERENCES `tb_intensidade_questao` (`codigo_intensidade`, `codigo_questao`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `tb_mes`
+-- Constraints for table `tb_mes`
 --
 ALTER TABLE `tb_mes`
 ADD CONSTRAINT `fk_mes_questoes1` FOREIGN KEY (`codigo_questao`) REFERENCES `tb_questao` (`codigo_questao`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `tb_paciente`
+-- Constraints for table `tb_paciente`
 --
 ALTER TABLE `tb_paciente`
 ADD CONSTRAINT `fk_paciente_cidade1` FOREIGN KEY (`codigo_cidade`) REFERENCES `tb_cidade` (`codigo_cidade`) ON DELETE NO ACTION ON UPDATE NO ACTION,
@@ -3284,35 +3735,35 @@ ADD CONSTRAINT `fk_Paciente_Responsável1` FOREIGN KEY (`codigo_responsavel`) RE
 ADD CONSTRAINT `fk_tb_paciente_tb_renda_familiar1` FOREIGN KEY (`codigo_renda`) REFERENCES `tb_renda_familiar` (`codigo_renda`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `tb_paciente_auxilio_social`
+-- Constraints for table `tb_paciente_auxilio_social`
 --
 ALTER TABLE `tb_paciente_auxilio_social`
 ADD CONSTRAINT `fk_auxilio_social_has_paciente_auxilio_social1` FOREIGN KEY (`codigo_auxilio_social`) REFERENCES `tb_auxilio_social` (`codigo_auxilio_social`) ON DELETE NO ACTION ON UPDATE NO ACTION,
 ADD CONSTRAINT `fk_auxilio_social_has_paciente_paciente1` FOREIGN KEY (`codigo_paciente`) REFERENCES `tb_paciente` (`codigo_paciente`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `tb_paciente_doenca_mae`
+-- Constraints for table `tb_paciente_doenca_mae`
 --
 ALTER TABLE `tb_paciente_doenca_mae`
 ADD CONSTRAINT `fk_paciente_has_doencas_mae_doencas_mae1` FOREIGN KEY (`codigo_doenca`) REFERENCES `tb_doenca` (`codigo_doenca`) ON DELETE NO ACTION ON UPDATE NO ACTION,
 ADD CONSTRAINT `fk_paciente_has_doencas_mae_paciente1` FOREIGN KEY (`codigo_paciente`) REFERENCES `tb_paciente` (`codigo_paciente`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `tb_paciente_habito_alimentar_mae`
+-- Constraints for table `tb_paciente_habito_alimentar_mae`
 --
 ALTER TABLE `tb_paciente_habito_alimentar_mae`
 ADD CONSTRAINT `fk_paciente_has_habitos_alimentares_mae_habitos_alimentares_m1` FOREIGN KEY (`codigo_habito_alimentar`) REFERENCES `tb_habito_alimentar` (`codigo_habito_alimentar`) ON DELETE NO ACTION ON UPDATE NO ACTION,
 ADD CONSTRAINT `fk_paciente_has_habitos_alimentares_mae_paciente1` FOREIGN KEY (`codigo_paciente`) REFERENCES `tb_paciente` (`codigo_paciente`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `tb_paciente_substancia`
+-- Constraints for table `tb_paciente_substancia`
 --
 ALTER TABLE `tb_paciente_substancia`
 ADD CONSTRAINT `fk_paciente_has_substancias_gestacao_mae_paciente1` FOREIGN KEY (`codigo_paciente`) REFERENCES `tb_paciente` (`codigo_paciente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
 ADD CONSTRAINT `fk_paciente_has_substancias_gestacao_mae_substancias_gestacao1` FOREIGN KEY (`codigo_substancia`) REFERENCES `tb_substancia_gestacao_mae` (`codigo_substancia`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `tb_questao`
+-- Constraints for table `tb_questao`
 --
 ALTER TABLE `tb_questao`
 ADD CONSTRAINT `fk_questoes_posicao1` FOREIGN KEY (`codigo_posicao`) REFERENCES `tb_posicao` (`codigo_posicao`) ON DELETE NO ACTION ON UPDATE NO ACTION,
@@ -3320,7 +3771,7 @@ ADD CONSTRAINT `fk_tb_questao_tb_classificacao1` FOREIGN KEY (`codigo_classifica
 ADD CONSTRAINT `fk_tb_questao_tb_pergunta1` FOREIGN KEY (`codigo_pergunta`) REFERENCES `tb_pergunta` (`codigo_pergunta`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `tb_questao_avaliacao`
+-- Constraints for table `tb_questao_avaliacao`
 --
 ALTER TABLE `tb_questao_avaliacao`
 ADD CONSTRAINT `fk_Avaliação_has_Questões_Avaliação1` FOREIGN KEY (`codigo_avaliacao`) REFERENCES `tb_avaliacao` (`codigo_avaliacao`) ON DELETE NO ACTION ON UPDATE NO ACTION,
@@ -3328,7 +3779,7 @@ ADD CONSTRAINT `fk_Avaliação_has_Questões_Questões1` FOREIGN KEY (`codigo_qu
 ADD CONSTRAINT `fk_questoes_avaliacao_intensidade1` FOREIGN KEY (`codigo_intensidade`) REFERENCES `tb_intensidade` (`codigo_intensidade`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `tb_responsavel`
+-- Constraints for table `tb_responsavel`
 --
 ALTER TABLE `tb_responsavel`
 ADD CONSTRAINT `fk_responsavel_cidade1` FOREIGN KEY (`codigo_cidade`) REFERENCES `tb_cidade` (`codigo_cidade`) ON DELETE NO ACTION ON UPDATE NO ACTION,
@@ -3336,13 +3787,13 @@ ADD CONSTRAINT `fk_responsavel_escolaridade1` FOREIGN KEY (`codigo_grau_escolari
 ADD CONSTRAINT `fk_responsavel_grau_parentesco1` FOREIGN KEY (`codigo_grau_parentesco`) REFERENCES `tb_grau_parentesco` (`codigo_grau_parentesco`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `tb_telefone_avaliador`
+-- Constraints for table `tb_telefone_avaliador`
 --
 ALTER TABLE `tb_telefone_avaliador`
 ADD CONSTRAINT `fk_telefone_fisioterapeuta1` FOREIGN KEY (`codigo_avaliador`) REFERENCES `tb_avaliador` (`codigo_avaliador`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `tb_telefone_responsavel`
+-- Constraints for table `tb_telefone_responsavel`
 --
 ALTER TABLE `tb_telefone_responsavel`
 ADD CONSTRAINT `fk_telefone_responsavel1` FOREIGN KEY (`codigo_responsavel`) REFERENCES `tb_responsavel` (`codigo_responsavel`) ON DELETE NO ACTION ON UPDATE NO ACTION;
